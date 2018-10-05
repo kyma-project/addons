@@ -1,3 +1,0 @@
-# Overview
-
-This folder contains kyma bundle repositories. Every folder creates a repository available in github pages with the URL: `https://kyma-incubator.github.io/kyma-bundles/{FOLDER NAME}/repository/`

@@ -1,11 +1,39 @@
-os: osx
-language: generic
+#os: osx
+# Only clone the most recent commit.
+language: go
+
+# Only the last two Go releases are supported by the Go team with security
+# updates. Any older versions be considered deprecated. Don't bother testing
+# with them.
+go:
+- "1.10"
+
+git:
+  depth: 1
+
+#language: generic
 script: ./scripts/convert.sh
-deploy:
-  provider: pages
-  skip-cleanup: true
-  github-token: $GITHUB_TOKEN
-  keep-history: true
-  local-dir: toCopy
-  on:
-    branch: master
+
+
+# Skip the install step. Don't `go get` dependencies.
+install: true
+
+notifications:
+  email: false
+
+env:
+- DEP_VERSION="0.4.1"
+
+before_install:
+#- curl -L -s https://github.com/golang/dep/releases/download/v${DEP_VERSION}/dep-linux-amd64 -o $GOPATH/bin/dep
+#- chmod +x $GOPATH/bin/dep
+- go get "github.com/kyma-project/kyma/components/helm-broker/cmd/checker@release-0.4"
+
+#deploy:
+#  provider: pages
+#  skip-cleanup: true
+#  github-token: $GITHUB_TOKEN
+#  keep-history: true
+#  local-dir: toCopy
+#  on:
+#    branch: master

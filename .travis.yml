@@ -1,11 +1,44 @@
-os: osx
-language: generic
-script: ./scripts/convert.sh
-deploy:
-  provider: pages
-  skip-cleanup: true
-  github-token: $GITHUB_TOKEN
-  keep-history: true
-  local-dir: toCopy
-  on:
-    branch: master
+language: go
+
+go:
+- "1.10"
+
+# Only clone the most recent commit.
+git:
+  depth: 1
+
+# Skip the install step. Don't `go get` dependencies.
+install: skip
+
+notifications:
+  email: false
+
+# Matrix used for optimalization, see:
+# https://docs.travis-ci.com/user/speeding-up-the-build/#parallelizing-your-builds-across-virtual-machines
+env:
+  global:
+  - HELM_VERSION="v2.10.0"
+  matrix:
+  - TEST_FOLDER="./bundles/stable"
+  - TEST_FOLDER="./bundles/showcase"
+
+# Specify which branches to build
+# That resolves the problem with double build on PR: see https://docs.travis-ci.com/user/pull-requests/#double-builds-on-pull-requests
+branches:
+  only:
+  - master
+
+script: ./scripts/checker.sh --helm-lint --directories ${TEST_FOLDER} --helm-version ${HELM_VERSION}
+
+jobs:
+  include:
+  - stage: deploy
+    if: (NOT type IN (pull_request)) AND (branch = master)
+    script: ./scripts/convert.sh
+    env:
+    deploy:
+      provider: pages
+      skip-cleanup: true
+      github-token: $GITHUB_TOKEN
+      keep-history: true
+      local-dir: toCopy

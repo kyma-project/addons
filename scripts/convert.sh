@@ -4,26 +4,45 @@
 set -o errexit # exit immediately if a command exits with a non-zero status.
 set -o nounset # exit when script tries to use undeclared variables
 
-# iterate over repositories
-for repoDir in bundles/*; do
-  if [[ -d "${repoDir}" ]]; then
+readonly RED='\033[0;31m'
+readonly NC='\033[0m' # No Color
 
-      name=`basename ${repoDir}`
-      destination=toCopy/${name}
+function downloadTargz() {
+    echo "Installing targz tool"
+    go get "github.com/kyma-project/kyma/components/helm-broker/cmd/targz"
+    if [ $? -ne 0 ]
+    then
+        echo -e "${RED}Cannot install targz tool${NC}"
+        exit 1
+    fi
+}
 
-      echo "Processing ${name}"
-      echo "Copy files"
 
-      mkdir -p toCopy/${name}/repository
-      cp ${repoDir}/README.md ${destination}
-      cp ${repoDir}/index.yaml ${destination}
+function convertBundlesToTargz() {
+    # iterate over repositories
+    for repoDir in bundles/*; do
+      if [[ -d "${repoDir}" ]]; then
 
-      echo "Helm-broker repository url: https://kyma-project.github.io/bundles/${name}/" > ${destination}/config.txt
+          name=`basename ${repoDir}`
+          destination=toCopy/${name}
 
-      echo "Executing targz"
-      ./scripts/targz ${repoDir} ${destination}
+          echo "Processing ${name}"
+          echo "Copy files"
 
-      echo "Processing ${name} done"
-      echo
-  fi;
-done
+          mkdir -p toCopy/${name}/repository
+          cp ${repoDir}/README.md ${destination}
+          cp ${repoDir}/index.yaml ${destination}
+
+          echo "Helm-broker repository url: https://kyma-project.github.io/kyma-bundles/${name}/" > ${destination}/config.txt
+
+          echo "Executing targz"
+          targz ${repoDir} ${destination}
+
+          echo "Processing ${name} done"
+          echo
+      fi;
+    done
+}
+
+downloadTargz
+convertBundlesToTargz

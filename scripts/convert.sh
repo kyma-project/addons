@@ -18,7 +18,7 @@ for repoDir in bundles/*; do
       cp ${repoDir}/README.md ${destination}
       cp ${repoDir}/index.yaml ${destination}
 
-      echo "Helm-broker repository url: https://kyma-project.github.io/kyma-bundles/${name}/" > ${destination}/config.txt
+      echo "Helm-broker repository url: https://kyma-project.github.io/bundles/${name}/" > ${destination}/config.txt
 
       echo "Executing targz"
       ./scripts/targz ${repoDir} ${destination}

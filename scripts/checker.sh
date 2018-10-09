@@ -1,18 +1,16 @@
 #!/usr/bin/env bash
 
-set -o errexit # exit immediately if a command exits with a non-zero status.
-
 readonly RED='\033[0;31m'
 readonly GREEN='\033[0;32m'
 readonly INVERTED='\033[7m'
 readonly NC='\033[0m' # No Color
 
 # DEFAULTS
-silence="1> /dev/null"
 helmLint=false
 directories=()
 helmVersion=latest
-
+exitImmediatelyIfErr="set -e"
+doNotExitImmediatelyIfErr="set +e"
 
 function show_help() {
     echo " Bundle checking tool"
@@ -62,6 +60,29 @@ do
 done
 set -- "${POSITIONAL[@]}" # restore positional parameters
 
+function executeCmd() {
+    local cmd=$1
+    local exitErr=0
+
+    echo -e "\n${INVERTED}Executing: ${cmd}${NC}"
+    local OUT_COLOR=${GREEN}
+
+    # To prevent getting lost of new line characters, see: https://unix.stackexchange.com/a/164548
+    IFS=
+    out=$(eval "${cmd}")
+    if [ $? -eq 1 ];
+    then
+        OUT_COLOR=${RED}
+        exitErr=1
+    fi
+
+    echo -e "${OUT_COLOR}"
+    echo ${out}
+    echo -e "${NC}"
+
+    return ${exitErr}
+}
+
 function downloadChecker() {
     echo "Installing bundle checker"
     go get "github.com/kyma-project/kyma/components/helm-broker/cmd/checker"
@@ -73,21 +94,24 @@ function downloadChecker() {
 }
 
 function checkBundles() {
-    # Bundle check
+    local errOccurred=0
+
     for directory in ${directories[@]}
     do
         echo -e "${INVERTED}Checking bundles in directory ${directory} ${NC}"
         for bundle in ${directory}/*/; do
-            echo -e "${GREEN}"
-                checker ${bundle}
-            echo -e "${NC}"
-            if [ $? -ne 0 ]
+            executeCmd "checker ${bundle}"
+            if [ $? -eq 1 ];
             then
-                exit 1
+                errOccurred=1
             fi
         done
     done
 
+    if [ ${errOccurred} -eq 1 ];
+    then
+        exit 1
+    fi
 }
 
 function installHelm() {
@@ -107,7 +131,11 @@ function lintHelmChartsIfRequested() {
         exit 0
     fi
 
-    installHelm
+    eval ${exitImmediatelyIfErr}
+        installHelm
+    eval ${doNotExitImmediatelyIfErr}
+
+    local errOccurred=0
     echo "Linting Helm Charts"
     for directory in ${directories[@]}
     do
@@ -120,20 +148,21 @@ function lintHelmChartsIfRequested() {
                     else
                         helmCmd="helm lint ${chart}"
                     fi
-                    echo -e "\n${GREEN}Executing: ${helmCmd}${NC}"
-                    eval "${helmCmd}"
+
+                    executeCmd "${helmCmd}"
                     if [ $? -eq 1 ];
                     then
-                        echo -e "${RED}Could not perform helm lint ${chart} with plan ${plan}"
-                        echo "Try to run command:"
-                        echo "${helmCmd}"
-                        echo -e "${NC}"
-                        exit 1
+                        errOccurred=1
                     fi
                 done
             done
         done
     done
+
+    if [ ${errOccurred} -eq 1 ];
+    then
+        exit 1
+    fi
 }
 
 downloadChecker

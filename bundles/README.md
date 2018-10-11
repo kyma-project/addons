@@ -1,3 +1,3 @@
 # Overview
 
-This folder contains kyma bundle repositories. Every folder creates a repository available in github pages with the URL: `https://kyma-project.github.io/kyma-bundles/{FOLDER NAME}/`
+This folder contains Kyma repositories with bundles. Every folder creates a repository available in GitHub Pages with the `https://kyma-project.github.io/bundles/{FOLDER NAME}/` URL.

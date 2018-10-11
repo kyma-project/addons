@@ -1,3 +1,3 @@
 # Overview
 
-This github page contains kyma showcase bundles.
+This folder contains Kyma showcase bundles.

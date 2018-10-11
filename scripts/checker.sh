@@ -3,6 +3,7 @@
 readonly RED='\033[0;31m'
 readonly GREEN='\033[0;32m'
 readonly INVERTED='\033[7m'
+readonly BOLD='\033[1m'
 readonly NC='\033[0m' # No Color
 
 # DEFAULTS
@@ -20,8 +21,8 @@ function show_help() {
     echo " Flags:"
     echo "    -h --help         helm for the script"
     echo "    --helm-lint       set to perform helm lint operation"
-    echo "    --directories     specifies the list of bundle repository separated by ;"
-    echo "    --helm-version    specifies the Helm version. Default set to `latest`."
+    echo "    --directories     specify the list of bundle repository separated by ;"
+    echo "    --helm-version    specify the Helm version. Default set to latest."
     echo
     echo " Example of usage:"
     echo " checker.sh --helm-lint --directories ./bundles/showcase;./bundles/stable --helm-version v2.10.0"
@@ -60,11 +61,20 @@ do
 done
 set -- "${POSITIONAL[@]}" # restore positional parameters
 
+function validateInputParams() {
+    if [ ${#directories[@]} -eq 0 ]; then
+        echo -e "\n\t--directories parameter is required\n"
+
+        show_help
+        exit 1
+    fi
+}
+
 function executeCmd() {
     local cmd=$1
     local exitErr=0
 
-    echo -e "\n${INVERTED}Executing: ${cmd}${NC}"
+    echo -e "\n${BOLD}Executing: ${cmd}${NC}"
     local OUT_COLOR=${GREEN}
 
     # To prevent getting lost of new line characters, see: https://unix.stackexchange.com/a/164548
@@ -84,13 +94,14 @@ function executeCmd() {
 }
 
 function downloadChecker() {
-    echo "Installing bundle checker"
-    go get "github.com/kyma-project/kyma/components/helm-broker/cmd/checker"
+    echo -e "${INVERTED}Installing bundle checker...${NC}"
+    go get -u "github.com/kyma-project/kyma/components/helm-broker/cmd/checker"
     if [ $? -ne 0 ]
     then
         echo -e "${RED}Cannot install checker${NC}"
         exit 1
     fi
+    echo -e "${GREEN}OK${NC}\n"
 }
 
 function checkBundles() {
@@ -98,7 +109,7 @@ function checkBundles() {
 
     for directory in ${directories[@]}
     do
-        echo -e "${INVERTED}Checking bundles in directory ${directory} ${NC}"
+        echo -e "${INVERTED}Checking bundles in directory ${directory}${NC}"
         for bundle in ${directory}/*/; do
             executeCmd "checker ${bundle}"
             if [ $? -eq 1 ];
@@ -115,12 +126,13 @@ function checkBundles() {
 }
 
 function installHelm() {
+    echo -e "${INVERTED}Installing Helm...\n${NC}"
     curl https://raw.githubusercontent.com/helm/helm/master/scripts/get > get_helm.sh
     chmod 700 get_helm.sh
 
     ./get_helm.sh --version ${helmVersion}
 
-    echo "Installed Helm [version $(helm version --client)]"
+    echo -e "\n${GREEN}Installed Helm [version $(helm version --client)]${NC}\n"
 
     rm ./get_helm.sh
 }
@@ -136,7 +148,7 @@ function lintHelmChartsIfRequested() {
     eval ${doNotExitImmediatelyIfErr}
 
     local errOccurred=0
-    echo "Linting Helm Charts"
+    echo -e "${INVERTED}Linting Helm Charts...${NC}"
     for directory in ${directories[@]}
     do
         for bundle in ${directory}/*/; do
@@ -164,6 +176,8 @@ function lintHelmChartsIfRequested() {
         exit 1
     fi
 }
+
+validateInputParams
 
 downloadChecker
 checkBundles

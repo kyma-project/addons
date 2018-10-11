@@ -1,5 +1,4 @@
-
-#!/bin/bash
+#!/usr/bin/env bash
 
 set -o errexit # exit immediately if a command exits with a non-zero status.
 set -o nounset # exit when script tries to use undeclared variables
@@ -9,7 +8,7 @@ readonly NC='\033[0m' # No Color
 
 function downloadTargz() {
     echo "Installing targz tool"
-    go get "github.com/kyma-project/kyma/components/helm-broker/cmd/targz"
+    go get -u "github.com/kyma-project/kyma/components/helm-broker/cmd/targz"
     if [ $? -ne 0 ]
     then
         echo -e "${RED}Cannot install targz tool${NC}"
@@ -32,8 +31,6 @@ function convertBundlesToTargz() {
           mkdir -p toCopy/${name}/repository
           cp ${repoDir}/README.md ${destination}
           cp ${repoDir}/index.yaml ${destination}
-
-          echo "Helm-broker repository url: https://kyma-project.github.io/kyma-bundles/${name}/" > ${destination}/config.txt
 
           echo "Executing targz"
           targz ${repoDir} ${destination}

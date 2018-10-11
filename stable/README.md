@@ -1,4 +1,4 @@
-# Overview
+# Stable repository
 
-This github page contains kyma stable bundles.
+This folder contains stable bundle repository which is configured as a default repository in Kyma.
 

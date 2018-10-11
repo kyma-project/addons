@@ -1,1 +1,1 @@
-Helm-broker repository url: https://kyma-project.github.io/kyma-bundles/showcase/
+Helm-broker repository url: https://kyma-project.github.io/bundles/showcase/

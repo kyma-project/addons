@@ -1,1 +1,0 @@
-Helm-broker repository url: https://kyma-project.github.io/bundles/stable/

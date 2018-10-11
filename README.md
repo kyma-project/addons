@@ -6,9 +6,9 @@ This repository contains bundles which the Helm Broker uses. It allows you to ch
 
 ## Bundle repositories
 
-The `bundles` folder contains subfolders with sources of complete bundle repositories. A bundle repository is available by GitHub Pages with the https://kyma-project.github.io/bundles/{FOLDER NAME}/ URL. Any change of the `master` branch triggers CI which is taking take care of updating bundle repositories. It generates necessary *.tgz files. The `bundles` repository contains the following sets of bundles (bundle repositories):
- * stable - the default bundle repository used in Kyma Helm Broker, accessible under the `https://kyma-project.github.io/bundles/stable/` URL
- * showcase - sets of bundles with Kyma show cases, available with, accessible under the `https://kyma-project.github.io/bundles/showcase/` URL.
+The `bundles` folder contains subfolders with sources of complete bundle repositories. A bundle repository is available by GitHub Pages with the `https://kyma-project.github.io/bundles/{FOLDER NAME}/` URL. Any change of the `master` branch triggers CI which is taking care of updating bundle repositories. It generates necessary *.tgz files. The `bundles` repository contains the following sets of bundles (bundle repositories):
+ * **stable** - the default bundle repository used in Kyma Helm Broker, accessible under the `https://kyma-project.github.io/bundles/stable/` URL
+ * **showcase** - sets of bundles with Kyma show cases, accessible under the `https://kyma-project.github.io/bundles/showcase/` URL.
 
 ## Helm Broker configuration
   

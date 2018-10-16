@@ -33,13 +33,12 @@ jobs:
     if: (NOT type IN (pull_request)) AND (branch = master)
     before_deploy: ./scripts/convert.sh
     file_glob: true
-    file: toCopy/*
+    file: *.yaml
     env:
     deploy:
       provider: releases
       skip_cleanup: true
       github-token: $GITHUB_TOKEN
       keep-history: true
-      local-dir: toCopy
       on:
         tags: true

@@ -13,9 +13,13 @@ install: skip
 notifications:
   email: false
 
+# Matrix used for optimalization, see:
+# https://docs.travis-ci.com/user/speeding-up-the-build/#parallelizing-your-builds-across-virtual-machines
 env:
   global:
   - HELM_VERSION="v2.10.0"
+  matrix:
+    - TEST_FOLDER="./bundles"
 
 
 # Specify which branches to build

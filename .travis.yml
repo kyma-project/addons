@@ -34,9 +34,9 @@ jobs:
   include:
   - stage: deploy
     if: (NOT type IN (pull_request)) AND (branch = master)
-    script: ./scripts/convert.sh
+    before_deploy: ./scripts/convert.sh
     file_glob: true
-    file: *
+    file: toCopy/*
     env:
     deploy:
       provider: releases

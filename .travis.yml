@@ -38,7 +38,7 @@ jobs:
     deploy:
       provider: releases
       skip_cleanup: true
-      github-token: $GITHUB_TOKEN
+      api_key: $GITHUB_TOKEN
       keep-history: true
       local-dir: toCopy
 

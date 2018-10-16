@@ -36,7 +36,7 @@ jobs:
     if: (NOT type IN (pull_request)) AND (branch = master)
     script: ./scripts/convert.sh
     file_glob: true
-    file: toCopy/*
+    file: *
     env:
     deploy:
       provider: releases

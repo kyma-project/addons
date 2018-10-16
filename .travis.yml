@@ -35,8 +35,8 @@ jobs:
   - stage: deploy
     if: (NOT type IN (pull_request)) AND (branch = master)
     script: ./scripts/convert.sh
-    file:
-     - "toCopy/stable/README.md"
+    file_glob: true
+    file: toCopy/*
     env:
     deploy:
       provider: releases

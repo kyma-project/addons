@@ -41,5 +41,6 @@ jobs:
       github-token: $GITHUB_TOKEN
       keep-history: true
       local-dir: toCopy
+
       on:
         tags: true

@@ -37,8 +37,10 @@ jobs:
     script: ./scripts/convert.sh
     env:
     deploy:
-      provider: pages
+      provider: releases
       skip-cleanup: true
       github-token: $GITHUB_TOKEN
       keep-history: true
       local-dir: toCopy
+      on:
+        tags: true

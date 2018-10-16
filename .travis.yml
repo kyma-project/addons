@@ -13,14 +13,10 @@ install: skip
 notifications:
   email: false
 
-# Matrix used for optimalization, see:
-# https://docs.travis-ci.com/user/speeding-up-the-build/#parallelizing-your-builds-across-virtual-machines
 env:
   global:
   - HELM_VERSION="v2.10.0"
-  matrix:
-  - TEST_FOLDER="./bundles/stable"
-  - TEST_FOLDER="./bundles/showcase"
+
 
 # Specify which branches to build
 # That resolves the problem with double build on PR: see https://docs.travis-ci.com/user/pull-requests/#double-builds-on-pull-requests

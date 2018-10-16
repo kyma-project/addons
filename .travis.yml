@@ -18,8 +18,7 @@ notifications:
 env:
   global:
   - HELM_VERSION="v2.10.0"
-  matrix:
-    - TEST_FOLDER="./bundles"
+  - TEST_FOLDER="./bundles"
 
 
 # Specify which branches to build

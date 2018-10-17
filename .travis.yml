@@ -14,7 +14,7 @@ script: git tag --points-at HEAD
 jobs:
   include:
   - stage: deploy
-#    if: (NOT type IN (pull_request)) AND (branch = master)
+    if: (NOT type IN (pull_request))
     before_deploy:
      - ./scripts/convert.sh
     env:

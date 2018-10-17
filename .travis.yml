@@ -3,13 +3,22 @@ language: go
 go:
 - "1.10"
 
+# Skip the install step. Don't `go get` dependencies.
 install: skip
 
+# Only clone the most recent commit.
+git:
+  depth: 1
 
 notifications:
   email: false
 
-script: git tag --points-at HEAD
+env:
+  global:
+  - HELM_VERSION="v2.10.0"
+  - TEST_FOLDER="./bundles"
+
+script: ./scripts/checker.sh --helm-lint --directories ${TEST_FOLDER} --helm-version ${HELM_VERSION}
 
 jobs:
   include:
@@ -25,4 +34,5 @@ jobs:
       file_glob: true
       file: "toCopy/*"
       on:
+        # Only tagged commit triggers a release deploy
         tags: true

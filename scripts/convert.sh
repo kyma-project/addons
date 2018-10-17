@@ -23,8 +23,8 @@ function convertBundlesToTargz() {
           echo "Copy files"
 
           mkdir -p toCopy
-          cp README.md ${destination}
-          cp index.yaml ${destination}
+          cp bundles/README.md ${destination}
+          cp bundles/*.yaml ${destination}
 
           echo "Executing targz"
           targz bundles/ ${destination}

@@ -20,6 +20,7 @@ env:
 
 #
 #script: ./scripts/checker.sh --helm-lint --directories ${TEST_FOLDER} --helm-version ${HELM_VERSION}
+script: git tag --points-at HEAD
 
 jobs:
   include:

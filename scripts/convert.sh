@@ -23,7 +23,9 @@ function convertBundlesToTargz() {
           echo "Copy files"
 
           mkdir -p toCopy
-          cp bundles/README.md ${destination}
+
+          # do not fail if there is no .md file
+          cp bundles/*.md ${destination} | true
           cp bundles/*.yaml ${destination}
 
           echo "Executing targz"

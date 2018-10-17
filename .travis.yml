@@ -35,6 +35,7 @@ jobs:
       api_key: $GITHUB_TOKEN
       file_glob: true
       file: "toCopy/*"
+
       on:
         tags: true
 

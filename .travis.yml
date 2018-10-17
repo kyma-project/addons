@@ -9,6 +9,8 @@ install: skip
 notifications:
   email: false
 
+before_deploy:
+ - ./scripts/convert.sh
 
 deploy:
   provider: releases

@@ -19,12 +19,6 @@ env:
   - TEST_FOLDER="./bundles"
 
 
-# Specify which branches to build
-# That resolves the problem with double build on PR: see https://docs.travis-ci.com/user/pull-requests/#double-builds-on-pull-requests
-branches:
-  only:
-  - master
-
 script: ./scripts/checker.sh --helm-lint --directories ${TEST_FOLDER} --helm-version ${HELM_VERSION}
 
 jobs:

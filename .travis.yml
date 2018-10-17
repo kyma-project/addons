@@ -36,3 +36,4 @@ jobs:
       file: "toCopy/*"
       on:
         tags: true
+        all_branches: true

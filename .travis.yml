@@ -11,14 +11,18 @@ notifications:
 
 script: git tag --points-at HEAD
 
-before_deploy:
- - ./scripts/convert.sh
-
-deploy:
-  provider: releases
-  skip_cleanup: true
-  api_key: $GITHUB_TOKEN
-  file_glob: true
-  file: "toCopy/*"
-  on:
-    tags: true
+jobs:
+  include:
+  - stage: deploy
+#    if: (NOT type IN (pull_request)) AND (branch = master)
+    before_deploy:
+     - ./scripts/convert.sh
+    env:
+    deploy:
+      provider: releases
+      skip_cleanup: true
+      api_key: $GITHUB_TOKEN
+      file_glob: true
+      file: "toCopy/*"
+      on:
+        tags: true

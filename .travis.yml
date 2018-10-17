@@ -32,8 +32,9 @@ jobs:
       provider: releases
       skip_cleanup: true
       api_key: $GITHUB_TOKEN
-      file_glob: true
-      file: "toCopy/*"
+#      file_glob: true
+      file:
+       - README.md
       on:
         tags: true
         all_branches: true

@@ -18,8 +18,8 @@ env:
   - HELM_VERSION="v2.10.0"
   - TEST_FOLDER="./bundles"
 
-
-script: ./scripts/checker.sh --helm-lint --directories ${TEST_FOLDER} --helm-version ${HELM_VERSION}
+#
+#script: ./scripts/checker.sh --helm-lint --directories ${TEST_FOLDER} --helm-version ${HELM_VERSION}
 
 jobs:
   include:

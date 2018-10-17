@@ -9,6 +9,8 @@ install: skip
 notifications:
   email: false
 
+script: git tag --points-at HEAD
+
 before_deploy:
  - ./scripts/convert.sh
 

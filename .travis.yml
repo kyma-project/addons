@@ -39,6 +39,6 @@ jobs:
       skip_cleanup: true
       api_key: $GITHUB_TOKEN
       file_glob: true
-      file: "*.yaml"
+      file: "toCopy/*"
       on:
         tags: true

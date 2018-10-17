@@ -18,27 +18,19 @@ function downloadTargz() {
 
 
 function convertBundlesToTargz() {
-    # iterate over repositories
-    for repoDir in bundles/*; do
-      if [[ -d "${repoDir}" ]]; then
+          destination=toCopy/
 
-          name=`basename ${repoDir}`
-          destination=toCopy/${name}
-
-          echo "Processing ${name}"
           echo "Copy files"
 
-          mkdir -p toCopy/${name}/repository
-          cp ${repoDir}/README.md ${destination}
-          cp ${repoDir}/index.yaml ${destination}
+          mkdir -p toCopy
+          cp README.md ${destination}
+          cp index.yaml ${destination}
 
           echo "Executing targz"
-          targz ${repoDir} ${destination}
+          targz bundles/ ${destination}
 
-          echo "Processing ${name} done"
+          echo "Processing done"
           echo
-      fi;
-    done
 }
 
 downloadTargz

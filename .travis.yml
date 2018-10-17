@@ -35,7 +35,4 @@ jobs:
       api_key: $GITHUB_TOKEN
       file_glob: true
       file: "toCopy/*.tgz"
-      on:
-        tags: true
-        repo: piotrmiskiewicz/bundles
-        all_branches: true
+

@@ -24,7 +24,7 @@ jobs:
   include:
   # creates a release from the tagged version
   - stage: deploy
-    if: (NOT type IN (pull_request))
+    if: (NOT type IN (pull_request)) AND (tag != latest)
     before_deploy:
      - ./scripts/convert.sh
     env:
@@ -46,7 +46,7 @@ jobs:
      - git config --global user.name "Travis CI"
      - export GIT_TAG=latest
      - git tag $GIT_TAG -a -m "Generated tag from TravisCI"
-     - git push https://${GITHUB_TOKEN}@github.com/${TRAVIS_REPO_SLUG} HEAD:master $GIT_TAG -f
+     - git push https://${GITHUB_TOKEN}@github.com/${TRAVIS_REPO_SLUG} $GIT_TAG -f
      - ./scripts/convert.sh
     env:
     deploy:

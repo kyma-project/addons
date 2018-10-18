@@ -13,16 +13,16 @@ git:
 notifications:
   email: false
 
-env:
-  global:
-  - HELM_VERSION="v2.10.0"
-  - TEST_FOLDER="./bundles"
-
-# move to a stage
-script: ./scripts/checker.sh --helm-lint --directories ${TEST_FOLDER} --helm-version ${HELM_VERSION}
 
 jobs:
   include:
+  - stage: check
+    env:
+      global:
+      - HELM_VERSION="v2.10.0"
+      - TEST_FOLDER="./bundles"
+    script: ./scripts/checker.sh --helm-lint --directories ${TEST_FOLDER} --helm-version ${HELM_VERSION}
+
   # creates a release from the tagged version
   - stage: deploy
     if: (NOT type IN (pull_request)) AND (NOT (tag = latest))

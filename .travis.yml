@@ -23,6 +23,7 @@ jobs:
 
   # creates a release from the tagged version
   - stage: deploy
+    install: skip
     if: (NOT type IN (pull_request)) AND (NOT (tag = latest))
     before_deploy:
      - ./scripts/convert.sh
@@ -39,6 +40,7 @@ jobs:
 
 #  # creates a latest release from last master commit
   - stage: deploy
+    install: skip
     if: (NOT type IN (pull_request)) AND (branch = master)
     before_deploy:
      - git config --global user.email "builds@travis-ci.com"

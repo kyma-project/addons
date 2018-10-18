@@ -38,16 +38,16 @@ jobs:
         # Only tagged commit triggers a release deploy
         tags: true
 
-  # creates a latest release from last master commit
-  - stage: deploy
-    if: (NOT type IN (pull_request)) AND (branch = master)
-    before_deploy:
-     - ./scripts/convert.sh
-    env:
-    deploy:
-      provider: releases
-      name: latest
-      skip_cleanup: true
-      api_key: $GITHUB_TOKEN
-      file_glob: true
-      file: "toCopy/*"
+#  # creates a latest release from last master commit
+#  - stage: deploy
+#    if: (NOT type IN (pull_request)) AND (branch = master)
+#    before_deploy:
+#     - ./scripts/convert.sh
+#    env:
+#    deploy:
+#      provider: releases
+#      name: latest
+#      skip_cleanup: true
+#      api_key: $GITHUB_TOKEN
+#      file_glob: true
+#      file: "toCopy/*"

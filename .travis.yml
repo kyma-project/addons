@@ -42,7 +42,11 @@ jobs:
   - stage: deploy
     if: (NOT type IN (pull_request)) AND (branch = master)
     before_deploy:
-     - git tag last
+     - git config --global user.email "builds@travis-ci.com"
+     - git config --global user.name "Travis CI"
+     - export GIT_TAG=latest
+     - git tag $GIT_TAG -a -m "Generated tag from TravisCI"
+     - git push origin $GIT_TAG -f
      - ./scripts/convert.sh
     env:
     deploy:

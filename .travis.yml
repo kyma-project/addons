@@ -46,7 +46,7 @@ jobs:
      - git config --global user.name "Travis CI"
      - export GIT_TAG=latest
      - git tag $GIT_TAG -a -m "Generated tag from TravisCI"
-     - git push https://${GITHUB_TOKEN}@github.com/${TRAVIS_REPO_SLUG} HEAD:master $GIT_TAG
+     - git push https://${GITHUB_TOKEN}@github.com/${TRAVIS_REPO_SLUG} HEAD:master $GIT_TAG -f
      - ./scripts/convert.sh
     env:
     deploy:

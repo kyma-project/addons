@@ -42,11 +42,12 @@ jobs:
   - stage: deploy
     if: (NOT type IN (pull_request)) AND (branch = master)
     before_deploy:
+     - git tag last
      - ./scripts/convert.sh
     env:
     deploy:
       provider: releases
-      name: last
+#      name: last
       skip_cleanup: true
       api_key: $GITHUB_TOKEN
       file_glob: true

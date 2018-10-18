@@ -41,7 +41,7 @@ jobs:
       if: (NOT type IN (pull_request)  AND (branch = master))
       before_deploy:
        - ./scripts/convert.sh
-       - git tag latest
+       - "git tag latest"
       env:
       deploy:
         provider: releases

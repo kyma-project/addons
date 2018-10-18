@@ -13,18 +13,16 @@ git:
 notifications:
   email: false
 
-script: ./scripts/checker.sh --helm-lint --directories ./bundles --helm-version v2.10.0
+script: skip
 
 jobs:
   include:
-#  - stage: check
-  # Skip the install step. Don't `go get` dependencies.
-#    install: skip
+  - stage: check
+    script: ./scripts/checker.sh --helm-lint --directories ./bundles --helm-version v2.10.0
 
   # creates a release from the tagged version
   - stage: deploy
     if: (NOT type IN (pull_request)) AND (NOT (tag = latest))
-    install: skip
     before_deploy:
      - ./scripts/convert.sh
     env:
@@ -41,7 +39,6 @@ jobs:
 #  # creates a latest release from last master commit
   - stage: deploy
     if: (NOT type IN (pull_request)) AND (branch = master)
-    install: skip
     before_deploy:
      - git config --global user.email "builds@travis-ci.com"
      - git config --global user.name "Travis CI"

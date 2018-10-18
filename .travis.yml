@@ -18,6 +18,7 @@ env:
   - HELM_VERSION="v2.10.0"
   - TEST_FOLDER="./bundles"
 
+# move to a stage
 script: ./scripts/checker.sh --helm-lint --directories ${TEST_FOLDER} --helm-version ${HELM_VERSION}
 
 jobs:
@@ -51,7 +52,8 @@ jobs:
     env:
     deploy:
       provider: releases
-#      name: last
+      overwrite: true
+      name: last
       skip_cleanup: true
       api_key: $GITHUB_TOKEN
       file_glob: true

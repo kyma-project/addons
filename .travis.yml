@@ -17,6 +17,8 @@ notifications:
 jobs:
   include:
   - stage: check
+  # Skip the install step. Don't `go get` dependencies.
+    install: skip
     script: ./scripts/checker.sh --helm-lint --directories ./bundles --helm-version v2.10.0
 
   # creates a release from the tagged version

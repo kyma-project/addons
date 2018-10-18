@@ -15,10 +15,6 @@ notifications:
 
 script: skip
 
-#branches:
-#  only:
-#  - master
-
 jobs:
   include:
   - stage: check

@@ -43,10 +43,10 @@ jobs:
     if: (NOT type IN (pull_request)) AND (branch = master)
     before_deploy:
      - ./scripts/convert.sh
-     - "git tag latest"
     env:
     deploy:
       provider: releases
+      name: latest
       skip_cleanup: true
       api_key: $GITHUB_TOKEN
       file_glob: true

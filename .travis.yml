@@ -37,7 +37,6 @@ jobs:
       on:
         # Only tagged commit triggers a release deploy
         tags: true
-
   # creates a latest release from last master commit
   - stage: latest-deploy
     if: (NOT type IN (pull_request)) AND (branch = master)

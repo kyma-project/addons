@@ -26,7 +26,8 @@ jobs:
 
   # creates a release from the tagged version
   - stage: deploy
-    if: (NOT type IN (pull_request))
+  # do we need such condition?
+#    if: (NOT type IN (pull_request))
     before_deploy:
      - ./scripts/convert.sh
     env:

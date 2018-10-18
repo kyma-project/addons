@@ -9,13 +9,3 @@ entries:
     - name: lambda-rc
       description: "Lambda redis client"
       version: 0.0.1
-
-  order-ec:
-    - name: order-ec
-      description: "Showcase: Ec lambda with orderCreated event and save in orderService."
-      version: 0.0.1
-#
-#  order-service:
-#    - name: order-service
-#      description: "Showcase: Ec lambda with orderCreated event and save in orderService."
-#      version: 0.0.1

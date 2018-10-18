@@ -15,6 +15,10 @@ notifications:
 
 script: skip
 
+#branches:
+#  only:
+#  - master
+
 jobs:
   include:
   - stage: check
@@ -36,7 +40,7 @@ jobs:
         # Only tagged commit triggers a release deploy
         tags: true
 
-#  # creates a latest release from last master commit
+  # creates a latest release from last master commit
   - stage: deploy
     if: (NOT type IN (pull_request)) AND (branch = master)
     before_deploy:

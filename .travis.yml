@@ -23,7 +23,7 @@ script: ./scripts/checker.sh --helm-lint --directories ${TEST_FOLDER} --helm-ver
 jobs:
   include:
   # creates a release from the tagged version
-  - stage: release-deploy
+  - stage: deploy
     if: (NOT type IN (pull_request))
     before_deploy:
      - ./scripts/convert.sh
@@ -37,8 +37,9 @@ jobs:
       on:
         # Only tagged commit triggers a release deploy
         tags: true
+
   # creates a latest release from last master commit
-  - stage: latest-deploy
+  - stage: deploy
     if: (NOT type IN (pull_request)) AND (branch = master)
     before_deploy:
      - ./scripts/convert.sh

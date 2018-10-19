@@ -37,6 +37,7 @@ jobs:
       api_key: $GITHUB_TOKEN
       file_glob: true
       file: "toCopy/*"
+      name: $TRAVIS_TAG
       on:
         # Only tagged commit triggers a release deploy
         tags: true

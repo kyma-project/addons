@@ -10,8 +10,8 @@
 
 ## Overview
 
-The redis bundle is an example of yBundle. It wraps official stable [redis chart](https://github.com/kubernetes/charts/tree/master/stable/redis).
-You can find more information about redis chart in [the chart documantation](chart/redis/README.md)
+The Redis bundle is an example of a bundle. It wraps the official stable [Redis chart](https://github.com/kubernetes/charts/tree/master/stable/redis).
+Find more information about the Redis chart in the chart's [documentation](chart/redis/README.md).
 
 ## Details
 

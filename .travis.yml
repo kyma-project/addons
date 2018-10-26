@@ -3,43 +3,59 @@ language: go
 go:
 - "1.10"
 
+# Skip the install step. Don't `go get` dependencies.
+install: skip
+
 # Only clone the most recent commit.
 git:
   depth: 1
 
-# Skip the install step. Don't `go get` dependencies.
-install: skip
-
 notifications:
   email: false
 
-# Matrix used for optimalization, see:
-# https://docs.travis-ci.com/user/speeding-up-the-build/#parallelizing-your-builds-across-virtual-machines
-env:
-  global:
-  - HELM_VERSION="v2.10.0"
-  matrix:
-  - TEST_FOLDER="./bundles/stable"
-  - TEST_FOLDER="./bundles/showcase"
+# Skip the script step: Don't execute 'go test'.
+script: skip
 
-# Specify which branches to build
-# That resolves the problem with double build on PR: see https://docs.travis-ci.com/user/pull-requests/#double-builds-on-pull-requests
-branches:
-  only:
-  - master
-
-script: ./scripts/checker.sh --helm-lint --directories ${TEST_FOLDER} --helm-version ${HELM_VERSION}
+# Do not execute build on latest tag.
+branch:
+  except:
+    - latest
 
 jobs:
   include:
+  - stage: check
+    script: ./scripts/checker.sh --helm-lint --directories ./bundles --helm-version v2.10.0
+
+  # Creates a release from the tagged version from eny branch
   - stage: deploy
-    if: (NOT type IN (pull_request)) AND (branch = master)
-    script: ./scripts/convert.sh
+    before_deploy:
+     - ./scripts/convert.sh
+    after_deploy:
+     # Create a branch if the version ends with 0
+     - ./scripts/create_release_branch_step.sh $TRAVIS_TAG https://${GITHUB_TOKEN}@github.com/${TRAVIS_REPO_SLUG}
     env:
     deploy:
-      provider: pages
-      skip-cleanup: true
-      github-token: $GITHUB_TOKEN
-      keep-history: true
-      local-dir: toCopy
+      provider: releases
+      skip_cleanup: true
+      api_key: $GITHUB_TOKEN
+      file_glob: true
+      file: "toCopy/*"
+      name: $TRAVIS_TAG
+      on:
+        # Only tagged commit triggers a release deploy
+        tags: true
 
+  # Create a latest release from last master commit
+  - stage: deploy
+    if: (NOT type IN (pull_request)) AND (branch = master)
+    before_deploy:
+     - ./scripts/create_latest_tag_step.sh https://${GITHUB_TOKEN}@github.com/${TRAVIS_REPO_SLUG}
+     - ./scripts/convert.sh
+    env:
+    deploy:
+      provider: releases
+      overwrite: true
+      skip_cleanup: true
+      api_key: $GITHUB_TOKEN
+      file_glob: true
+      file: "toCopy/*"

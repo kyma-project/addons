@@ -6,7 +6,7 @@ REVISION=$(echo ${1} | cut -d. -f3)
 
 GIT_URL=$2
 
-if [[ ${REVISION} -eq 0 ]]; then
+if [[ ${REVISION} = "0" ]]; then
   GIT_BRANCH=release-${MAJOR}.${MINOR}
   echo "Creating branch ${GIT_BRANCH}"
   git checkout -b ${GIT_BRANCH}

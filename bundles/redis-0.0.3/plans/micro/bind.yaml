@@ -13,3 +13,5 @@ credential:
         name: {{ template "redis.fullname" . }}
         key: redis-password
 {{- end }}
+
+## TEST CHANGED - NOT TO MERGE

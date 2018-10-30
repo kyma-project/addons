@@ -5,6 +5,8 @@ description: "Showcase: Lambda which uses redis client"
 displayName: "Showcase: Function with Redis Client, inject Redis and have fun!"
 
 tags: helm-broker, showcase, lambda
+labels:
+  showcase: "true"
 providerDisplayName: SAP
 longDescription: "Showcase: Long Description: Lambda which uses redis client"
 documentationURL: https://todo.com/

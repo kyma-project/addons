@@ -56,29 +56,7 @@ Follow these steps to configure your own bundles repository and to complete this
 
 5. You can check the build status on [Travis CI](https://travis-ci.com/) webpage. The [Releasing](releasing.md) document describes the tagging and releasing processes.
 
-### Setup Helm Broker
-
-1. Go to your forked repository and click the **Settings** tab. Go to the **GitHub Pages** section and copy Github pages link.
-  
-2. Set up the environment variable on the Helm Broker Deployment:
-
-    ```
-    kubectl set env -n kyma-system deployment/core-helm-broker -e APP_REPOSITORY_BASE_URL=https://github.com/{github-user-name}/bundles/releases/download/latest/
-    ```
-    >**NOTE:** For example, if you want to push the tag to the upstream, run the following command:
-    >```
-    >kubectl set env -n kyma-system deployment/core-helm-broker -e APP_REPOSITORY_BASE_URL=https://github.com/kyma-project/bundles/releases/download/latest/
-    >```
-
-3. Wait until the Helm Broker Pod is in the `READY` state. To check it, run this command:
-    ```
-    kubectl get pod -n kyma-system -l app=core-helm-broker
-    ```
-
-4. Synchronize with the Service Catalog:
-    ```
-    svcat sync broker core-helm-broker
-    ```
+6. Configure Helm Broker with the new repository as described [here](https://github.com/kyma-project/kyma/blob/master/docs/service-brokers/docs/011-configuration-helm-broker.md#configure-repository-urls-in-the-runtime).
 
 ### Check your Kyma Service Catalog
 

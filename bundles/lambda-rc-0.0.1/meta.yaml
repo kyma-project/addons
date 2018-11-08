@@ -9,4 +9,5 @@ longDescription: "Showcase: Long Description: Lambda which uses redis client"
 documentationURL: https://todo.com/
 supportURL: https://todo.com/
 imageURL: https://todo.com/
+
 bindable: false

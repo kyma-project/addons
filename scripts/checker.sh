@@ -93,17 +93,6 @@ function executeCmd() {
     return ${exitErr}
 }
 
-function downloadChecker() {
-    echo -e "${INVERTED}Installing bundle checker...${NC}"
-    go get -u "github.com/kyma-project/kyma/components/helm-broker/cmd/checker"
-    if [ $? -ne 0 ]
-    then
-        echo -e "${RED}Cannot install checker${NC}"
-        exit 1
-    fi
-    echo -e "${GREEN}OK${NC}\n"
-}
-
 function checkBundles() {
     local errOccurred=0
 
@@ -111,7 +100,7 @@ function checkBundles() {
     do
         echo -e "${INVERTED}Checking bundles in directory ${directory}${NC}"
         for bundle in ${directory}/*/; do
-            executeCmd "checker ${bundle}"
+            executeCmd "bin/checker ${bundle}"
             if [ $? -eq 1 ];
             then
                 errOccurred=1
@@ -179,6 +168,5 @@ function lintHelmChartsIfRequested() {
 
 validateInputParams
 
-downloadChecker
 checkBundles
 lintHelmChartsIfRequested

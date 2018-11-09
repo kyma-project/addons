@@ -6,10 +6,6 @@ go:
 # Skip the install step. Don't `go get` dependencies.
 install: skip
 
-# Only clone the most recent commit.
-git:
-  depth: 1
-
 notifications:
   email: false
 
@@ -28,8 +24,21 @@ jobs:
 
   # Creates a release from the tagged version from eny branch
   - stage: deploy
+    sudo: required
+    services:
+      - docker
     before_deploy:
-     - ./scripts/convert.sh
+      - if [ -n "$TRAVIS_TAG" ] && [ "$TRAVIS_TAG" != 'latest' ]; then
+          docker pull eu.gcr.io/kyma-project/changelog-generator:0.2.0;
+          git tag -d latest;
+          PENULTIMATE=$(./scripts/from_tag.sh ${TRAVIS_TAG});
+          git tag latest;
+          docker run --rm -v ${TRAVIS_BUILD_DIR}:/repository -w /repository -e FROM_TAG=${PENULTIMATE} -e TO_TAG=${TRAVIS_TAG} -e NEW_RELEASE_TITLE=${TRAVIS_TAG} -e GITHUB_AUTH=${GITHUB_TOKEN} -e CONFIG_FILE=scripts/package.json -e SKIP_REMOVING_LATEST=true eu.gcr.io/kyma-project/changelog-generator:0.2.0 sh /app/generate-release-changelog.sh;
+          ./scripts/move_changelog.sh;
+          docker run --rm -v ${TRAVIS_BUILD_DIR}:/repository -w /repository -e NEW_RELEASE_TITLE=${TRAVIS_TAG} -e GITHUB_AUTH=${GITHUB_TOKEN} -e CONFIG_FILE=scripts/package.json -e SKIP_REMOVING_LATEST=true eu.gcr.io/kyma-project/changelog-generator:0.2.0 sh /app/generate-full-changelog.sh;
+          ./scripts/push.sh;
+        fi
+      - ./scripts/convert.sh
     after_deploy:
      # Create a branch if the version ends with 0
      - ./scripts/create_release_branch_step.sh $TRAVIS_TAG https://${GITHUB_TOKEN}@github.com/${TRAVIS_REPO_SLUG}

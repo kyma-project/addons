@@ -1,0 +1,14 @@
+{
+  "name": "bundles-changelog-generator",
+  "version": "0.1.0",
+  "description": "Changelog Generator for bundles",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kyma-project/bundles"
+  },
+  "changelog": {
+    "repo": "kyma-project/bundles",
+    "cacheDir": ".changelog"
+  }
+}

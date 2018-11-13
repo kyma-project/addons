@@ -2,13 +2,13 @@ name: lambda-rc
 version: 0.0.1
 id: 4bdf6d48-2220-414b-8818-85d90ae3975c
 description: "Showcase: Lambda which uses redis client"
-displayName: "Showcase: Function with Redis Client, inject Redis and have fun!"
+displayName: "Showcase: Function with Redis Client, inject Redis and have fun!."
 
 tags: helm-broker, showcase, lambda
 labels:
   showcase: "true"
 providerDisplayName: SAP
-longDescription: "Showcase: Long Description: Lambda which uses redis client"
+longDescription: "Showcase: Long Description: Lambda which uses redis client."
 documentationURL: https://todo.com/
 
 supportURL: https://todo.com/

@@ -1,0 +1,20 @@
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1beta1
+metadata:
+  name: {{ include "gcp-broker-provider.fullname" . }}
+  labels:
+    app: {{ include "gcp-broker-provider.name" . }}
+    chart: {{ include "gcp-broker-provider.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}\
+  annotations:
+    "helm.sh/hook": post-install,post-upgrade
+    "helm.sh/hook-delete-policy": hook-succeeded
+subjects:
+- kind: ServiceAccount
+  name: {{ include "gcp-broker-provider.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: {{ include "gcp-broker-provider.fullname" . }}

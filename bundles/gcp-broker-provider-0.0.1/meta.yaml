@@ -1,0 +1,12 @@
+name: gcp-broker-provider
+version: 0.0.1
+id: aff0f62c-a988-406f-a950-348473743071
+description: "GCP Broker Provider (Experimental)"
+displayName:  Google Cloud Platform Service Broker Provider
+
+tags: gcp, google, broker
+providerDisplayName: Google
+longDescription: Google Cloud Platform (GCP) Service Broker is an implementation of the open-source Open Service Broker (OSB) API hosted on GCP
+documentationURL: https://cloud.google.com/kubernetes-engine/docs/concepts/google-cloud-platform-service-broker
+imageURL: https://cloud.google.com/_static/images/cloud/icons/favicons/onecloud/apple-icon.png
+bindable: false

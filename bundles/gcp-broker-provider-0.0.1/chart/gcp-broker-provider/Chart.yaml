@@ -1,0 +1,10 @@
+apiVersion: v1
+version: 0.0.1
+appVersion: "0.0.1"
+name: gcp-broker-provider
+description: A Helm chart for Kubernetes
+keywords:
+- gcp
+- broker
+- service-catalog
+icon: https://cloud.google.com/_static/images/cloud/icons/favicons/onecloud/apple-icon.png

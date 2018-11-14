@@ -1,0 +1,11 @@
+image:
+  repository: mszostok/gcp-broker-provider
+  tag: 0.0.4
+  pullPolicy: IfNotPresent
+
+
+gcpBroker:
+  secretName: gcp-broker-data
+
+nameOverride: ""
+fullnameOverride: ""

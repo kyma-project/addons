@@ -16,6 +16,8 @@ function findLatestTag() {
 
 findLatestTag $1
 
-if [ -n $PENULTIMATE ]; then
+if [ "$PENULTIMATE" != "" ]; then
     echo $PENULTIMATE
+else
+    echo $(git rev-list --max-parents=0 HEAD)
 fi

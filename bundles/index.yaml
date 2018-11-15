@@ -4,3 +4,7 @@ entries:
     - name: redis
       description: "Redis service"
       version: 0.0.3
+  gcp-broker-provider:
+    - name: gcp-broker-provider
+      description: "GCP broker provider"
+      version: 0.0.1

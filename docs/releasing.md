@@ -67,7 +67,7 @@ Follow these steps to create a new bundle release 0.6.1:
 
 Every time you create a new release, two changelog files are generated. One refers to a specific release and the other one to all `bundles` repository.
 
-Changelog files contain list of all pull requests beetwen releases with labels defined as default for [lerna-changelog](https://github.com/lerna/lerna-changelog#usage). 
+Each changelog file contains a list of all pull requests that appeared between the releases, with default labels for the [lerna-changelog](https://github.com/lerna/lerna-changelog#usage). 
 You can define your own labels in the `scripts/package.json` file according to the lerna-changelog [configuration](https://github.com/lerna/lerna-changelog#configuration).
 
->**NOTE:** If you work on your fork change `scripts/package.json` configuration file setting parameters indicating on repository: `repository.url` and `changelog.repo`
+>**NOTE:** If you work on your fork, change the `scripts/package.json` configuration file and set the **repository.url** and **changelog.repo** parameters that point to the repository.

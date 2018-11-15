@@ -7,9 +7,6 @@ metadata:
     chart: {{ include "gcp-broker-provider.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
-  annotations:
-    "helm.sh/hook": post-install,post-upgrade
-    "helm.sh/hook-delete-policy": hook-succeeded
 rules:
   - apiGroups: [""]
     resources: ["serviceaccounts", "namespaces"]

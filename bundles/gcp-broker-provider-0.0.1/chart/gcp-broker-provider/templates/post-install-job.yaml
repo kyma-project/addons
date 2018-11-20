@@ -1,14 +1,14 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: {{ include "gcp-broker-provider.fullname" . }}-delete
+  name: {{ include "gcp-broker-provider.fullname" . }}-checker
   labels:
     app: {{ include "gcp-broker-provider.name" . }}
     chart: {{ include "gcp-broker-provider.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
   annotations:
-    "helm.sh/hook": pre-delete
+    "helm.sh/hook": post-install
     "helm.sh/hook-delete-policy": hook-succeeded,before-hook-creation
 spec:
   backoffLimit: 1
@@ -20,11 +20,9 @@ spec:
       - name: installer
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
-        command: ["gcp-broker"]
-        args: ["--action", "deprovision"]
+        command: ["status-checker"]
+        args: ["--max-retries", "40", "--sleep-duration-sec", "3"]
         env:
-        - name: RELEASE_NAME
-          value: {{ .Release.Name }}
         - name: WORKING_NAMESPACE
           valueFrom:
             fieldRef:

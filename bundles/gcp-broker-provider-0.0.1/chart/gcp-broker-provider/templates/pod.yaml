@@ -14,7 +14,6 @@ spec:
   - name: installer
     image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
     imagePullPolicy: {{ .Values.image.pullPolicy }}
-
     command: ["gcp-broker"]
     args: ["--action", "provision"]
     env:
@@ -22,22 +21,3 @@ spec:
       valueFrom:
         fieldRef:
           fieldPath: metadata.namespace
-    - name: CLOUDSDK_CORE_PROJECT
-      valueFrom:
-        secretKeyRef:
-          name: {{ .Values.gcpBroker.secretName }}
-          key: project-name
-    - name: GOOGLE_APPLICATION_CREDENTIALS
-      value: "/etc/secrets/sa.key"
-    volumeMounts:
-    - name: secrets
-      mountPath: "/etc/secrets"
-      readOnly: true
-  volumes:
-  - name: secrets
-    secret:
-      secretName: {{ .Values.gcpBroker.secretName }}
-      items:
-      - key: sa-key
-        path: sa.key
-

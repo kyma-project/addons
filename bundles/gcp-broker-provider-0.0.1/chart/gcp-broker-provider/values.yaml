@@ -1,6 +1,6 @@
 image:
-  repository: mszostok/gcp-broker-provider
-  tag: 0.0.4
+  repository: eu.gcr.io/kyma-project/develop/gcp-broker-provider
+  tag: 03602c71
   pullPolicy: IfNotPresent
 
 

@@ -1,6 +1,6 @@
 image:
   repository: eu.gcr.io/kyma-project/develop/gcp-broker-provider
-  tag: 03602c71
+  tag: 237ba00f
   pullPolicy: IfNotPresent
 
 

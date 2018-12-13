@@ -20,7 +20,7 @@ branch:
 jobs:
   include:
   - stage: check
-    script: ./scripts/checker.sh --helm-lint --directories ./bundles --helm-version v2.10.0
+    script: ./scripts/prepare-release-assets.sh --helm-lint --directories ./bundles --helm-version v2.10.0
 
   # Creates a release from the tagged version from eny branch
   - stage: deploy
@@ -29,12 +29,12 @@ jobs:
       - docker
     before_deploy:
       - if [ -n "$TRAVIS_TAG" ] && [ "$TRAVIS_TAG" != 'latest' ]; then
-          ./scripts/generate_changelog.sh;
+          ./scripts/generate_changelog.sh ${TRAVIS_TAG} ${TRAVIS_REPO_SLUG};
         fi
-      - ./scripts/convert.sh
+      - ./scripts/prepare-release-assets.sh
     after_deploy:
      # Create a branch if the version ends with 0
-     - ./scripts/create_release_branch_step.sh $TRAVIS_TAG https://${GITHUB_TOKEN}@github.com/${TRAVIS_REPO_SLUG}
+     - ./scripts/create_release_branch_step.sh $TRAVIS_TAG ${TRAVIS_REPO_SLUG}
     env:
     deploy:
       provider: releases
@@ -51,8 +51,8 @@ jobs:
   - stage: deploy
     if: (NOT type IN (pull_request)) AND (branch = master)
     before_deploy:
-     - ./scripts/create_latest_tag_step.sh https://${GITHUB_TOKEN}@github.com/${TRAVIS_REPO_SLUG}
-     - ./scripts/convert.sh
+     - ./scripts/create_latest_tag_step.sh ${TRAVIS_REPO_SLUG}
+     - ./scripts/prepare-release-assets.sh
     env:
     deploy:
       provider: releases

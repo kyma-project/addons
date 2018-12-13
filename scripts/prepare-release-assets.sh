@@ -6,7 +6,7 @@ set -o nounset # exit when script tries to use undeclared variables
 readonly RED='\033[0;31m'
 readonly NC='\033[0m' # No Color
 
-function convertBundlesToTargz() {
+function prepareAssets() {
           destination=toCopy/
 
           echo "Copy files"
@@ -24,4 +24,4 @@ function convertBundlesToTargz() {
           echo
 }
 
-convertBundlesToTargz
+prepareAssets

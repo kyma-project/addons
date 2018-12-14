@@ -8,17 +8,16 @@ fi
 GIT_TAG=$1
 GIT_REPO=$2
 
-BRANCH=$(git rev-parse --abbrev-ref HEAD)
 CREATE_RELEASE_DATA='{
   "tag_name": "'"${GIT_TAG}"'",
-  "target_commitish": "'"${BRANCH}"'",
+  "target_commitish": "master",
   "name": "'"${GIT_TAG}"'",
   "body": "release-'"${GIT_TAG}"'",
   "draft": false,
   "prerelease": false
   }'
 
-echo "Creating a new release: $GIT_TAG branch: $BRANCH"
+echo "Creating a new release: $GIT_TAG branch: master"
 
 RESPONSE=$(curl -s --data "${CREATE_RELEASE_DATA}" "https://api.github.com/repos/$GIT_REPO/releases?access_token=${GITHUB_TOKEN}")
 echo ${RESPONSE}

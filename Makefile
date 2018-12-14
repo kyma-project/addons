@@ -1,9 +1,16 @@
-GIT_TAG=$(shell git describe --tags --exact-match head)
+GIT_REF=$(shell git rev-parse --abbrev-ref HEAD)
+GIT_TAG=$(shell echo $(GIT_REF) | cut -d/ -f2)
 GIT_REPO=$(REPO_OWNER)/$(REPO_NAME)
 export GITHUB_TOKEN=$(BOT_GITHUB_TOKEN)
 
 .PHONY: check
 check:
+	@echo "dupa"
+	@echo $(GIT_REF)
+	@echo $(GIT_TAG)
+	@echo $(PULL_REFS)
+	@echo $(PULL_BASE_REF)
+	@echo "dupa"
 	./scripts/checker.sh --helm-lint --directories ./bundles --helm-version v2.10.0
 
 .PHONY: prepare-assets

@@ -1,4 +1,4 @@
-GIT_TAG=$(shell git describe --tags --exact-match head)
+GIT_TAG=$(PULL_BASE_REF)
 GIT_REPO=$(REPO_OWNER)/$(REPO_NAME)
 export GITHUB_TOKEN=$(BOT_GITHUB_TOKEN)
 

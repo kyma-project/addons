@@ -16,5 +16,5 @@ if [[ ${REVISION} = "0" ]]; then
   GIT_BRANCH=release-${MAJOR}.${MINOR}
   echo "Creating branch ${GIT_BRANCH}"
   git checkout -b ${GIT_BRANCH}
-  git push https://${GITHUB_TOKEN}@github.com/${GIT_REPO}
+  git push --set-upstream https://${GITHUB_TOKEN}@github.com/${GIT_REPO}
 fi

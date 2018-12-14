@@ -34,7 +34,11 @@ push-release:
 ifeq ($(GIT_TAG),)
 	@echo "Skipping creating release.."
 else
+ifeq ($(GIT_TAG), master)
+	@echo "Skipping creating release.."
+else
 	./scripts/push_release.sh $(GIT_TAG) $(GIT_REPO)
+endif
 endif
 
 .PHONY: ci-pr

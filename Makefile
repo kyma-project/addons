@@ -34,18 +34,14 @@ push-release:
 ifeq ($(GIT_TAG),)
 	@echo "Skipping creating release.."
 else
-ifeq ($(GIT_TAG), master)
-	@echo "Skipping creating release.."
-else
 	./scripts/push_release.sh $(GIT_TAG) $(GIT_REPO)
-endif
 endif
 
 .PHONY: ci-pr
 ci-pr: check prepare-assets
 
 .PHONY: ci-master
-ci-master: check prepare-assets release-branch push-release latest-release
+ci-master: check prepare-assets latest-release
 
 .PHONY: ci-release
-ci-release: check prepare-assets generate-changelog push-release
+ci-release: check prepare-assets release-branch generate-changelog push-release

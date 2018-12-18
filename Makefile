@@ -22,20 +22,12 @@ latest-release:
 
 .PHONY: release-branch
 release-branch:
-# release branch named `release-x.y` will be created if the GIT_TAG matches the `x.y.0` version pattern, in which `0` is revision.
-ifeq ($(GIT_TAG),)
-	@echo "Skipping creating release branch.."
-else
+# release branch named `release-x.y` will be created if the GIT_TAG matches the `x.y.0` version pattern.
 	./scripts/create_release_branch_step.sh $(GIT_TAG) $(GIT_REPO)
-endif
 
 .PHONY: push-release
 push-release:
-ifeq ($(GIT_TAG),)
-	@echo "Skipping creating release.."
-else
 	./scripts/push_release.sh $(GIT_TAG) $(GIT_REPO)
-endif
 
 .PHONY: ci-pr
 ci-pr: check prepare-assets
@@ -44,4 +36,4 @@ ci-pr: check prepare-assets
 ci-master: check prepare-assets latest-release
 
 .PHONY: ci-release
-ci-release: check prepare-assets release-branch generate-changelog push-release
+ci-release: check generate-changelog prepare-assets push-release release-branch

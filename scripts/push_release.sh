@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -e
 
 if [ "$#" -ne 2 ]; then
     echo "Some parameters [GIT_TAG, GIT_REPO] were not provided"
@@ -20,11 +21,10 @@ CREATE_RELEASE_DATA='{
 echo "Creating a new release: $GIT_TAG branch: master"
 
 RESPONSE=$(curl -s --data "${CREATE_RELEASE_DATA}" "https://api.github.com/repos/$GIT_REPO/releases?access_token=${GITHUB_TOKEN}")
-echo ${RESPONSE}
-
-ASSET_UPLOAD_URL=$(echo "$RESPONSE" | grep upload_url | cut -d '{' -f1 | cut -d '"' -f4)
+ASSET_UPLOAD_URL=$(echo "$RESPONSE" | jq -r .upload_url | cut -d '{' -f1)
 if [ -z "$ASSET_UPLOAD_URL" ]; then
-    exit
+    echo ${RESPONSE}
+    exit 1
 fi
 
 for FILE in toCopy/*; do

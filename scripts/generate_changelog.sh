@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -e
 
 GIT_TAG=$1
 GIT_REPO=$2

@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -e
 
 function findLatestTag() {
     TAG_LIST_STRING=$(git describe --tags $(git rev-list --tags) --always | grep -F . | grep -v "-")

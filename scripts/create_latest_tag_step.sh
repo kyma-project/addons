@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -e
 
 GIT_REPO=$1
 

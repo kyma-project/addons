@@ -1,0 +1,13 @@
+name: testing
+version: 0.0.1
+id: faebbe18-0a84-11e9-ab14-d663bd873d94
+description: "Testing bundle which contains dummy ConfigMap"
+displayName: "Testing bundle"
+
+tags: test
+labels:
+  showcase: "true"
+providerDisplayName: SAP
+longDescription: "Testing bundle which contains dummy ConfigMap"
+bindable: true
+planUpdatable: true

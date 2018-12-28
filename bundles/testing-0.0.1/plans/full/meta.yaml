@@ -1,0 +1,6 @@
+name: full
+id: a6078799-70a1-4674-af91-aba44dd6a56
+description: "Full plan with all possible settings"
+displayName: Full
+bindable: true
+free: true

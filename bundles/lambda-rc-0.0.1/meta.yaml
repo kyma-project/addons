@@ -13,3 +13,4 @@ documentationURL: https://todo.com/
 supportURL: https://todo.com/
 imageURL: https://todo.com/
 bindable: false
+planUpdatable: false

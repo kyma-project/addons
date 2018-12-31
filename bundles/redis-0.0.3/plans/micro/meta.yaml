@@ -4,3 +4,4 @@ description: "Redis micro plan which uses the in-memory persistence."
 displayName: Micro
 
 bindable: true
+free: false

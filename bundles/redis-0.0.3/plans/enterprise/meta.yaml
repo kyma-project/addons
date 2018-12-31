@@ -4,3 +4,4 @@ description: "Enterprise plan"
 displayName: Enterprise
 
 bindable: true
+free: false

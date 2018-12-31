@@ -11,3 +11,5 @@ documentationURL: https://github.com/bitnami/bitnami-docker-redis
 supportURL: https://bitnami.com/support
 imageURL: https://azure.microsoft.com/svghandler/redis-cache/
 bindable: true
+planUpdatable: false
+bindingRetrievable: false

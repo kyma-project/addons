@@ -4,3 +4,4 @@ description: Default plan
 displayName: Default plan
 
 bindable: false
+free: false

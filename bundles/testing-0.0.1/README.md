@@ -7,5 +7,7 @@ The `Testing` bundle is a simple bundle which contains a ConfigMap and a Deploym
 ## Details
 
 The bundle contains the following plans:
-- Minimal, which contains only necessary parameters. There is no binding template defined so binding does not work for this plan.
+- Minimal, a plan which is not bindable and contains only necessary parameters.
 - Full, which contains all possible parameters.
+
+Binding returns one value with the ConfigMap name.

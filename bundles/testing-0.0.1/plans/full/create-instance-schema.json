@@ -4,11 +4,13 @@
   "properties": {
     "additionalData": {
       "type": "string",
-      "title": "Additional data"
+      "title": "Additional data",
+      "description": "Example attribute which has no function."
     },
     "planName": {
       "type": "string",
-      "title": "Plan name"
+      "title": "Plan name",
+      "description": "The 'planName' value in the ConfigMap resource."
     }
   },
   "required": ["additionalData"]

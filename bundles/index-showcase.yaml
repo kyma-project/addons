@@ -1,6 +1,0 @@
-apiVersion: v1
-entries:
-  lambda-rc:
-    - name: lambda-rc
-      description: "Lambda redis client."
-      version: 0.0.1

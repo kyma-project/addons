@@ -4,7 +4,8 @@
   "properties": {
     "exampleField": {
       "type": "string",
-      "title": "Additional data"
+      "title": "Additional data",
+      "description": "Example attribute which has no function."
     }
   }
 }

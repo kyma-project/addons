@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   name: {{ template "testing.fullname" . }}
 data:
-  planName: {{ .Values.planName }}
+  planName: {{ .Values.planName | quote }}
   {{- if .Values.additionalData }}
   additionalData: {{ .Values.additionalData | quote }}
   {{- end }}

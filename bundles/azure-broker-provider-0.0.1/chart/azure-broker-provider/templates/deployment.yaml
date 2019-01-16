@@ -1,0 +1,143 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: {{ template "fullname" . }}
+  labels:
+    app: {{ template "fullname" . }}
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: "{{ .Release.Name }}"
+    heritage: "{{ .Release.Service }}"
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ template "fullname" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ template "fullname" . }}
+        chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+        release: "{{ .Release.Name }}"
+        heritage: "{{ .Release.Service }}"
+    spec:
+      containers:
+        - name: open-service-broker-azure
+          image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+          - name: LOG_LEVEL
+            value: {{ .Values.logLevel }}
+          - name: ENVIRONMENT
+            value: {{ .Values.azure.environment }}
+          - name: AZURE_SUBSCRIPTION_ID
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Values.secretCredentialName }}
+                key: subscription_id
+          - name: AZURE_TENANT_ID
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Values.secretCredentialName }}
+                key: tenant_id
+          - name: AZURE_CLIENT_ID
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Values.secretCredentialName }}
+                key: client_id
+          - name: AZURE_CLIENT_SECRET
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Values.secretCredentialName }}
+                key: client_secret
+          - name: REDIS_HOST
+            {{- if .Values.redis.embedded }}
+            value: {{ .Release.Name }}-redis
+            {{- else }}
+            value: {{ required "A value is required for redis.host" .Values.redis.host }}
+          - name: REDIS_PORT
+            value: {{ .Values.redis.port | quote }}
+          - name: REDIS_ENABLE_TLS
+            value: {{ .Values.redis.enableTls | quote }}
+            {{- end }}
+          - name: REDIS_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: {{ template "fullname" . }}
+                key: redis-password
+          - name: REDIS_PREFIX
+            value: {{ .Values.redis.prefix | quote }}
+          - name: CRYPTO_AES256_KEY
+            valueFrom:
+              secretKeyRef:
+                name: {{ template "fullname" . }}
+                key: encryption-key
+          {{- if .Values.tls.enabled }}
+          - name: API_SERVER_PORT
+            value: "8443"
+          - name: API_SERVER_TLS_CERT_PATH
+            value: /app/certs/tls.crt
+          - name: API_SERVER_TLS_KEY_PATH
+            value: /app/certs/tls.key
+          {{- else }}
+          - name: API_SERVER_PORT
+            value: "8080"
+          {{- end }}
+          - name: BASIC_AUTH_USERNAME
+            value: {{ .Values.basicAuth.username }}
+          - name: BASIC_AUTH_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: {{ template "fullname" . }}
+                key: basic-auth-password
+          - name: MIN_STABILITY
+            value: {{ .Values.minStability }}
+          {{- if .Values.tls.enabled }}
+          volumeMounts:
+          - name: cert
+            mountPath: /app/certs
+            readOnly: true
+          {{- end }}
+          ports:
+          {{- if .Values.tls.enabled }}
+          - containerPort: 8443
+          {{- else }}
+          - containerPort: 8080
+          {{- end }}
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              {{- if .Values.tls.enabled }}
+              port: 8443
+              scheme: HTTPS
+              {{- else }}
+              port: 8080
+              scheme: HTTP
+              {{- end }}
+            failureThreshold: 1
+            initialDelaySeconds: 10
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 2
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              {{- if .Values.tls.enabled }}
+              port: 8443
+              scheme: HTTPS
+              {{- else }}
+              port: 8080
+              scheme: HTTP
+              {{- end }}
+            failureThreshold: 3
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 2
+      nodeSelector:
+        beta.kubernetes.io/os: linux
+      {{- if .Values.tls.enabled }}
+      volumes:
+      - name: cert
+        secret:
+          secretName: {{ template "fullname" . }}-cert
+      {{- end }}

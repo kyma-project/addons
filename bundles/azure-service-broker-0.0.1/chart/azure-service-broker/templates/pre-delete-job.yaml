@@ -1,0 +1,27 @@
+# pre-delete job is necessary to remove servicebroker before secrets will be remove
+# if secret will be remove before broker then service classes are not removed from namespace
+apiVersion: batch/v1
+kind: Job
+metadata:
+    name: azure-service-broker-job-delete
+    labels:
+        app: {{ template "fullname" . }}
+        chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+        release: "{{ .Release.Name }}"
+        heritage: "{{ .Release.Service }}"
+    annotations:
+        "helm.sh/hook": pre-delete
+        "helm.sh/hook-weight": "0"
+        "helm.sh/hook-delete-policy": hook-succeeded,before-hook-creation
+spec:
+    backoffLimit: 1
+    template:
+        spec:
+            serviceAccountName: {{ template "fullname" . }}
+            restartPolicy: Never
+            containers:
+                - name: broker-remover
+                  image: "{{ .Values.deleteJob.image.repository }}:{{ .Values.deleteJob.image.tag }}"
+                  imagePullPolicy: {{ .Values.deleteJob.image.pullPolicy }}
+                  command: ["kubectl"]
+                  args: ["delete", "servicebroker", "-n", "{{ .Release.Namespace }}", "{{ include "fullname" . }}"]

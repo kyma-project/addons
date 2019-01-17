@@ -48,7 +48,7 @@ basicAuth:
 ## Minimum stability required for a module's services and plans to be listed
 ## in the broker's catalog. Valid values are "EXPERIMENTAL", "PREVIEW", and
 ## "STABLE". For production, use "STABLE" only!
-## Note: values can be overwritten by plan values azure-broker-provider-0.0.1/plans/default/create-instance-schema.json
+## Note: values can be overwritten by plan values azure-service-broker-<x.y.z>/plans/default/create-instance-schema.json
 minStability: PREVIEW
 
 ## Redis configuration 
@@ -83,3 +83,11 @@ resources:
       memory: 16Mi
     limits:
       memory: 32Mi
+
+# PreDeleteJob configuration, job necessary to correctly deprovision azure broker
+# (remove broker before remove secret-auth)
+deleteJob:
+  image:
+    repository: eu.gcr.io/kyma-project/develop/gcp-broker-provider
+    tag: 237ba00f
+    pullPolicy: IfNotPresent

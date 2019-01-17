@@ -1,8 +1,8 @@
-name: az-broker-provider
+name: azure-service-broker
 version: 0.0.1
 id: 84dad23a-794d-404f-92a1-5e73e91a74af
-description: "Azure Broker Provider (Experimental)"
-displayName:  Azure Broker Provider
+description: "Azure Service Broker"
+displayName:  Azure Service Broker
 
 tags: az, azure, broker
 providerDisplayName: Microsoft

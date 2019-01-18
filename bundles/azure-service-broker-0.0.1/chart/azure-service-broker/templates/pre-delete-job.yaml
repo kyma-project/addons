@@ -23,5 +23,18 @@ spec:
                 - name: broker-remover
                   image: "{{ .Values.deleteJob.image.repository }}:{{ .Values.deleteJob.image.tag }}"
                   imagePullPolicy: {{ .Values.deleteJob.image.pullPolicy }}
-                  command: ["kubectl"]
-                  args: ["delete", "servicebroker", "-n", "{{ .Release.Namespace }}", "{{ include "fullname" . }}"]
+                  command: ["/bin/sh","-c"]
+                  args:
+                    - |
+                      kubectl delete servicebroker -n {{ .Release.Namespace }} {{ include "fullname" . }};
+                      while :
+                        do
+                          if [[ -z "$(kubectl get servicebroker -n {{ .Release.Namespace }} {{ include "fullname" . }})" ]]
+                            then
+                              echo "ServiesBroker has been removed. Job is done.";
+                              break;
+                            else
+                              echo "ServiceBroker exists, wait...";
+                              sleep 1;
+                          fi
+                      done;

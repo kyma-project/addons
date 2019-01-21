@@ -16,5 +16,5 @@ We truncate at 63 chars because some Kubernetes name fields are limited to this 
 {{- end -}}
 
 {{- define "azure-auth-secret" -}}
-{{- printf "%s-%s" .Release.Name "auth" | trunc 63 | trimSuffix "-" -}}
+{{- printf "%s-%d-%s" "internal-azure-secret" .Release.Revision "auth" | trunc 63 | trimSuffix "-" -}}
 {{- end -}}

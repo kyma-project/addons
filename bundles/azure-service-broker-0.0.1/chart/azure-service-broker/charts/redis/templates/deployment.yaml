@@ -35,7 +35,7 @@ spec:
           valueFrom:
             secretKeyRef:
               {{- if .Values.redisPasswordFromParent }}
-              name: {{ template "fullname" . }}-auth
+              name: {{ template "azure-auth-secret" . }}
               {{- else }}
               name: {{ template "redis.fullname" . }}
               {{- end }}
@@ -78,7 +78,7 @@ spec:
           valueFrom:
             secretKeyRef:
               {{- if .Values.redisPasswordFromParent }}
-              name: {{ template "fullname" . }}-auth
+              name: {{ template "azure-auth-secret" . }}
               {{- else }}
               name: {{ template "redis.fullname" . }}
               {{- end }}

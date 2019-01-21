@@ -62,15 +62,12 @@ spec:
           - name: REDIS_PASSWORD
             valueFrom:
               secretKeyRef:
-                name: {{ template "fullname" . }}-auth
+                name: {{ template "azure-auth-secret" . }}
                 key: redis-password
           - name: REDIS_PREFIX
             value: {{ .Values.redis.prefix | quote }}
           - name: CRYPTO_AES256_KEY
-            valueFrom:
-              secretKeyRef:
-                name: {{ template "fullname" . }}-auth
-                key: encryption-key
+            value: {{ randAlphaNum 32 }}
           {{- if .Values.tls.enabled }}
           - name: API_SERVER_PORT
             value: "8443"
@@ -87,7 +84,7 @@ spec:
           - name: BASIC_AUTH_PASSWORD
             valueFrom:
               secretKeyRef:
-                name: {{ template "fullname" . }}-auth
+                name: {{ template "azure-auth-secret" . }}
                 key: password
           - name: MIN_STABILITY
             value: {{ .Values.minStability }}

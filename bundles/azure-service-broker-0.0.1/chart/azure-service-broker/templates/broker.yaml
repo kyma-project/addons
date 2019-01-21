@@ -37,6 +37,6 @@ spec:
   authInfo:
     basic:
       secretRef:
-        name: "{{ template "fullname" . }}-auth"
+        name: "{{ template "azure-auth-secret" . }}"
         namespace: {{ .Release.Namespace | quote }}
 {{- end }}

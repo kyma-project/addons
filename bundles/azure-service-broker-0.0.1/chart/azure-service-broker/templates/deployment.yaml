@@ -87,8 +87,8 @@ spec:
           - name: BASIC_AUTH_PASSWORD
             valueFrom:
               secretKeyRef:
-                name: {{ template "fullname" . }}
-                key: basic-auth-password
+                name: {{ template "fullname" . }}-auth
+                key: password
           - name: MIN_STABILITY
             value: {{ .Values.minStability }}
           {{- if .Values.tls.enabled }}

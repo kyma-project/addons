@@ -25,6 +25,8 @@ apiVersion: servicecatalog.k8s.io/v1beta1
 kind: ServiceBroker
 metadata:
   name: {{ template "fullname" . }}
+  annotations:
+    checksum/config: {{ include (print $.Template.BasePath "/auth-secret.yaml") . | sha256sum }}
 spec:
   {{- if .Values.tls.enabled }}
   url: https://{{ template "fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local

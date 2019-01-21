@@ -40,10 +40,8 @@ tls:
   enabled: false
 
 ## Basic auth credentials that can later be used to access this broker
-# TODO implement secure way of passing this value (integration with vault)
 basicAuth:
   username: admin
-  password: p4ssw0rd
 
 ## Minimum stability required for a module's services and plans to be listed
 ## in the broker's catalog. Valid values are "EXPERIMENTAL", "PREVIEW", and

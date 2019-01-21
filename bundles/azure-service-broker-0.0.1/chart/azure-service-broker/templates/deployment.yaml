@@ -62,14 +62,14 @@ spec:
           - name: REDIS_PASSWORD
             valueFrom:
               secretKeyRef:
-                name: {{ template "fullname" . }}
+                name: {{ template "fullname" . }}-auth
                 key: redis-password
           - name: REDIS_PREFIX
             value: {{ .Values.redis.prefix | quote }}
           - name: CRYPTO_AES256_KEY
             valueFrom:
               secretKeyRef:
-                name: {{ template "fullname" . }}
+                name: {{ template "fullname" . }}-auth
                 key: encryption-key
           {{- if .Values.tls.enabled }}
           - name: API_SERVER_PORT

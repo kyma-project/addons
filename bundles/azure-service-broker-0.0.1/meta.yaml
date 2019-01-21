@@ -1,7 +1,7 @@
 name: azure-service-broker
 version: 0.0.1
 id: 84dad23a-794d-404f-92a1-5e73e91a74af
-description: "Azure Service Broker"
+description: "Extends the Service Catalog with Azure services"
 displayName:  Azure Service Broker
 
 tags: az, azure, broker

@@ -61,9 +61,10 @@ redis:
   ## 6380 is the port often used for Redis secured using TLS.
   port: 6380
 
-  # can't be generated here and this value is used in two places: here and in sub-chart (refactoring needed)
-  # TODO implement secure way of passing this value (integration with vault)
-  redisPassword: p4ssw0rd
+  # if 'true' subchart gets redis password from parent chart azure-service-broker
+  # if 'false' password for redis is generated in secret in redis chart
+  # (use 'false' only if redis will be use standalone)
+  redisPasswordFromParent: true
 
   ## If not embedded, specifies whether to use a secure connection to the
   ## remote Redis host

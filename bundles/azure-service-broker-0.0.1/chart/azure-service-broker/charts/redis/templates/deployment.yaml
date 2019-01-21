@@ -34,7 +34,11 @@ spec:
         - name: REDIS_PASSWORD
           valueFrom:
             secretKeyRef:
+              {{- if .Values.redisPasswordFromParent }}
+              name: {{ template "fullname" . }}-auth
+              {{- else }}
               name: {{ template "redis.fullname" . }}
+              {{- end }}
               key: redis-password
         {{- else }}
         - name: ALLOW_EMPTY_PASSWORD
@@ -73,7 +77,11 @@ spec:
         - name: REDIS_PASSWORD
           valueFrom:
             secretKeyRef:
+              {{- if .Values.redisPasswordFromParent }}
+              name: {{ template "fullname" . }}-auth
+              {{- else }}
               name: {{ template "redis.fullname" . }}
+              {{- end }}
               key: redis-password
         {{- end }}
         ports:

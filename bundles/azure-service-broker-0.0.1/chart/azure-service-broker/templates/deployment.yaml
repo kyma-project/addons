@@ -51,7 +51,7 @@ spec:
                 key: client_secret
           - name: REDIS_HOST
             {{- if .Values.redis.embedded }}
-            value: {{ .Release.Name }}-redis
+            value: {{ .Chart.Name }}-redis
             {{- else }}
             value: {{ required "A value is required for redis.host" .Values.redis.host }}
           - name: REDIS_PORT

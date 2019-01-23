@@ -10,3 +10,10 @@ The Azure Service Broker bundle contains one `default` plan.
 
 The Azure Service Broker bundle require sub-chart redis. Redis credential as password are generated in parent chart and inject to sub-chart redis by `secret` resource name.
 Injection is made only if `redisPasswordFromParent` parameter in parent chart `values.yaml` is set to `true` otherwise redis password is generated in redis sub-chart `secret` resource. 
+
+## Additional template files ##
+
+According to original `open-service-broker-azure` chart, bundle `azure-service-broker` has additional files: 
+* `post-install-job.yaml` - check if `ServiceBroker` resource is ready to use, if job is done `ServiceInstance` can be in running state.
+* `pre-delete-job.yaml` - remove `ServiceBroker` before `Secret` resource will be removed otherwise `Secret` could be removed before `ServiceBroker` and deprovisioning process can fail.
+* `sa.yaml`, `role-binding.yaml`, `role.yaml` - add permissions for jobs above.

@@ -37,7 +37,7 @@ azure:
   environment: AzurePublicCloud
 
 tls:
-  enabled: false
+  enabled: true
 
 ## Basic auth credentials that can later be used to access this broker
 basicAuth:
@@ -76,17 +76,9 @@ redis:
   ## instance.
   prefix:
 
-resources:
-  documentation:
-    requests:
-      memory: 16Mi
-    limits:
-      memory: 32Mi
-
-# PreDeleteJob configuration, job necessary to correctly deprovision azure broker
-# (remove broker before remove secret-auth)
-deleteJob:
-  image:
+# Jobs configuration
+jobs:
+  kubectlImage:
     repository: eu.gcr.io/kyma-project/develop/gcp-broker-provider
     tag: 237ba00f
     pullPolicy: IfNotPresent

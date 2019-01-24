@@ -19,8 +19,8 @@ spec:
             restartPolicy: Never
             containers:
                 - name: broker-checker
-                  image: "{{ .Values.deleteJob.image.repository }}:{{ .Values.deleteJob.image.tag }}"
-                  imagePullPolicy: {{ .Values.deleteJob.image.pullPolicy }}
+                  image: "{{ .Values.jobs.kubectlImage.repository }}:{{ .Values.jobs.kubectlImage.tag }}"
+                  imagePullPolicy: {{ .Values.jobs.kubectlImage.pullPolicy }}
                   command: ["/bin/sh","-c"]
                   args:
                     - |

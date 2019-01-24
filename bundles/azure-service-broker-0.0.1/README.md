@@ -5,6 +5,8 @@ The Azure Service Broker bundle installs the [Open Service Broker for Azure](htt
 ## Details
 
 The Azure Service Broker bundle contains one `default` plan.  
+Bundle requires secret with Azure credentals to each namespace where bundle will be provisioned. For more information about generate secret see [documentation](https://github.com/kyma-project/kyma/blob/master/docs/service-brokers/helm-broker-service-classes/azure-broker/docs/overview.md).
+For more information about the provisioning and deprovisioning flow, see the ServiceClass [plan details](https://github.com/kyma-project/kyma/blob/master/docs/service-brokers/helm-broker-service-classes/azure-broker/docs/plans-details.md) documentation. 
 
 ## Bundle requirements
 

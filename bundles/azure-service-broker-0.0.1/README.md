@@ -16,6 +16,6 @@ The injection is possible only if the **redisPasswordFromParent** parameter in t
 ### Additional template files
 
 Comparing to the original `open-service-broker-azure` chart, the `azure-service-broker` bundle contains these additional files: 
-* `post-install-job.yaml` - check if `ServiceBroker` resource is ready to use, if job is done `ServiceInstance` can be in running state.
-* `pre-delete-job.yaml` - remove `ServiceBroker` before `Secret` resource will be removed otherwise `Secret` could be removed before `ServiceBroker` and deprovisioning process can fail.
-* `sa.yaml`, `role-binding.yaml`, `role.yaml` - add permissions for jobs above.
+* `post-install-job.yaml` - checks if the ServiceBroker resource is ready to use. After the job is finished, the ServiceInstance changes its state to **Running**.
+* `pre-delete-job.yaml` - removes a ServiceBroker before a Secret resource is removed. Otherwise, the Secret can be removed before the ServiceBroker, in which case the deprovisioning process fails.
+* `sa.yaml`, `role-binding.yaml`, `role.yaml` - add permissions for the preceding jobs.

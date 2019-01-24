@@ -13,7 +13,7 @@ For more information about the provisioning and deprovisioning flow, see the Ser
 The Azure Service Broker bundle requires the `redis` sub-chart. Redis credentials, such as password, are generated in the parent chart and are injected to the `redis` sub-chart as **secret** resource name.
 The injection is possible only if the **redisPasswordFromParent** parameter in the `values.yaml` parent chart is set to `true`. Otherwise, the Redis password is generated in the `redis` sub-chart **secret** resource. 
 
-## Additional template files ##
+### Additional template files
 
 According to original `open-service-broker-azure` chart, bundle `azure-service-broker` has additional files: 
 * `post-install-job.yaml` - check if `ServiceBroker` resource is ready to use, if job is done `ServiceInstance` can be in running state.

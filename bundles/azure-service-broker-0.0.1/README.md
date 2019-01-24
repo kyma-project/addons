@@ -10,7 +10,7 @@ For more information about the provisioning and deprovisioning flow, see the Ser
 
 ## Bundle requirements
 
-The Azure Service Broker bundle require sub-chart redis. Redis credential as password are generated in parent chart and inject to sub-chart redis by `secret` resource name.
+The Azure Service Broker bundle requires the `redis` sub-chart. Redis credentials, such as password, are generated in the parent chart and are injected to the `redis` sub-chart as **secret** resource name.
 Injection is made only if `redisPasswordFromParent` parameter in parent chart `values.yaml` is set to `true` otherwise redis password is generated in redis sub-chart `secret` resource. 
 
 ## Additional template files ##

@@ -13,6 +13,9 @@ metadata:
 spec:
   backoffLimit: 1
   template:
+    metadata:
+      annotations:
+        sidecar.istio.io/inject: "false"
     spec:
       serviceAccountName: {{ include "gcp-broker-provider.fullname" . }}
       restartPolicy: Never

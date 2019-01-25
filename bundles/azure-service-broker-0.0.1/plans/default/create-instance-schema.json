@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "minStability": {
+      "type": "string",
+      "oneOf": [
+        {
+          "enum": ["EXPERIMENTAL"],
+          "title": "Experimental"
+        },
+        {
+          "enum": ["PREVIEW"],
+          "title": "Preview"
+        },
+        {
+          "enum": ["STABLE"],
+          "title": "Stable"
+        }
+      ],
+      "default": "PREVIEW",
+      "title": "Minimum services stability",
+      "description": "Minimum stability required for a module's services and plans to be listed in the broker's catalog. \"Experimental\" represents relative stability of the most immature service modules. At this level of stability, we’re not even certain we’ve built the right thing! \"Preview\", represents relative stability of modules we believe are approaching a stable state. \"Stable\", represents relative stability of the mature, production-ready service modules. For production, use \"Stable\" only."
+    }
+  },
+  "required": ["minStability"]
+}

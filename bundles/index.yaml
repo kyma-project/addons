@@ -8,3 +8,7 @@ entries:
     - name: gcp-service-broker
       description: "Google Cloud Platform Service Broker"
       version: 0.0.2
+  azure-service-broker:
+    - name: azure-service-broker
+      description: "Azure Service Broker"
+      version: 0.0.1

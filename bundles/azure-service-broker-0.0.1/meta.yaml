@@ -1,0 +1,12 @@
+name: azure-service-broker
+version: 0.0.1
+id: 84dad23a-794d-404f-92a1-5e73e91a74af
+description: "Extends the Service Catalog with Azure services"
+displayName:  Azure Service Broker
+
+tags: az, azure, broker
+providerDisplayName: Microsoft
+longDescription: Azure Broker is an implementation of the open-source Open Service Broker (OSB) API hosted on Microsoft Azure
+documentationURL: https://github.com/Azure/open-service-broker-azure/blob/master/README.md
+imageURL: https://www.cloudfoundry.org/wp-content/uploads/2017/10/icon_azure@2x.png
+bindable: false

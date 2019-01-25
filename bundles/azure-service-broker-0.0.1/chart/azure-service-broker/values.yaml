@@ -1,0 +1,84 @@
+replicaCount: 1
+logLevel: "INFO"
+
+image:
+  ## Image location, NOT including the tag
+  repository: microsoft/azure-service-broker
+  ## Image tag
+  tag: v1.4.0
+  ## "IfNotPresent", "Always", or "Never"
+  pullPolicy: IfNotPresent
+
+## Whether to register this broker with the Kubernetes Service Catalog. If true,
+## the Kubernetes Service Catalog must already be installed on the cluster.
+## Marking this option false is useful for scenarios wherein one wishes to host
+## the broker in a separate cluster than the Service Catalog (or other client)
+## that will access it.
+registerBroker: true
+
+service:
+  ## Type of service; valid values are "ClusterIP", "LoadBalancer", and
+  ## "NodePort". "ClusterIP" is sufficient in the average case where a service
+  ## catalog installation in the same cluster is the only client that needs to
+  ## communicate with this broker. i.e. The broker does not need to receive
+  ## inbound requests from outside the cluster.
+  type: ClusterIP
+  ## Further configuration if service is of type "NodePort"
+  nodePort:
+    ## Available port in allowable range (e.g. 30000 - 32767 on minikube)
+    port: 30080
+
+# Secret name where azure credentials are keep
+# like "subscriptionId", "tenantId", "clientId", "clientSecret"
+secretCredentialName: azure-broker-data
+
+azure:
+  ## Valid values are "AzurePublicCloud" and "AzureChinaCloud"
+  environment: AzurePublicCloud
+
+tls:
+  enabled: true
+
+## Basic auth credentials that can later be used to access this broker
+basicAuth:
+  username: admin
+
+## Minimum stability required for a module's services and plans to be listed
+## in the broker's catalog. Valid values are "EXPERIMENTAL", "PREVIEW", and
+## "STABLE". For production, use "STABLE" only!
+## Note: values can be overwritten by plan values azure-service-broker-<x.y.z>/plans/default/create-instance-schema.json
+minStability: PREVIEW
+
+## Redis configuration 
+redis:
+  ## Should a containerized Redis server be included in the Helm release?
+  embedded: true
+
+  ## Required if not embedded
+  host: 
+
+  ## If not embedded, specifies the port for the client to connect to.
+  ## 6380 is the port often used for Redis secured using TLS.
+  port: 6380
+
+  # if 'true' subchart gets redis password from parent chart azure-service-broker
+  # if 'false' password for redis is generated in secret in redis chart
+  # (use 'false' only if redis will be use standalone)
+  redisPasswordFromParent: true
+
+  ## If not embedded, specifies whether to use a secure connection to the
+  ## remote Redis host
+  enableTls: true
+
+  ## Used to introduce a unique identifier to enable multiple OSBA instances
+  ## to share one redis. If nothing is provided here, no additional identifier
+  ## is added. Note, you should not change this if you have an existing OSBA
+  ## instance.
+  prefix:
+
+# Jobs configuration
+jobs:
+  kubectlImage:
+    repository: eu.gcr.io/kyma-project/develop/gcp-broker-provider
+    tag: 237ba00f
+    pullPolicy: IfNotPresent

@@ -1,0 +1,4 @@
+name: default
+id: 2e02da10-c058-4044-b02d-4c58f70b2104
+description: "The default plan for installing/uninstalling Azure Service Broker"
+displayName: Default

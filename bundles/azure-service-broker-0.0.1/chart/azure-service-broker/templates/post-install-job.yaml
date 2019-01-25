@@ -1,0 +1,39 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+    name: azure-service-broker-check-job
+    labels:
+        app: {{ template "fullname" . }}
+        chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+        release: "{{ .Release.Name }}"
+        heritage: "{{ .Release.Service }}"
+    annotations:
+        "helm.sh/hook": post-install,post-upgrade
+        "helm.sh/hook-weight": "0"
+        "helm.sh/hook-delete-policy": hook-succeeded
+spec:
+    backoffLimit: 1
+    template:
+        spec:
+            serviceAccountName: {{ template "fullname" . }}
+            restartPolicy: Never
+            containers:
+                - name: broker-checker
+                  image: "{{ .Values.jobs.kubectlImage.repository }}:{{ .Values.jobs.kubectlImage.tag }}"
+                  imagePullPolicy: {{ .Values.jobs.kubectlImage.pullPolicy }}
+                  command: ["/bin/sh","-c"]
+                  args:
+                    - |
+                      while :
+                        do
+                          BROKER_TYPE=$(kubectl get servicebroker -n {{ .Release.Namespace }} {{ include "fullname" . }} -o jsonpath="{.status.conditions[0].type}")
+                          BROKER_STATUS=$(kubectl get servicebroker -n {{ .Release.Namespace }} {{ include "fullname" . }} -o jsonpath="{.status.conditions[0].status}")
+                          if [[ "$BROKER_TYPE" == "Ready" ]] && [[ "$BROKER_STATUS" == "True" ]];
+                            then
+                              echo "ServiesBroker is ready. Job is done.";
+                              break;
+                            else
+                              echo "ServiceBroker is not ready, wait...";
+                              sleep 3;
+                          fi
+                      done;

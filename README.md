@@ -11,8 +11,8 @@ The `bundles` folder contains sources of bundles and index files. These files ar
 To quickly configure one of the released bundles, follow these steps:
 ```
 URLS=$(kubectl get -n kyma-system deployment/core-helm-broker --output=jsonpath='{.spec.template.spec.containers[0].env[?(@.name=="APP_REPOSITORY_URLS")].value}')
-# This step registers the testing bundle
 
+# This step registers the testing bundle in version 0.2.0
 kubectl set env -n kyma-system deployment/core-helm-broker -e APP_REPOSITORY_URLS="$URLS;https://github.com/kyma-project/bundles/releases/download/0.2.0/index-testing.yaml"
 ```
 

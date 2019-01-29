@@ -8,13 +8,6 @@ This repository contains bundles which the Helm Broker uses. It allows you to ch
 
 The `bundles` folder contains sources of bundles and index files. These files are available in [releases](https://github.com/kyma-project/bundles/releases). To learn more about the release process, read [this](docs/releasing.md) document.
 
-To quickly extend the Helm Broker in Kyma with optional testing bundles, follow these steps:
-```
-URLS=$(kubectl get -n kyma-system deployment/core-helm-broker --output=jsonpath='{.spec.template.spec.containers[0].env[?(@.name=="APP_REPOSITORY_URLS")].value}')
-
-kubectl set env -n kyma-system deployment/core-helm-broker -e APP_REPOSITORY_URLS="$URLS;https://github.com/kyma-project/bundles/releases/download/0.2.0/index-testing.yaml"
-```
-
 If you want to configure the Helm Broker to use different set of bundles, read the [Helm Broker configuration](https://kyma-project.io/docs/components/service-brokers#configuration-configure-helm-broker) and configure the proper URL.
  
 ## Development 

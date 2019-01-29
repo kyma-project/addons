@@ -10,3 +10,4 @@ longDescription: Azure Broker is an implementation of the open-source Open Servi
 documentationURL: https://github.com/Azure/open-service-broker-azure/blob/master/README.md
 imageURL: https://www.cloudfoundry.org/wp-content/uploads/2017/10/icon_azure@2x.png
 bindable: false
+provisionOnlyOnce: true

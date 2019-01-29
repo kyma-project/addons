@@ -10,3 +10,4 @@ longDescription: Google Cloud Platform (GCP) Service Broker is an implementation
 documentationURL: https://cloud.google.com/kubernetes-engine/docs/concepts/google-cloud-platform-service-broker
 imageURL: https://cloud.google.com/_static/images/cloud/icons/favicons/onecloud/apple-icon.png
 bindable: false
+provisionOnlyOnce: true

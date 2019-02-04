@@ -73,5 +73,5 @@ Follow these steps to configure your own bundles repository and to complete this
 Check Helm Broker Pod's logs, which can give you a lot of information about the occurred issue. To check the logs, run:
 
 ```
-kubectl logs -n kyma-system -l app=core-helm-broker
+kubectl logs -n kyma-system -l app=helm-broker
 ```

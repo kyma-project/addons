@@ -50,13 +50,13 @@ Follow these steps to configure your own bundles repository and to complete this
 
 2. Place your bundle into the `bundles/` directory.
 
-3. Along with your bundle directory, update `index.yaml` which defines the available bundles. Find the instruction on how to create a valid file [here](https://github.com/kyma-project/kyma/blob/master/docs/service-brokers/docs/011-configuration-helm-broker.md#configuring-the-helm-broker-externally).
+3. Along with your bundle directory, update `index.yaml` which defines the available bundles. Find the instruction on how to create a valid file [here](https://github.com/kyma-project/kyma/blob/master/docs/service-brokers/docs/05-01-helm-broker.md#configuring-the-helm-broker-externally).
 
 4. Commit changes and push them to the master branch.
 
 5. You can check the build status on [Travis CI](https://travis-ci.com/) webpage. The [Releasing](releasing.md) document describes the tagging and releasing processes.
 
-6. Configure Helm Broker with the new repository as described [here](https://github.com/kyma-project/kyma/blob/master/docs/service-brokers/docs/011-configuration-helm-broker.md#configure-repository-urls-in-the-runtime).
+6. Configure Helm Broker with the new repository as described [here](https://github.com/kyma-project/kyma/blob/master/docs/service-brokers/docs/05-01-helm-broker.md#configure-repository-urls-in-the-runtime).
 
 ### Check your Kyma Service Catalog
 
@@ -73,5 +73,5 @@ Follow these steps to configure your own bundles repository and to complete this
 Check Helm Broker Pod's logs, which can give you a lot of information about the occurred issue. To check the logs, run:
 
 ```
-kubectl logs -n kyma-system -l app=core-helm-broker
+kubectl logs -n kyma-system -l app=helm-broker
 ```

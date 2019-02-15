@@ -6,7 +6,7 @@ This document describes how to configure a forked Helm Broker bundles repository
 
 Before you start, install:
 
-* [Kyma](https://kyma-project.io/docs/latest/root/kyma#getting-started-getting-started) in version v0.4.1 or later
+* [Kyma](https://kyma-project.io/docs/latest/root/kyma#tutorials-tutorials) in version v0.4.1 or later
 * [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) in version v1.10.0 or later
 * [svcat CLI](https://svc-cat.io/docs/cli/) in version v1.10.0 or later
 
@@ -46,7 +46,7 @@ Follow these steps to configure your own bundles repository and to complete this
 
 ### Create a bundle
 
-1. Create your bundle according to the [instruction](https://kyma-project.io/docs/latest/components/service-brokers#configuration-how-to-create-a-bundle).
+1. Create your bundle according to the [instruction](https://kyma-project.io/docs/latest/components/helm-broker#configuration-how-to-create-a-bundle).
 
 2. Place your bundle into the `bundles/` directory.
 

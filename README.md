@@ -8,11 +8,11 @@ This repository contains bundles which the Helm Broker uses. It allows you to ch
 
 The `bundles` folder contains sources of bundles and index files. These files are available in [releases](https://github.com/kyma-project/bundles/releases). To learn more about the release process, read [this](docs/releasing.md) document.
 
-If you want to configure the Helm Broker to use different set of bundles, read the [Helm Broker configuration](https://kyma-project.io/docs/components/service-brokers#configuration-configure-helm-broker) and configure the proper URL.
- 
-## Development 
- 
-Develop your own remote `bundles` repository forked from the original repository. Read [this](docs/getting-started.md) document to learn how. On your fork, you can create your own bundles with a structure described in the [Helm Broker bundles](https://kyma-project.io/docs/components/service-brokers#configuration-how-to-create-a-bundle) document. Read also the [`CONTRIBUTING.md`](CONTRIBUTING.md) document that includes the contributing rules specific for this repository.
+If you want to configure the Helm Broker to use different set of bundles, read the [Helm Broker configuration](https://kyma-project.io/docs/components/helm-broker#configuration-configure-helm-broker) and configure the proper URL.
+
+## Development
+
+Develop your own remote `bundles` repository forked from the original repository. Read [this](docs/getting-started.md) document to learn how. On your fork, you can create your own bundles with a structure described in the [Helm Broker bundles](https://kyma-project.io/docs/components/helm-broker#configuration-how-to-create-a-bundle) document. Read also the [`CONTRIBUTING.md`](CONTRIBUTING.md) document that includes the contributing rules specific for this repository.
 
 ### Project structure
 

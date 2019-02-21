@@ -5,7 +5,7 @@ image:
   ## Image location, NOT including the tag
   repository: microsoft/azure-service-broker
   ## Image tag
-  tag: v1.4.0
+  tag: v1.5.0
   ## "IfNotPresent", "Always", or "Never"
   pullPolicy: IfNotPresent
 

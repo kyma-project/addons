@@ -46,7 +46,7 @@ Follow these steps to configure your own bundles repository and to complete this
 
 ### Create a bundle
 
-1. Create your bundle according to the [instruction](https://kyma-project.io/docs/latest/components/helm-broker#configuration-how-to-create-a-bundle).
+1. Create your bundle according to the [instruction](https://kyma-project.io/docs/latest/components/helm-broker/#configuration-create-a-bundle).
 
 2. Place your bundle into the `bundles/` directory.
 

@@ -49,7 +49,6 @@ jobs:
 
   # Create a latest release from last master commit
   - stage: deploy
-    if: (branch = introduce-istio)
     before_deploy:
      - ./scripts/create_latest_tag_step.sh ${TRAVIS_REPO_SLUG}
      - ./scripts/prepare-release-assets.sh

@@ -48,12 +48,14 @@ jobs:
         tags: true
 
   # Create a latest release from last master commit
-  - stage: deploy
+  - stage: bubu
     before_deploy:
      - ./scripts/create_latest_tag_step.sh ${TRAVIS_REPO_SLUG}
      - ./scripts/prepare-release-assets.sh
     env:
     deploy:
+      on:
+        all_branches: true
       provider: releases
       overwrite: true
       skip_cleanup: true

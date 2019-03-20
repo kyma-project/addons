@@ -123,15 +123,27 @@ livenessProbe:
 {{- end -}}
 
 {{/*
-Return slave security context
+Return slave security context for container
 */}}
-{{- define "redis.slave.securityContext" -}}
+{{- define "redis.slave.container.securityContext" -}}
+{{- $securityContext := .Values.slave.securityContext | default .Values.master.securityContext -}}
+{{- if $securityContext }}
+{{- if $securityContext.enabled }}
+securityContext:
+  runAsUser: {{ $securityContext.runAsUser | default .Values.master.securityContext.runAsUser }}
+{{- end }}
+{{- end }}
+{{- end -}}
+
+{{/*
+Return slave security context for pod
+*/}}
+{{- define "redis.slave.pod.securityContext" -}}
 {{- $securityContext := .Values.slave.securityContext | default .Values.master.securityContext -}}
 {{- if $securityContext }}
 {{- if $securityContext.enabled }}
 securityContext:
   fsGroup: {{ $securityContext.fsGroup | default .Values.master.securityContext.fsGroup }}
-  runAsUser: {{ $securityContext.runAsUser | default .Values.master.securityContext.runAsUser }}
 {{- end }}
 {{- end }}
 {{- end -}}

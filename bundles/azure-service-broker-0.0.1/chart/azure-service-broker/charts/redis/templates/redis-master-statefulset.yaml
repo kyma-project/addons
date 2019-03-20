@@ -42,7 +42,6 @@ spec:
       {{- if .Values.master.securityContext.enabled }}
       securityContext:
         fsGroup: {{ .Values.master.securityContext.fsGroup }}
-        runAsUser: {{ .Values.master.securityContext.runAsUser }}
       {{- end }}
       serviceAccountName: "{{ template "redis.serviceAccountName" . }}"
       {{- with .Values.master.affinity }}
@@ -64,6 +63,10 @@ spec:
       - name: {{ template "redis.fullname" . }}
         image: "{{ template "redis.image" . }}"
         imagePullPolicy: {{ default "" .Values.image.pullPolicy | quote }}
+        {{- if .Values.master.securityContext.enabled }}
+        securityContext:
+          runAsUser: {{ .Values.master.securityContext.runAsUser }}
+        {{- end }}
         {{- if .Values.master.command }}
         command:
 {{ toYaml .Values.master.command | indent 10 }}

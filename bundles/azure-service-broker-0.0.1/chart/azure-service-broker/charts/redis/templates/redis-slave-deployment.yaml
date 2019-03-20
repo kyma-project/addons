@@ -46,7 +46,7 @@ spec:
         - name: {{ . }}
         {{- end}}
       {{- end}}
-      {{- /* Include master securityContext for Pod if slave securityContext.fsGroup not defined */ -}}
+      {{- /* Include master securityContext.fsGroup for Pod if slave securityContext.fsGroup not defined */ -}}
       {{ include "redis.slave.pod.securityContext" . | indent 6 }}
       serviceAccountName: "{{ template "redis.serviceAccountName" . }}"
       {{- if (.Values.slave.nodeSelector | default .Values.master.nodeSelector) }}

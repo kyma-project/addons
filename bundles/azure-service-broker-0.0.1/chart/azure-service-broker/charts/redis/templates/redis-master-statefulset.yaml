@@ -28,7 +28,7 @@ spec:
         checksum/health: {{ include (print $.Template.BasePath "/health-configmap.yaml") . | sha256sum }}
         checksum/configmap: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
         checksum/secret: {{ include (print $.Template.BasePath "/secret.yaml") . | sha256sum }}
-        sidecar.istio.io/inject: "false"
+        sidecar.istio.io/inject: "true"
       {{- if .Values.master.podAnnotations }}
 {{ toYaml .Values.master.podAnnotations | indent 8 }}
       {{- end }}
@@ -42,7 +42,6 @@ spec:
       {{- if .Values.master.securityContext.enabled }}
       securityContext:
         fsGroup: {{ .Values.master.securityContext.fsGroup }}
-        runAsUser: {{ .Values.master.securityContext.runAsUser }}
       {{- end }}
       serviceAccountName: "{{ template "redis.serviceAccountName" . }}"
       {{- with .Values.master.affinity }}
@@ -64,6 +63,10 @@ spec:
       - name: {{ template "redis.fullname" . }}
         image: "{{ template "redis.image" . }}"
         imagePullPolicy: {{ default "" .Values.image.pullPolicy | quote }}
+        {{- if .Values.master.securityContext.enabled }}
+        securityContext:
+          runAsUser: {{ .Values.master.securityContext.runAsUser }}
+        {{- end }}
         {{- if .Values.master.command }}
         command:
 {{ toYaml .Values.master.command | indent 10 }}

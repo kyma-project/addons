@@ -46,17 +46,17 @@ Follow these steps to configure your own bundles repository and to complete this
 
 ### Create a bundle
 
-1. Create your bundle according to the [instruction](https://kyma-project.io/docs/latest/components/helm-broker/#configuration-create-a-bundle).
+1. Create your bundle according to the [instruction](https://kyma-project.io/docs/master/components/helm-broker/#details-create-a-bundle).
 
 2. Place your bundle into the `bundles/` directory.
 
-3. Along with your bundle directory, update `index.yaml` which defines the available bundles. Find the instruction on how to create a valid file [here](https://kyma-project.io/docs/master/components/helm-broker/#configuration-configure-helm-broker).
+3. Along with your bundle directory, update `index.yaml` which defines the available bundles. Find the instruction on how to create a valid file [here](https://kyma-project.io/docs/master/components/helm-broker/#configuration-configuration).
 
 4. Commit changes and push them to the master branch.
 
 5. You can check the build status on [Travis CI](https://travis-ci.com/) webpage. The [Releasing](releasing.md) document describes the tagging and releasing processes.
 
-6. Configure Helm Broker with the new repository as described [here](https://kyma-project.io/docs/master/components/helm-broker/#configuration-configure-helm-broker-add-a-new-bundle-repository).
+6. Configure Helm Broker with the new repository as described [here](https://kyma-project.io/docs/master/components/helm-broker/#details-create-a-bundles-repository).
 
 ### Check your Kyma Service Catalog
 

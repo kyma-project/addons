@@ -11,7 +11,7 @@ To learn how to configure the Helm Broker to use different set of bundles, read 
 
 ## Development
 
-Develop your own remote bundles repository forked from the original repository. Read [this](docs/getting-started.md) document to learn how. On your fork, you can create your own bundles with a structure described in [this](https://kyma-project.io/docs/components/helm-broker#details-create-a-bundle) document. Read also the [`CONTRIBUTING.md`](CONTRIBUTING.md) document that includes the contributing rules specific for this repository.
+Develop your own remote bundles repository forked from the original repository. Read [this](docs/getting-started.md) document to learn how. On your fork, you can [create your own bundles](https://kyma-project.io/docs/master/components/helm-broker/#details-details). Read the [`CONTRIBUTING.md`](CONTRIBUTING.md) document that includes the contributing rules specific for this repository.
 
 ### Project structure
 

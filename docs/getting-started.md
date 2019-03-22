@@ -4,7 +4,7 @@ This document describes how to configure your forked Helm Broker `bundles` repos
 
 ## Prerequisites
 
-* [Kyma](https://kyma-project.io/docs/latest/root/kyma#tutorials-tutorials) in version v0.4.1 or higher
+* [Kyma](https://kyma-project.io/docs/master/root/kyma/#installation-installation) in version v0.4.1 or higher
 * [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) in version v1.10.0 or higher
 * [svcat CLI](https://svc-cat.io/docs/cli/) in version v1.10.0 or higher
 
@@ -23,7 +23,7 @@ Follow these steps to set up your bundles repository with Travis CI, configure t
 
 5. Enable Travis CI. Click the **Activate** button and select your forked bundles repository. Click the **Approve & Install** button to give Travis CI access to your forked `bundle` repository.
 
-6. Configure Travis CI. On the left sidebar, click **My Repositories** tab and choose your GitHub repository. Click the **More options** tab on the right and select **Settings**. Go to the **Environment Variables** section. Set **Name** as `GITHUB_TOKEN`. **Value** is equal to your GitHub personal access token. Click **Add**. 
+6. Configure Travis CI. On the left sidebar, click **My Repositories** tab and choose your GitHub repository. Click the **More options** tab on the right and select **Settings**. Go to the **Environment Variables** section. Set **Name** as `GITHUB_TOKEN`. **Value** is equal to your GitHub personal access token. Click **Add**.
 
 7. Trigger a build. Go to the **More options** tab and select **Trigger build**. Select the master branch and click **Trigger custom build**.
 
@@ -32,7 +32,7 @@ Follow these steps to set up your bundles repository with Travis CI, configure t
 
 1. [Create your bundles](https://kyma-project.io/docs/master/components/helm-broker/#details-create-a-bundle) and place them in the `bundles/` directory.
 
-2. [Update the `index.yaml` file](https://kyma-project.io/docs/master/components/helm-broker/#details-create-a-bundles-repository-index-yaml-file) which defines the available bundles.
+2. Update the [`index.yaml` file](https://kyma-project.io/docs/master/components/helm-broker/#details-create-a-bundles-repository-index-yaml-file) which defines the available bundles.
 
 3. Commit your changes and push them to the master branch.
 

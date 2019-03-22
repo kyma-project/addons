@@ -4,7 +4,7 @@ This document describes how the release flow looks like and how to create a bund
 
 ## Release process
 
-Every change in the master branch which passes all checks triggers the `latest` tag and release.
+Every change in the master branch which passes all checks creates the `latest` tag and triggers the release.
 
 Every tag pushed to the repository triggers a new release. If the tag name matches the `x.y.0` version pattern, in which `0` is a revision, Travis CI build creates a release tag named `release-x.y`.
 

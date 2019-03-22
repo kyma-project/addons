@@ -54,7 +54,7 @@ Follow these steps to set up your bundles repository with Travis CI, configure t
 
 ## Troubleshooting
 
-Check the Helm Broker Pod's logs. It can give you a lot of information about the occurred issue. To check the logs, run:
+Check the Helm Broker Pod's logs. They can give you a lot of information about the occurred issue. To check the logs, run:
 
 ```
 kubectl logs -n kyma-system -l app=helm-broker

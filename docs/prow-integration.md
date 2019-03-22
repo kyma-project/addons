@@ -4,7 +4,7 @@ This document describes `bundles` integration with [Prow](https://github.com/kub
 
 ### Repository integration with Prow
 
-The [Makefile](../Makefile) defines the build steps to achieve the goal described in the [releases](releases.md) guide.
+The [Makefile](../Makefile) defines the build steps described in [this](releases.md) document.
 Use this Makefile to change the integration implementation for the `bundles` repository.
 
 ### Prow configuration

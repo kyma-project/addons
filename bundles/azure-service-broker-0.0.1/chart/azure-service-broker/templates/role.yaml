@@ -11,3 +11,6 @@ rules:
     - apiGroups: ["servicecatalog.k8s.io"]
       resources: ["servicebrokers"]
       verbs: ["get", "list", "patch", "create", "delete"]
+    - apiGroups: [""]
+      resources: ["secrets"]
+      verbs:     ["get","list"]

@@ -10,9 +10,9 @@ metadata:
     annotations:
         "helm.sh/hook": post-install,post-upgrade
         "helm.sh/hook-weight": "0"
-        "helm.sh/hook-delete-policy": hook-succeeded
+        "helm.sh/hook-delete-policy": hook-succeeded,before-hook-creation
 spec:
-    backoffLimit: 1
+    backoffLimit: 0
     template:
         metadata:
             annotations:
@@ -27,16 +27,35 @@ spec:
                   command: ["/bin/sh","-c"]
                   args:
                     - |
-                      while :
-                        do
+                      SECRET_NAME=$(kubectl get secret -n {{ .Release.Namespace }} azure-broker-data -o jsonpath="{.metadata.name}")
+                      if [[ "$SECRET_NAME" == "azure-broker-data" ]] ;
+                        then
+                          echo "Success! Secret is present.";
+                        else
+                          echo "Failure! Secret 'azure-broker-data' is not present";
+                          exit 1;
+                      fi
+
+                      success=false;
+                      i=1;
+                      limit=180;
+                      while [ "$i" -le "$limit" ];
+                      do
                           BROKER_TYPE=$(kubectl get servicebroker -n {{ .Release.Namespace }} {{ include "fullname" . }} -o jsonpath="{.status.conditions[0].type}")
                           BROKER_STATUS=$(kubectl get servicebroker -n {{ .Release.Namespace }} {{ include "fullname" . }} -o jsonpath="{.status.conditions[0].status}")
                           if [[ "$BROKER_TYPE" == "Ready" ]] && [[ "$BROKER_STATUS" == "True" ]];
                             then
                               echo "ServiesBroker is ready. Job is done.";
+                              success=true;
                               break;
                             else
-                              echo "ServiceBroker is not ready, wait...";
-                              sleep 3;
+                              echo "Check $i/$limit - ServiceBroker is not ready, wait...";
+                              sleep 5;
                           fi
+                        i=$(( i + 1 ))
                       done;
+                      if [ "$success" = false ] ;
+                      then
+                        echo "ServiesBroker is not ready. Timeout reached";
+                        exit 1;
+                      fi

@@ -13,4 +13,4 @@ rules:
       verbs: ["get", "list", "patch", "create", "delete"]
     - apiGroups: [""]
       resources: ["secrets"]
-      verbs:     ["get","list"]
+      verbs:     ["get"]

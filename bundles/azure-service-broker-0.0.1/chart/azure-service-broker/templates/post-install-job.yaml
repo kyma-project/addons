@@ -38,7 +38,7 @@ spec:
 
                       success=false;
                       i=1;
-                      limit=90;
+                      limit=180;
                       while [ "$i" -le "$limit" ];
                       do
                           BROKER_TYPE=$(kubectl get servicebroker -n {{ .Release.Namespace }} {{ include "fullname" . }} -o jsonpath="{.status.conditions[0].type}")
@@ -50,7 +50,7 @@ spec:
                               break;
                             else
                               echo "Check $i/$limit - ServiceBroker is not ready, wait...";
-                              sleep 10;
+                              sleep 5;
                           fi
                         i=$(( i + 1 ))
                       done;

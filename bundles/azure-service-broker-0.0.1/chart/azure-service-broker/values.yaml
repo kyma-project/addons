@@ -37,7 +37,7 @@ azure:
   environment: AzurePublicCloud
 
 tls:
-  enabled: true
+  enabled: false
 
 ## Basic auth credentials that can later be used to access this broker
 basicAuth:

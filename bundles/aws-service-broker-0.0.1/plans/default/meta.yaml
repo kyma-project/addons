@@ -1,0 +1,4 @@
+name: default
+id: f5887d1f-9eca-4649-a236-da087056ea71
+description: "The default plan for installing/uninstalling AWS Broker"
+displayName: Default

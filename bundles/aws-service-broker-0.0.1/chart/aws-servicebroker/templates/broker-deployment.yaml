@@ -1,0 +1,107 @@
+kind: Deployment
+apiVersion: extensions/v1beta1
+metadata:
+  name: {{ template "fullname" . }}
+  labels:
+    app: {{ template "fullname" . }}
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: "{{ .Release.Name }}"
+    heritage: "{{ .Release.Service }}"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ template "fullname" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ template "fullname" . }}
+        chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+        release: "{{ .Release.Name }}"
+        heritage: "{{ .Release.Service }}"
+{{- with .Values.annotations }}
+      annotations:
+{{ toYaml . | indent 8 }}
+{{- end }}
+    spec:
+      serviceAccount: {{ template "fullname" . }}-service
+      containers:
+      - name: awssb
+        image: {{ .Values.image }}
+        imagePullPolicy: {{ .Values.imagePullPolicy }}
+        command:
+        - /usr/local/bin/aws-servicebroker
+        args:
+        - --logtostderr
+        - --port=3199
+        {{- if .Values.tls.cert}}
+        - --tlsCert={{ .Values.tls.cert }}
+        {{- end}}
+        {{- if .Values.tls.key}}
+        - --tlsKey={{ .Values.tls.key }}
+        {{- end}}
+        - --v={{ .Values.brokerconfig.verbosity }}
+        - --tls-cert-file=/var/run/awssb/awssb.crt
+        - --tls-private-key-file=/var/run/awssb/awssb.key
+        - --region={{ .Values.aws.region }}
+        - --s3Bucket={{ .Values.aws.bucket }}
+        - --s3Key={{ .Values.aws.key }}
+        - --s3Region={{ .Values.aws.s3region }}
+        - --tableName={{ .Values.aws.tablename }}
+        - --brokerId={{ .Values.brokerconfig.brokerid }}
+        - --prescribeOverrides={{ .Values.brokerconfig.prescribeoverrides }}
+        ports:
+        - containerPort: 3199
+        livenessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /healthz
+            port: 3199
+            scheme: HTTPS
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 5
+        readinessProbe:
+          failureThreshold: 1
+          httpGet:
+            path: /healthz
+            port: 3199
+            scheme: HTTPS
+          initialDelaySeconds: 30
+          periodSeconds: 5
+          successThreshold: 1
+          timeoutSeconds: 5
+        volumeMounts:
+        - mountPath: /var/run/awssb
+          name: awssb-ssl
+          readOnly: true
+        env:
+        - name: AWS_ACCESS_KEY_ID
+          valueFrom:
+            secretKeyRef:
+              name: {{ template "fullname" . }}-credentials
+              key: accesskeyid
+        - name: AWS_SECRET_ACCESS_KEY
+          valueFrom:
+            secretKeyRef:
+              name: {{ template "fullname" . }}-credentials
+              key: secretkey
+        - name: PARAM_OVERRIDE_{{ .Values.brokerconfig.brokerid }}_all_all_all_region
+          value: {{ .Values.aws.region }}
+        - name: PARAM_OVERRIDE_{{ .Values.brokerconfig.brokerid }}_all_all_all_VpcId
+          value: {{ .Values.aws.vpcid }}
+        - name: PARAM_OVERRIDE_{{ .Values.brokerconfig.brokerid }}_all_all_all_target_account_id
+          value: "{{ .Values.aws.targetaccountid }}"
+        - name: PARAM_OVERRIDE_{{ .Values.brokerconfig.brokerid }}_all_all_all_target_role_name
+          value: {{ .Values.aws.targetrolename }}
+      volumes:
+      - name: awssb-ssl
+        secret:
+          defaultMode: 420
+          secretName: {{ template "fullname" . }}-cert
+          items:
+          - key: tls.crt
+            path: awssb.crt
+          - key: tls.key
+            path: awssb.key

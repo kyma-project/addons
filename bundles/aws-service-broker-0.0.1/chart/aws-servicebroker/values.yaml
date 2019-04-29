@@ -22,6 +22,9 @@ brokerconfig:
 annotations: {}
 clusterDomain: cluster.local
 
+# Secret name where azure credentials are keep
+# like "subscriptionId", "tenantId", "clientId", "clientSecret"
+secretCredentialName: aws-broker-data
 
 # Jobs configuration
 jobs:

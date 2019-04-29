@@ -147,8 +147,8 @@ function waitForServiceToBeAvailable() {
 export ROOT_PATH=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 export BUNDLES_REPO=$( cd "${ROOT_PATH}/.."  && pwd)
 
-rm -fd ${ROOT_PATH}/out
-mkdir ${ROOT_PATH}/out
+rm -rf ${BUNDLES_REPO}/out
+mkdir ${BUNDLES_REPO}/out
 
 cd ${BUNDLES_REPO}
 export TS=$(date +%s)

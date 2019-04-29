@@ -43,11 +43,11 @@ spec:
         - --v={{ .Values.brokerconfig.verbosity }}
         - --tls-cert-file=/var/run/awssb/awssb.crt
         - --tls-private-key-file=/var/run/awssb/awssb.key
-        - --region={{ .Values.aws.region }}
-        - --s3Bucket={{ .Values.aws.bucket }}
-        - --s3Key={{ .Values.aws.key }}
-        - --s3Region={{ .Values.aws.s3region }}
-        - --tableName={{ .Values.aws.tablename }}
+        - --region={{ .Values.region }}
+        - --s3Bucket={{ .Values.bucket }}
+        - --s3Key={{ .Values.key }}
+        - --s3Region={{ .Values.s3region }}
+        - --tableName={{ .Values.tablename }}
         - --brokerId={{ .Values.brokerconfig.brokerid }}
         - --prescribeOverrides={{ .Values.brokerconfig.prescribeoverrides }}
         ports:
@@ -88,13 +88,13 @@ spec:
               name: {{ .Values.secretCredentialName }}
               key: secretkey
         - name: PARAM_OVERRIDE_{{ .Values.brokerconfig.brokerid }}_all_all_all_region
-          value: {{ .Values.aws.region }}
+          value: {{ .Values.region }}
         - name: PARAM_OVERRIDE_{{ .Values.brokerconfig.brokerid }}_all_all_all_VpcId
-          value: {{ .Values.aws.vpcid }}
+          value: {{ .Values.vpcid }}
         - name: PARAM_OVERRIDE_{{ .Values.brokerconfig.brokerid }}_all_all_all_target_account_id
-          value: "{{ .Values.aws.targetaccountid }}"
+          value: "{{ .Values.targetaccountid }}"
         - name: PARAM_OVERRIDE_{{ .Values.brokerconfig.brokerid }}_all_all_all_target_role_name
-          value: {{ .Values.aws.targetrolename }}
+          value: {{ .Values.targetrolename }}
       volumes:
       - name: awssb-ssl
         secret:

@@ -1,25 +1,31 @@
 image: awsservicebroker/aws-servicebroker:beta
 imagePullPolicy: IfNotPresent
 authenticate: true
+
 tls:
   cert:
   key:
+
 deployClusterServiceBroker: false
 deployNamespacedServiceBroker: true
-aws:
-  region: us-east-1
-  bucket: awsservicebroker
-  key: templates/latest
-  s3region: us-east-1
-  tablename: awssb
-  targetaccountid: ""
-  targetrolename: ""
-  vpcid: ""
+region: us-east-1
+bucket: awsservicebroker
+key: templates/latest
+s3region: us-east-1
+tablename: awssb
+targetaccountid: ""
+targetrolename: ""
+vpcid: ""
+
 brokerconfig:
   verbosity: 10
   brokerid: awsservicebroker
   prescribeoverrides: true
-annotations: {}
+
+annotations: {
+sidecar.istio.io/inject: "true"
+}
+
 clusterDomain: cluster.local
 
 # Secret name where azure credentials are keep

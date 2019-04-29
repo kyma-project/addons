@@ -8,7 +8,7 @@
       "default": "IfNotPresent",
       "title": "Image pull policy"
     },
-    "aws.region": {
+    "region": {
       "type": "string",
       "oneOf": [
         {
@@ -104,7 +104,7 @@
       "title": "AWS broker region",
       "description": "The region of the AWS service broker"
     },
-    "aws.s3region": {
+    "s3region": {
       "type": "string",
       "oneOf": [
         {
@@ -207,5 +207,5 @@
       "description": "Domain of your cluster"
     }
   },
-  "required": ["aws.region", "aws.s3region", "clusterDomain"]
+  "required": ["region", "s3region", "clusterDomain"]
 }

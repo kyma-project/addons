@@ -27,7 +27,7 @@ spec:
                   command: ["/bin/sh","-c"]
                   args:
                     - |
-                      SECRET_NAME=$(kubectl get secret -n {{ .Release.Namespace }} aws-broker-data -o jsonpath="{.metadata.name}")
+                      SECRET_NAME=$(kubectl get secret -n {{ .Release.Namespace }} {{ .Values.secretCredentialName }} -o jsonpath="{.metadata.name}")
                       if [[ "$SECRET_NAME" == "aws-broker-data" ]] ;
                         then
                           echo "Success! Secret is present.";

@@ -80,12 +80,12 @@ spec:
         - name: AWS_ACCESS_KEY_ID
           valueFrom:
             secretKeyRef:
-              name: aws-broker-data
+              name: {{ .Values.secretCredentialName }}
               key: accesskeyid
         - name: AWS_SECRET_ACCESS_KEY
           valueFrom:
             secretKeyRef:
-              name: aws-broker-data
+              name: {{ .Values.secretCredentialName }}
               key: secretkey
         - name: PARAM_OVERRIDE_{{ .Values.brokerconfig.brokerid }}_all_all_all_region
           value: {{ .Values.aws.region }}

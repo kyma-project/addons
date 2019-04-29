@@ -1,0 +1,28 @@
+apiVersion: cms.kyma-project.io/v1alpha1
+kind: ClusterDocsTopic
+metadata:
+  name: 0a54e829-c352-4978-9291-c37f779e1900
+  labels:
+    cms.kyma-project.io/view-context: service-catalog
+spec:
+  sources:
+    - type: markdown
+      name: markdown-files
+      mode: package
+      url: {.Values.addonsRepositoryURL}
+      filter: /docs/service-brokers/azure-broker-service-classes/1st
+---
+apiVersion: cms.kyma-project.io/v1alpha1
+kind: ClusterDocsTopic
+metadata:
+  name: dupa
+  labels:
+    cms.kyma-project.io/view-context: service-catalog
+spec:
+  sources:
+    - type: markdown
+      name: markdown-files
+      mode: package
+      url: {.Values.addonsRepositoryURL}
+      filter: /docs/service-brokers/azure-broker-service-classes/mysql
+---

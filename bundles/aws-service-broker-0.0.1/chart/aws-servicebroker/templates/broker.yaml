@@ -6,7 +6,7 @@ kind: ServiceBroker
 kind: ClusterServiceBroker
 {{- end }}
 metadata:
-  name:  "{{ .Release.Name }}"
+  name:  {{ template "fullname" . }}
   labels:
     app: {{ template "fullname" . }}
     chart: "{{ .Chart.Name }}--{{ .Chart.Version }}"

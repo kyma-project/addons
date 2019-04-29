@@ -2,5 +2,210 @@
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
-  }
+    "imagePullPolicy": {
+      "type": "string",
+      "enum": ["Always", "IfNotPresent", "Never"],
+      "default": "IfNotPresent",
+      "title": "Image pull policy"
+    },
+    "brokerRegion": {
+      "type": "string",
+      "oneOf": [
+        {
+          "enum": ["us-east-1"],
+          "title": "US East (N. Virginia)"
+        },
+        {
+          "enum": ["us-east-2"],
+          "title": "US East (Ohio)"
+        },
+        {
+          "enum": ["us-west-1"],
+          "title": "US West (N. California)"
+        },
+        {
+          "enum": ["us-west-2"],
+          "title": "US West (Oregon)"
+        },
+        {
+          "enum": ["ca-central-1"],
+          "title": "Canada (Central)"
+        },
+        {
+          "enum": ["eu-central-1"],
+          "title": "EU (Frankfurt)"
+        },
+        {
+          "enum": ["eu-west-1"],
+          "title": "EU (Ireland)"
+        },
+        {
+          "enum": ["eu-west-2"],
+          "title": "EU (London)"
+        },
+        {
+          "enum": ["eu-west-3"],
+          "title": "EU (Paris)"
+        },
+        {
+          "enum": ["eu-north-1"],
+          "title": "EU (Stockholm)"
+        },
+        {
+          "enum": ["ap-east-1"],
+          "title": "Asia Pacific (Hong Kong)"
+        },
+        {
+          "enum": ["ap-northeast-1"],
+          "title": "Asia Pacific (Tokyo)"
+        },
+        {
+          "enum": ["ap-northeast-2"],
+          "title": "Asia Pacific (Seoul)"
+        },
+        {
+          "enum": ["ap-northeast-3"],
+          "title": "Asia Pacific (Osaka-Local)"
+        },
+        {
+          "enum": ["ap-southeast-1"],
+          "title": "Asia Pacific (Osaka-Local)"
+        },
+        {
+          "enum": ["ap-southeast-2"],
+          "title": "Asia Pacific (Sydney)"
+        },
+        {
+          "enum": ["ap-south-1"],
+          "title": "Asia Pacific (Mumbai)"
+        },
+        {
+          "enum": ["sa-east-1"],
+          "title": "South America (São Paulo)"
+        },
+        {
+          "enum": ["us-gov-east-1"],
+          "title": "AWS GovCloud (US-East)"
+        },
+        {
+          "enum": ["us-gov-west-1"],
+          "title": "AWS GovCloud (US)"
+        },
+        {
+          "enum": ["cn-north-1"],
+          "title": "China (Beijing)"
+        },
+        {
+          "enum": ["cn-northwest-1"],
+          "title": "China (Ningxia)"
+        }
+      ],
+      "default": "eu-central-1",
+      "title": "AWS broker region",
+      "description": "The region of the AWS service broker"
+    },
+    "s3Region": {
+      "type": "string",
+      "oneOf": [
+        {
+          "enum": ["us-east-1"],
+          "title": "US East (N. Virginia)"
+        },
+        {
+          "enum": ["us-east-2"],
+          "title": "US East (Ohio)"
+        },
+        {
+          "enum": ["us-west-1"],
+          "title": "US West (N. California)"
+        },
+        {
+          "enum": ["us-west-2"],
+          "title": "US West (Oregon)"
+        },
+        {
+          "enum": ["ca-central-1"],
+          "title": "Canada (Central)"
+        },
+        {
+          "enum": ["eu-central-1"],
+          "title": "EU (Frankfurt)"
+        },
+        {
+          "enum": ["eu-west-1"],
+          "title": "EU (Ireland)"
+        },
+        {
+          "enum": ["eu-west-2"],
+          "title": "EU (London)"
+        },
+        {
+          "enum": ["eu-west-3"],
+          "title": "EU (Paris)"
+        },
+        {
+          "enum": ["eu-north-1"],
+          "title": "EU (Stockholm)"
+        },
+        {
+          "enum": ["ap-east-1"],
+          "title": "Asia Pacific (Hong Kong)"
+        },
+        {
+          "enum": ["ap-northeast-1"],
+          "title": "Asia Pacific (Tokyo)"
+        },
+        {
+          "enum": ["ap-northeast-2"],
+          "title": "Asia Pacific (Seoul)"
+        },
+        {
+          "enum": ["ap-northeast-3"],
+          "title": "Asia Pacific (Osaka-Local)"
+        },
+        {
+          "enum": ["ap-southeast-1"],
+          "title": "Asia Pacific (Osaka-Local)"
+        },
+        {
+          "enum": ["ap-southeast-2"],
+          "title": "Asia Pacific (Sydney)"
+        },
+        {
+          "enum": ["ap-south-1"],
+          "title": "Asia Pacific (Mumbai)"
+        },
+        {
+          "enum": ["sa-east-1"],
+          "title": "South America (São Paulo)"
+        },
+        {
+          "enum": ["us-gov-east-1"],
+          "title": "AWS GovCloud (US-East)"
+        },
+        {
+          "enum": ["us-gov-west-1"],
+          "title": "AWS GovCloud (US)"
+        },
+        {
+          "enum": ["cn-north-1"],
+          "title": "China (Beijing)"
+        },
+        {
+          "enum": ["cn-northwest-1"],
+          "title": "China (Ningxia)"
+        }
+      ],
+      "default": "eu-central-1",
+      "title": "S3 bucket region",
+      "description": "The region of the S3 bucket"
+    },
+    "clusterDomain": {
+      "type": "string",
+      "title": "Cluster domain",
+      "default": "cluster.local",
+      "description": "Domain of your cluster"
+    }
+  },
+  "required": ["brokerRegion", "s3Region", "clusterDomain"]
 }

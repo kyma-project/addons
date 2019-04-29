@@ -1,5 +1,5 @@
 image: awsservicebroker/aws-servicebroker:beta
-imagePullPolicy: Always
+imagePullPolicy: IfNotPresent
 authenticate: true
 tls:
   cert:
@@ -12,8 +12,6 @@ aws:
   key: templates/latest
   s3region: us-east-1
   tablename: awssb
-  accesskeyid: ""
-  secretkey: ""
   targetaccountid: ""
   targetrolename: ""
   vpcid: ""
@@ -23,3 +21,11 @@ brokerconfig:
   prescribeoverrides: true
 annotations: {}
 clusterDomain: cluster.local
+
+
+# Jobs configuration
+jobs:
+  kubectlImage:
+    repository: eu.gcr.io/kyma-project/develop/gcp-broker-provider
+    tag: 237ba00f
+    pullPolicy: IfNotPresent

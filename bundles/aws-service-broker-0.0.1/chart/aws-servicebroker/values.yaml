@@ -8,6 +8,7 @@ tls:
 
 deployClusterServiceBroker: false
 deployNamespacedServiceBroker: true
+
 region: us-east-1
 bucket: awsservicebroker
 key: templates/latest
@@ -16,6 +17,7 @@ tablename: awssb
 targetaccountid: ""
 targetrolename: ""
 vpcid: ""
+clusterDomain: cluster.local
 
 brokerconfig:
   verbosity: 10
@@ -26,10 +28,8 @@ annotations: {
 sidecar.istio.io/inject: "true"
 }
 
-clusterDomain: cluster.local
-
-# Secret name where azure credentials are keep
-# like "subscriptionId", "tenantId", "clientId", "clientSecret"
+# Secret name where aws credentials are keep
+# like "accesskeyid", "secretkey"
 secretCredentialName: aws-broker-data
 
 # Jobs configuration

@@ -82,22 +82,6 @@
         {
           "enum": ["sa-east-1"],
           "title": "South America (São Paulo)"
-        },
-        {
-          "enum": ["us-gov-east-1"],
-          "title": "AWS GovCloud (US-East)"
-        },
-        {
-          "enum": ["us-gov-west-1"],
-          "title": "AWS GovCloud (US)"
-        },
-        {
-          "enum": ["cn-north-1"],
-          "title": "China (Beijing)"
-        },
-        {
-          "enum": ["cn-northwest-1"],
-          "title": "China (Ningxia)"
         }
       ],
       "default": "eu-central-1",
@@ -178,34 +162,45 @@
         {
           "enum": ["sa-east-1"],
           "title": "South America (São Paulo)"
-        },
-        {
-          "enum": ["us-gov-east-1"],
-          "title": "AWS GovCloud (US-East)"
-        },
-        {
-          "enum": ["us-gov-west-1"],
-          "title": "AWS GovCloud (US)"
-        },
-        {
-          "enum": ["cn-north-1"],
-          "title": "China (Beijing)"
-        },
-        {
-          "enum": ["cn-northwest-1"],
-          "title": "China (Ningxia)"
         }
       ],
       "default": "eu-central-1",
       "title": "S3 bucket region",
       "description": "The region of the S3 bucket"
     },
-    "clusterDomain": {
+    "bucket": {
       "type": "string",
-      "title": "Cluster domain",
-      "default": "cluster.local",
-      "description": "Domain of your cluster"
-    }
+      "title": "Bucket name",
+      "default": "awsservicebroker",
+      "description": "The name of the S3 bucket"
+    },
+    "key": {
+      "type": "string",
+      "title": "Bucket key",
+      "default": "templates/latest",
+      "description": "The name of the bucket key"
+    },
+    "tablename": {
+      "type": "string",
+      "title": "Table name",
+      "default": "awssb",
+      "description": "The name of the table"
+    },
+    "targetaccountid": {
+      "type": "string",
+      "title": "Target account ID",
+      "description": "The ID of your target account"
+    },
+    "targetrolename": {
+      "type": "string",
+      "title": "Target role name",
+      "description": "The name of your target role"
+    },
+    "vpcid": {
+      "type": "string",
+      "title": "VPC ID",
+      "description": "The ID of your VPC"
+    },
   },
-  "required": ["region", "s3region", "clusterDomain"]
+  "required": ["region", "s3region", "clusterDomain", "bucket", "tablename"]
 }

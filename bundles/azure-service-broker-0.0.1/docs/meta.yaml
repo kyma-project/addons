@@ -1,0 +1,9 @@
+docs:
+  - template:
+      displayName: "GCP Service Broker"
+      description: "Documentation for GCP Service Broker."
+      sources:
+        - type: markdown
+          name: markdown-files
+          mode: package
+          filter: docs/broker

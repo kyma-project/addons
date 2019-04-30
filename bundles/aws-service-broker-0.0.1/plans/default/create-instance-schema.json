@@ -200,7 +200,7 @@
       "type": "string",
       "title": "VPC ID",
       "description": "The ID of your VPC"
-    },
+    }
   },
   "required": ["region", "s3region", "clusterDomain", "bucket", "tablename"]
 }

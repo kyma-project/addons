@@ -2,12 +2,6 @@
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
-    "imagePullPolicy": {
-      "type": "string",
-      "enum": ["Always", "IfNotPresent", "Never"],
-      "default": "IfNotPresent",
-      "title": "Image pull policy"
-    },
     "region": {
       "type": "string",
       "oneOf": [
@@ -84,9 +78,13 @@
           "title": "South America (São Paulo)"
         }
       ],
-      "default": "eu-central-1",
-      "title": "AWS broker region",
-      "description": "The region of the AWS service broker"
+      "default": "us-east-1",
+      "title": "Broker region"
+    },
+    "brokerid": {
+      "type": "string",
+      "title": "Service Broker ID",
+      "default": "awsservicebroker"
     },
     "s3region": {
       "type": "string",
@@ -164,43 +162,47 @@
           "title": "South America (São Paulo)"
         }
       ],
-      "default": "eu-central-1",
-      "title": "S3 bucket region",
-      "description": "The region of the S3 bucket"
+      "default": "us-east-1",
+      "title": "S3 Bucket region"
     },
     "bucket": {
       "type": "string",
-      "title": "Bucket name",
-      "default": "awsservicebroker",
-      "description": "The name of the S3 bucket"
+      "title": "S3 Bucket name",
+      "default": "awsservicebroker"
     },
     "key": {
       "type": "string",
-      "title": "Bucket key",
-      "default": "templates/latest",
-      "description": "The name of the bucket key"
+      "title": "S3 Bucket key",
+      "default": "templates/latest"
     },
     "tablename": {
       "type": "string",
-      "title": "Table name",
-      "default": "awssb",
-      "description": "The name of the table"
+      "title": "DynamoDB table name",
+      "default": "awssb"
+    },
+    "imagePullPolicy": {
+      "type": "string",
+      "enum": ["Always", "IfNotPresent", "Never"],
+      "default": "IfNotPresent",
+      "title": "Image pull policy"
+    },
+    "prescribeoverrides": {
+      "title": "Prescribe-overrides feature enabled",
+      "type": "boolean",
+      "default": true
     },
     "targetaccountid": {
       "type": "string",
-      "title": "Target account ID",
-      "description": "The ID of your target account"
+      "title": "Target account ID"
     },
     "targetrolename": {
       "type": "string",
-      "title": "Target role name",
-      "description": "The name of your target role"
+      "title": "Target IAM role name"
     },
     "vpcid": {
       "type": "string",
-      "title": "VPC ID",
-      "description": "The ID of your VPC"
+      "title": "VPC ID"
     }
   },
-  "required": ["region", "s3region", "clusterDomain", "bucket", "tablename"]
+  "required": ["region", "s3region", "clusterDomain", "bucket", "tablename", "key", "brokerid"]
 }

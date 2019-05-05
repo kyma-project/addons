@@ -19,13 +19,37 @@ spec:
         chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
         release: "{{ .Release.Name }}"
         heritage: "{{ .Release.Service }}"
-{{- with .Values.annotations }}
       annotations:
-{{ toYaml . | indent 8 }}
-{{- end }}
+        sidecar.istio.io/inject: "true"
     spec:
       serviceAccount: {{ template "fullname" . }}-service
       containers:
+      - name: healthcheck
+        image: eu.gcr.io/kyma-project/develop/service-catalog/health-proxy:0.0.1
+        env:
+        - name: PROXY_TARGET_URL
+          value: "https://localhost:3199/"
+        imagePullPolicy: Always
+        livenessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /healthz
+            port: 8080
+            scheme: HTTP
+          initialDelaySeconds: 40
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 5
+        readinessProbe:
+          failureThreshold: 1
+          httpGet:
+            path: /healthz
+            port: 8080
+            scheme: HTTP
+          initialDelaySeconds: 20
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 5
       - name: awssb
         image: {{ .Values.image }}
         imagePullPolicy: {{ .Values.imagePullPolicy }}
@@ -48,30 +72,10 @@ spec:
         - --s3Key={{ .Values.key }}
         - --s3Region={{ .Values.s3region }}
         - --tableName={{ .Values.tablename }}
-        - --brokerId={{ .Values.brokerconfig.brokerid }}
-        - --prescribeOverrides={{ .Values.brokerconfig.prescribeoverrides }}
+        - --brokerId={{ .Values.brokerid }}
+        - --prescribeOverrides={{ .Values.prescribeoverrides }}
         ports:
         - containerPort: 3199
-        livenessProbe:
-          failureThreshold: 3
-          httpGet:
-            path: /healthz
-            port: 3199
-            scheme: HTTPS
-          initialDelaySeconds: 30
-          periodSeconds: 10
-          successThreshold: 1
-          timeoutSeconds: 5
-        readinessProbe:
-          failureThreshold: 1
-          httpGet:
-            path: /healthz
-            port: 3199
-            scheme: HTTPS
-          initialDelaySeconds: 30
-          periodSeconds: 5
-          successThreshold: 1
-          timeoutSeconds: 5
         volumeMounts:
         - mountPath: /var/run/awssb
           name: awssb-ssl
@@ -87,13 +91,13 @@ spec:
             secretKeyRef:
               name: {{ .Values.secretCredentialName }}
               key: secretkey
-        - name: PARAM_OVERRIDE_{{ .Values.brokerconfig.brokerid }}_all_all_all_region
+        - name: PARAM_OVERRIDE_{{ .Values.brokerid }}_all_all_all_region
           value: {{ .Values.region }}
-        - name: PARAM_OVERRIDE_{{ .Values.brokerconfig.brokerid }}_all_all_all_VpcId
+        - name: PARAM_OVERRIDE_{{ .Values.brokerid }}_all_all_all_VpcId
           value: {{ .Values.vpcid }}
-        - name: PARAM_OVERRIDE_{{ .Values.brokerconfig.brokerid }}_all_all_all_target_account_id
+        - name: PARAM_OVERRIDE_{{ .Values.brokerid }}_all_all_all_target_account_id
           value: "{{ .Values.targetaccountid }}"
-        - name: PARAM_OVERRIDE_{{ .Values.brokerconfig.brokerid }}_all_all_all_target_role_name
+        - name: PARAM_OVERRIDE_{{ .Values.brokerid }}_all_all_all_target_role_name
           value: {{ .Values.targetrolename }}
       volumes:
       - name: awssb-ssl

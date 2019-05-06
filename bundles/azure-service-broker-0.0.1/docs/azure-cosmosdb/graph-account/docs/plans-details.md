@@ -70,3 +70,13 @@ Idempotently update the service instance to specified state.
 | **ipFilters.allowedIPRanges** | `array` | Values to include in IP Filter. Can be IP Address or CIDR range. | No | If not specified, no additional values will be included in filters. |
 | **readRegions** | `array ` | Read regions to be created, your data will be synchronized across these regions, providing high availability and disaster recovery ability. Region's order in the array will be treated as failover priority.  See [here](#About Read Regions) for points to pay attention to. | No | If not specified, no replication region will be created. |
 | **autoFailoverEnabled** | `string ` | Specifies if you want Cosmos DB to perform automatic failover of the write region to one of the read regions in the rare event of a data center outage. Valid values are [ "enabled", "disabled"]. **Note**: If `multipleWriteRegionsEnabled` is set to `enabled`, all regions will be writable, and this attribute will not work. | No | If not specified, default "disabled". |
+
+## Supplementary explanation
+
+### About Read Regions
+
+**Caution**: This feature has several constraint in ` Strong ` and ` Bounded Staleness ` consistency level, we recommend you use this feature in `Session`, ` Consistent Prefix ` and ` Eventual `  consistency level.
+
+**Caution**: Do NOT fill provision parameter `location` in the `readRegions` array. For example, if the `location` of your account is `eastus` and you want to add a read region `westus`, you should use `{"readRegions": ["westus"]}` instead of `{"readRegions": ["eastus", "westus"]}`.
+
+**Caution**: Allowed elements in `readRegions` array:  `"westus2", "westus", "southcentralus", "centralus", "northcentralus", "canadacentral", "eastus2", "canadaeast", "northeurope", "ukwest", "uksouth", "francecentral", "westeurope", "westindia", "centralindia", "southindia", "southeastasia", "eastasia", "koreacentral", "koreasouth", "japaneast", "japanwest", "australiasoutheast", "australiaeast"`.

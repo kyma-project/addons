@@ -1,5 +1,5 @@
 ---
-title: Services and Plans
+title: Details
 type: Details
 ---
 

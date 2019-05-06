@@ -1,0 +1,13 @@
+kind: Role
+apiVersion: rbac.authorization.k8s.io/v1beta1
+metadata:
+  name: {{ include "gcp-broker-provider.fullname" . }}-docu-checker
+  labels:
+    app: {{ include "gcp-broker-provider.name" . }}
+    chart: {{ include "gcp-broker-provider.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+rules:
+  - apiGroups: ["cms.kyma-project.io"]
+    resources: ["docstopics"]
+    verbs: ["list"]

@@ -1,13 +1,15 @@
 name: redis
 version: 0.0.3
 id: a2257daa-0e26-4c61-a68d-8a7453c1b767
-description: "Redis by Helm Broker (Experimental)"
-displayName: Redis
+description: "[Experimental] Redis by Helm Broker. This is an example bundle. It is not recommended for production scenarios."
+displayName: "[Experimental] Redis"
 
-tags: database, cache
+tags: database, cache, experimental
+labels:
+  experimental: "true"
 providerDisplayName: bitnami
-longDescription: Redis is an advanced key-value cache and store
+longDescription: "[Experimental] Redis by Helm Broker. This is an example bundle. It is not recommended for production scenarios. Redis is an advanced key-value cache and store."
 documentationURL: https://github.com/bitnami/bitnami-docker-redis
 supportURL: https://bitnami.com/support
-imageURL: https://azure.microsoft.com/svghandler/redis-cache/
+imageURL: https://cdn.auth0.com/blog/logos/redis-icon-logo.png
 bindable: true

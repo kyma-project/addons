@@ -33,5 +33,5 @@ These are the provisioning parameters:
 | **table_name** | `string` | Specifies the name of the table in the DynamoDB. | YES | `awssb` |
 | **target_account_id** | `string` | Specifies the AWS Account ID to use. | NO |  |
 | **target_role_name** | `string` | Specifies the IAM Role name to provision with, must be used in combination with target_account_id. | NO |  |
-| **vpc_id** | `string` | Defines the VPC ID to use. For more information check this [documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-subnets-commands-example.html). | NO |  |
+| **vpc_id** | `string` | Defines the VPC ID to launch broker into. For more information check this [documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-subnets-commands-example.html). | NO |  |
 | **prescribe_overrides** | `string` | Defines if the broker will use [prescribe overrides](https://github.com/awslabs/aws-servicebroker/tree/v1.0.0/docs#parameter-overrides) feature. | YES | `true` |

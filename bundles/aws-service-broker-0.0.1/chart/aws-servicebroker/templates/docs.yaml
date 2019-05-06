@@ -5,6 +5,8 @@ metadata:
   namespace: {{ .Release.Namespace }}
   labels:
     cms.kyma-project.io/view-context: service-catalog
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: "{{ .Release.Name }}"
 spec:
   sources:
     - type: markdown
@@ -19,6 +21,8 @@ metadata:
   namespace: {{ .Release.Namespace }}
   labels:
     cms.kyma-project.io/view-context: service-catalog
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: "{{ .Release.Name }}"
 spec:
   sources:
     - type: markdown
@@ -34,6 +38,8 @@ metadata:
   namespace: {{ .Release.Namespace }}
   labels:
     cms.kyma-project.io/view-context: service-catalog
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: "{{ .Release.Name }}"
 spec:
   sources:
     - type: markdown
@@ -49,6 +55,8 @@ metadata:
   namespace: {{ .Release.Namespace }}
   labels:
     cms.kyma-project.io/view-context: service-catalog
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: "{{ .Release.Name }}"
 spec:
   sources:
     - type: markdown
@@ -64,6 +72,8 @@ metadata:
   namespace: {{ .Release.Namespace }}
   labels:
     cms.kyma-project.io/view-context: service-catalog
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: "{{ .Release.Name }}"
 spec:
   sources:
     - type: markdown
@@ -79,6 +89,8 @@ metadata:
   namespace: {{ .Release.Namespace }}
   labels:
     cms.kyma-project.io/view-context: service-catalog
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: "{{ .Release.Name }}"
 spec:
   sources:
     - type: markdown
@@ -94,6 +106,8 @@ metadata:
   namespace: {{ .Release.Namespace }}
   labels:
     cms.kyma-project.io/view-context: service-catalog
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: "{{ .Release.Name }}"
 spec:
   sources:
     - type: markdown
@@ -109,6 +123,8 @@ metadata:
   namespace: {{ .Release.Namespace }}
   labels:
     cms.kyma-project.io/view-context: service-catalog
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: "{{ .Release.Name }}"
 spec:
   sources:
     - type: markdown
@@ -124,6 +140,8 @@ metadata:
   namespace: {{ .Release.Namespace }}
   labels:
     cms.kyma-project.io/view-context: service-catalog
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: "{{ .Release.Name }}"
 spec:
   sources:
     - type: markdown
@@ -139,6 +157,8 @@ metadata:
   namespace: {{ .Release.Namespace }}
   labels:
     cms.kyma-project.io/view-context: service-catalog
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: "{{ .Release.Name }}"
 spec:
   sources:
     - type: markdown
@@ -154,6 +174,8 @@ metadata:
   namespace: {{ .Release.Namespace }}
   labels:
     cms.kyma-project.io/view-context: service-catalog
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: "{{ .Release.Name }}"
 spec:
   sources:
     - type: markdown
@@ -169,6 +191,8 @@ metadata:
   namespace: {{ .Release.Namespace }}
   labels:
     cms.kyma-project.io/view-context: service-catalog
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: "{{ .Release.Name }}"
 spec:
   sources:
     - type: markdown
@@ -184,6 +208,8 @@ metadata:
   namespace: {{ .Release.Namespace }}
   labels:
     cms.kyma-project.io/view-context: service-catalog
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: "{{ .Release.Name }}"
 spec:
   sources:
     - type: markdown
@@ -199,6 +225,8 @@ metadata:
   namespace: {{ .Release.Namespace }}
   labels:
     cms.kyma-project.io/view-context: service-catalog
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: "{{ .Release.Name }}"
 spec:
   sources:
     - type: markdown
@@ -214,6 +242,8 @@ metadata:
   namespace: {{ .Release.Namespace }}
   labels:
     cms.kyma-project.io/view-context: service-catalog
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: "{{ .Release.Name }}"
 spec:
   sources:
     - type: markdown
@@ -229,6 +259,8 @@ metadata:
   namespace: {{ .Release.Namespace }}
   labels:
     cms.kyma-project.io/view-context: service-catalog
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: "{{ .Release.Name }}"
 spec:
   sources:
     - type: markdown
@@ -244,6 +276,8 @@ metadata:
   namespace: {{ .Release.Namespace }}
   labels:
     cms.kyma-project.io/view-context: service-catalog
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: "{{ .Release.Name }}"
 spec:
   sources:
     - type: markdown
@@ -259,6 +293,8 @@ metadata:
   namespace: {{ .Release.Namespace }}
   labels:
     cms.kyma-project.io/view-context: service-catalog
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: "{{ .Release.Name }}"
 spec:
   sources:
     - type: markdown

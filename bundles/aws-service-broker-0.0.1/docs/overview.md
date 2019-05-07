@@ -13,7 +13,7 @@ The DynamoDB is used to keep the broker's state so it must exist in the broker's
 
 ### Prerequisites
 
-Install and configure the [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html).
+[Install](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html) and [configure](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html) the AWS CLI.
 
 ### Steps
 
@@ -21,7 +21,7 @@ To install AWS Service Broker you must set up the IAM User and DynamoDB table on
 
 Follow these steps to create a proper Kubernetes Secret with all necessary data to provision AWS Service Broker:
 
->**NOTE:** If you already created the IAM User and DynamoDB table on AWS you can reuse the secrets for them and skip to step number 7.
+>**NOTE:** If you already created the IAM User and DynamoDB table on AWS you can reuse the secrets for them and skip to secret creation step.
 
 1. Export the `REGION` variable:
 ```bash
@@ -54,7 +54,7 @@ aws cloudformation describe-stacks \
     --output text; \
     echo $ST;
 ```
-The output if the stack is completed should equals: `CREATE_COMPLETE`
+If the stack is completed, the output should equals: `CREATE_COMPLETE`
 
 5. Export `USERNAME` from the stack outputs:
 ```bash
@@ -81,9 +81,15 @@ The above script should return the following credentials:
 }
 ```
 
-7. Use the **KEY_ID** and **SECRET_ACCESS_KEY** environment variables to create a secret in the broker's namespace:
+7. Export these variables:
+```bash
+export KEY_ID=*********
+export SECRET_ACCESS_KEY=***********
 ```
-env KEY_ID=***** SECRET_ACCESS_KEY=****** kubectl create secret generic {secret_name} -n {namespace} --from-literal=accesskeyid=$KEY_ID --from-literal=secretkey=$SECRET_ACCESS_KEY
+
+8. Use the **KEY_ID** and **SECRET_ACCESS_KEY** environment variables to create a secret in the broker's namespace:
+```
+kubectl create secret generic {secret_name} -n {namespace} --from-literal=accesskeyid=$KEY_ID --from-literal=secretkey=$SECRET_ACCESS_KEY
 ```
 
 For more detailed information about the AWS Service Broker prerequisites read this [document](https://github.com/awslabs/aws-servicebroker/blob/v1.0.0/docs/install_prereqs.md).

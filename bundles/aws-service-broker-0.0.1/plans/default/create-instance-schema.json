@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
-    "secretCredentialName": {
+    "secretName": {
       "type": "string",
       "title": "AWS secret name",
       "description": "Name of the secret which contains AWS secrets - accesskeyid and secretkey"
@@ -88,5 +88,5 @@
       "description": "Must match the dynamoDB region"
     }
   },
-  "required": ["clusterDomain", "secretCredentialName"]
+  "required": ["clusterDomain", "secretName"]
 }

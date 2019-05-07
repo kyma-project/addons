@@ -59,3 +59,4 @@ spec:
                         echo "ServiesBroker is not ready. Timeout reached";
                         exit 1;
                       fi
+---

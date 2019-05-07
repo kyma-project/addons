@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: {{ include "gcp-broker-provider.fullname" . }}
+  name: {{ include "gcp-broker-provider.fullname" . }}-docu-checker
   labels:
     app: {{ include "gcp-broker-provider.name" . }}
     chart: {{ include "gcp-broker-provider.chart" . }}

@@ -2,207 +2,91 @@
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
+    "secretCredentialName": {
+      "type": "string",
+      "title": "AWS secret name",
+      "description": "Name of the secret which contains AWS secrets - accesskeyid and secretkey"
+    },
     "region": {
       "type": "string",
       "oneOf": [
         {
           "enum": ["us-east-1"],
-          "title": "US East (N. Virginia)"
+          "title": "us-east-1 (N. Virginia)"
         },
         {
           "enum": ["us-east-2"],
-          "title": "US East (Ohio)"
+          "title": "us-east-2 (Ohio)"
         },
         {
           "enum": ["us-west-1"],
-          "title": "US West (N. California)"
+          "title": "us-west-1 (N. California)"
         },
         {
           "enum": ["us-west-2"],
-          "title": "US West (Oregon)"
+          "title": "us-west-2 (Oregon)"
         },
         {
           "enum": ["ca-central-1"],
-          "title": "Canada (Central)"
+          "title": "ca-central-1 (Central)"
         },
         {
           "enum": ["eu-central-1"],
-          "title": "EU (Frankfurt)"
+          "title": "eu-central-1 (Frankfurt)"
         },
         {
           "enum": ["eu-west-1"],
-          "title": "EU (Ireland)"
+          "title": "eu-west-1 (Ireland)"
         },
         {
           "enum": ["eu-west-2"],
-          "title": "EU (London)"
+          "title": "eu-west-2 (London)"
         },
         {
           "enum": ["eu-west-3"],
-          "title": "EU (Paris)"
+          "title": "eu-west-3 (Paris)"
         },
         {
           "enum": ["eu-north-1"],
-          "title": "EU (Stockholm)"
+          "title": "eu-north-1 (Stockholm)"
         },
         {
           "enum": ["ap-east-1"],
-          "title": "Asia Pacific (Hong Kong)"
+          "title": "ap-east-1 (Hong Kong)"
         },
         {
           "enum": ["ap-northeast-1"],
-          "title": "Asia Pacific (Tokyo)"
+          "title": "ap-northeast-1 (Tokyo)"
         },
         {
           "enum": ["ap-northeast-2"],
-          "title": "Asia Pacific (Seoul)"
+          "title": "ap-northeast-2 (Seoul)"
         },
         {
           "enum": ["ap-northeast-3"],
-          "title": "Asia Pacific (Osaka-Local)"
+          "title": "ap-northeast-3 (Osaka-Local)"
         },
         {
           "enum": ["ap-southeast-1"],
-          "title": "Asia Pacific (Osaka-Local)"
+          "title": "ap-southeast-1 (Singapore)"
         },
         {
           "enum": ["ap-southeast-2"],
-          "title": "Asia Pacific (Sydney)"
+          "title": "ap-southeast-2 (Sydney)"
         },
         {
           "enum": ["ap-south-1"],
-          "title": "Asia Pacific (Mumbai)"
+          "title": "ap-south-1 (Mumbai)"
         },
         {
           "enum": ["sa-east-1"],
-          "title": "South America (São Paulo)"
+          "title": "sa-east-1 (São Paulo)"
         }
       ],
       "default": "us-east-1",
-      "title": "Broker region"
-    },
-    "brokerid": {
-      "type": "string",
-      "title": "Service Broker ID",
-      "default": "awsservicebroker"
-    },
-    "s3region": {
-      "type": "string",
-      "oneOf": [
-        {
-          "enum": ["us-east-1"],
-          "title": "US East (N. Virginia)"
-        },
-        {
-          "enum": ["us-east-2"],
-          "title": "US East (Ohio)"
-        },
-        {
-          "enum": ["us-west-1"],
-          "title": "US West (N. California)"
-        },
-        {
-          "enum": ["us-west-2"],
-          "title": "US West (Oregon)"
-        },
-        {
-          "enum": ["ca-central-1"],
-          "title": "Canada (Central)"
-        },
-        {
-          "enum": ["eu-central-1"],
-          "title": "EU (Frankfurt)"
-        },
-        {
-          "enum": ["eu-west-1"],
-          "title": "EU (Ireland)"
-        },
-        {
-          "enum": ["eu-west-2"],
-          "title": "EU (London)"
-        },
-        {
-          "enum": ["eu-west-3"],
-          "title": "EU (Paris)"
-        },
-        {
-          "enum": ["eu-north-1"],
-          "title": "EU (Stockholm)"
-        },
-        {
-          "enum": ["ap-east-1"],
-          "title": "Asia Pacific (Hong Kong)"
-        },
-        {
-          "enum": ["ap-northeast-1"],
-          "title": "Asia Pacific (Tokyo)"
-        },
-        {
-          "enum": ["ap-northeast-2"],
-          "title": "Asia Pacific (Seoul)"
-        },
-        {
-          "enum": ["ap-northeast-3"],
-          "title": "Asia Pacific (Osaka-Local)"
-        },
-        {
-          "enum": ["ap-southeast-1"],
-          "title": "Asia Pacific (Osaka-Local)"
-        },
-        {
-          "enum": ["ap-southeast-2"],
-          "title": "Asia Pacific (Sydney)"
-        },
-        {
-          "enum": ["ap-south-1"],
-          "title": "Asia Pacific (Mumbai)"
-        },
-        {
-          "enum": ["sa-east-1"],
-          "title": "South America (São Paulo)"
-        }
-      ],
-      "default": "us-east-1",
-      "title": "S3 Bucket region"
-    },
-    "bucket": {
-      "type": "string",
-      "title": "S3 Bucket name",
-      "default": "awsservicebroker"
-    },
-    "key": {
-      "type": "string",
-      "title": "S3 Bucket key",
-      "default": "templates/latest"
-    },
-    "tablename": {
-      "type": "string",
-      "title": "DynamoDB table name",
-      "default": "awssb"
-    },
-    "imagePullPolicy": {
-      "type": "string",
-      "enum": ["Always", "IfNotPresent", "Never"],
-      "default": "IfNotPresent",
-      "title": "Image pull policy"
-    },
-    "prescribeoverrides": {
-      "title": "Prescribe-overrides feature enabled",
-      "type": "boolean",
-      "default": true
-    },
-    "targetaccountid": {
-      "type": "string",
-      "title": "Target account ID"
-    },
-    "targetrolename": {
-      "type": "string",
-      "title": "Target IAM role name"
-    },
-    "vpcid": {
-      "type": "string",
-      "title": "VPC ID"
+      "title": "Broker region",
+      "description": "Must match the dynamoDB region"
     }
   },
-  "required": ["region", "s3region", "clusterDomain", "bucket", "tablename", "key", "brokerid"]
+  "required": ["clusterDomain", "secretCredentialName"]
 }

@@ -84,12 +84,12 @@ spec:
         - name: AWS_ACCESS_KEY_ID
           valueFrom:
             secretKeyRef:
-              name: {{ .Values.secretCredentialName }}
+              name: {{ .Values.secretName }}
               key: accesskeyid
         - name: AWS_SECRET_ACCESS_KEY
           valueFrom:
             secretKeyRef:
-              name: {{ .Values.secretCredentialName }}
+              name: {{ .Values.secretName }}
               key: secretkey
         - name: PARAM_OVERRIDE_{{ .Values.brokerid }}_all_all_all_region
           value: {{ .Values.region }}

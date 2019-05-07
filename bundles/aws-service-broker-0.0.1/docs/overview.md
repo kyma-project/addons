@@ -7,49 +7,73 @@ type: Overview
 
 The [AWS Service Broker](https://github.com/awslabs/aws-servicebroker/blob/v1.0.0/docs) class exposes the [Amazon Web Services](https://aws.amazon.com/) from a given S3 bucket in a given Namespace of the Kyma cluster.
 
-The AWS Service Broker uses the DynamoDB to keep the broker's state.
+The DynamoDB is used to keep the broker's state so it must exist in the broker's region.
 
-## Prerequisites
+## Create a secret
 
-To install AWS Service Broker you must set up the IAM User and DynamoDB table on AWS. This can be done easily using a CloudFormation template. Use the following script to set up the prerequisites:
+### Prerequisites
 
+Install and configure the [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html).
+
+### Steps
+
+To install AWS Service Broker you must set up the IAM User and DynamoDB table on AWS. This can be done easily using a CloudFormation template. 
+
+Follow these steps to create a proper Kubernetes Secret with all necessary data to provision AWS Service Broker:
+
+>**NOTE:** If you already created the IAM User and DynamoDB table on AWS you can reuse the secrets for them and skip to step number 7.
+
+1. Export the `REGION` variable:
 ```bash
-REGION=us-east-1
-# Download the template
+export REGION=us-east-1
+```
+Be sure to set the `REGION` variable to the AWS region where you would like to provision services.
+
+2. Download the template:
+```bash
 wget https://raw.githubusercontent.com/awslabs/aws-servicebroker/v1.0.0/setup/prerequisites.yaml
-# Create stack
-STACK_ID=$(aws cloudformation create-stack \
-             --capabilities CAPABILITY_IAM \
-             --template-body file://prerequisites.yaml \
-             --stack-name  aws-service-broker-prerequisites \
-             --output text --query "StackId" \
-             --region ${REGION})
-# Wait for stack to complete
-until \
-    ST=$(aws cloudformation describe-stacks \
-        --region ${REGION} \
-        --stack-name ${STACK_ID} \
-        --query "Stacks[0].StackStatus" \
-        --output text); \
-        echo $ST; echo $ST | grep "CREATE_COMPLETE"
-    do sleep 5
-done
-# Get the username from the stack outputs
-USERNAME=$(aws cloudformation describe-stacks \
-             --region ${REGION} \
-             --stack-name ${STACK_ID} \
-             --query "Stacks[0].Outputs[0].OutputValue" \
-             --output text)
-# Create IAM access key. Note down the output, we'll need it when setting up the broker
+```
+You may need to align the `prerequisites.yaml` file if you use the `customizable` plan and you change the bucket or dynamoDB parameters.
+
+3. Create the AWS stack:
+```bash
+export STACK_ID=$(aws cloudformation create-stack \
+     --capabilities CAPABILITY_IAM \
+     --template-body file://prerequisites.yaml \
+     --stack-name  aws-service-broker-prerequisites \
+     --output text --query "StackId" \
+     --region $REGION)
+```
+
+4. Check if the stack is completed:
+```bash
+aws cloudformation describe-stacks \
+    --region $REGION \
+    --stack-name $STACK_ID \
+    --query "Stacks[0].StackStatus" \
+    --output text; \
+    echo $ST;
+```
+The output if the stack is completed should equals: `CREATE_COMPLETE`
+
+5. Export `USERNAME` from the stack outputs:
+```bash
+export USERNAME=$(aws cloudformation describe-stacks \
+     --region $REGION \
+     --stack-name $STACK_ID \
+     --query "Stacks[0].Outputs[0].OutputValue" \
+     --output text)
+```
+
+6. Create the IAM user credentials:
+```bash
 aws iam create-access-key \
-    --user-name ${USERNAME} \
+    --user-name $USERNAME \
     --output json \
     --query 'AccessKey.{KEY_ID:AccessKeyId,SECRET_ACCESS_KEY:SecretAccessKey}'
 ```
->**NOTE:** Be sure to set the REGION variable to the AWS region where you would like to provision services.
 
-The above script should return the following output:
-
+The above script should return the following credentials:
 ```
 {
     "KEY_ID": "*********",
@@ -57,20 +81,10 @@ The above script should return the following output:
 }
 ```
 
-Use **KEY_ID** and **SECRET_ACCESS_KEY** to create a secret with the name **aws-broker-data** in the broker's namespace:
-
+7. Use the **KEY_ID** and **SECRET_ACCESS_KEY** environment variables to create a secret in the broker's namespace:
 ```
-apiVersion: v1
-kind: Secret
-metadata:
-  name: aws-broker-data
-  namespace: {broker namespace}
-type: Opaque
-data:
-  accesskeyid: KEY_ID b64encoded
-  secretkey: SECRET_ACCESS_KEY b64encoded
+env KEY_ID=***** SECRET_ACCESS_KEY=****** kubectl create secret generic {secret_name} -n {namespace} --from-literal=accesskeyid=$KEY_ID --from-literal=secretkey=$SECRET_ACCESS_KEY
 ```
->**NOTE:** You must create secret with **access key ID** and **secret access key** encoded via base64.
 
 For more detailed information about the AWS Service Broker prerequisites read this [document](https://github.com/awslabs/aws-servicebroker/blob/v1.0.0/docs/install_prereqs.md).
 

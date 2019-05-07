@@ -12,7 +12,7 @@ spec:
     - type: markdown
       name: athena-readme
       mode: single
-      url: "https://raw.githubusercontent.com/awslabs/aws-servicebroker/v1.0.0/templates/athena/README.md"
+      url: "https://raw.githubusercontent.com/awslabs/aws-servicebroker/{{ .Chart.Version }}/templates/athena/README.md"
 ---
 apiVersion: cms.kyma-project.io/v1alpha1
 kind: DocsTopic
@@ -28,7 +28,7 @@ spec:
     - type: markdown
       name: emr-readme
       mode: single
-      url: "https://raw.githubusercontent.com/awslabs/aws-servicebroker/v1.0.0/templates/emr/README.md"
+      url: "https://raw.githubusercontent.com/awslabs/aws-servicebroker/{{ .Chart.Version }}/templates/emr/README.md"
 
 ---
 apiVersion: cms.kyma-project.io/v1alpha1
@@ -45,7 +45,7 @@ spec:
     - type: markdown
       name: kinesis-readme
       mode: single
-      url: "https://raw.githubusercontent.com/awslabs/aws-servicebroker/v1.0.0/templates/kinesis/README.md"
+      url: "https://raw.githubusercontent.com/awslabs/aws-servicebroker/{{ .Chart.Version }}/templates/kinesis/README.md"
 
 ---
 apiVersion: cms.kyma-project.io/v1alpha1
@@ -62,7 +62,7 @@ spec:
     - type: markdown
       name: rdsmariadb-readme
       mode: single
-      url: "https://raw.githubusercontent.com/awslabs/aws-servicebroker/v1.0.0/templates/rdsmariadb/README.md"
+      url: "https://raw.githubusercontent.com/awslabs/aws-servicebroker/{{ .Chart.Version }}/templates/rdsmariadb/README.md"
 
 ---
 apiVersion: cms.kyma-project.io/v1alpha1
@@ -79,7 +79,7 @@ spec:
     - type: markdown
       name: rdspostgresql-readme
       mode: single
-      url: "https://raw.githubusercontent.com/awslabs/aws-servicebroker/v1.0.0/templates/rdspostgresql/README.md"
+      url: "https://raw.githubusercontent.com/awslabs/aws-servicebroker/{{ .Chart.Version }}/templates/rdspostgresql/README.md"
 
 ---
 apiVersion: cms.kyma-project.io/v1alpha1
@@ -96,7 +96,7 @@ spec:
     - type: markdown
       name: translate-readme
       mode: single
-      url: "https://raw.githubusercontent.com/awslabs/aws-servicebroker/v1.0.0/templates/translate/README.md"
+      url: "https://raw.githubusercontent.com/awslabs/aws-servicebroker/{{ .Chart.Version }}/templates/translate/README.md"
 
 ---
 apiVersion: cms.kyma-project.io/v1alpha1
@@ -113,7 +113,7 @@ spec:
     - type: markdown
       name: kms-readme
       mode: single
-      url: "https://raw.githubusercontent.com/awslabs/aws-servicebroker/v1.0.0/templates/kms/README.md"
+      url: "https://raw.githubusercontent.com/awslabs/aws-servicebroker/{{ .Chart.Version }}/templates/kms/README.md"
 
 ---
 apiVersion: cms.kyma-project.io/v1alpha1
@@ -130,7 +130,7 @@ spec:
     - type: markdown
       name: rekognition-readme
       mode: single
-      url: "https://raw.githubusercontent.com/awslabs/aws-servicebroker/v1.0.0/templates/rekognition/README.md"
+      url: "https://raw.githubusercontent.com/awslabs/aws-servicebroker/{{ .Chart.Version }}/templates/rekognition/README.md"
 
 ---
 apiVersion: cms.kyma-project.io/v1alpha1
@@ -147,7 +147,7 @@ spec:
     - type: markdown
       name: sns-readme
       mode: single
-      url: "https://raw.githubusercontent.com/awslabs/aws-servicebroker/v1.0.0/templates/sns/README.md"
+      url: "https://raw.githubusercontent.com/awslabs/aws-servicebroker/{{ .Chart.Version }}/templates/sns/README.md"
 
 ---
 apiVersion: cms.kyma-project.io/v1alpha1
@@ -164,7 +164,7 @@ spec:
     - type: markdown
       name: dynamodb-readme
       mode: single
-      url: "https://raw.githubusercontent.com/awslabs/aws-servicebroker/v1.0.0/templates/dynamodb/README.md"
+      url: "https://raw.githubusercontent.com/awslabs/aws-servicebroker/{{ .Chart.Version }}/templates/dynamodb/README.md"
 
 ---
 apiVersion: cms.kyma-project.io/v1alpha1
@@ -181,7 +181,7 @@ spec:
     - type: markdown
       name: redshift-readme
       mode: single
-      url: "https://raw.githubusercontent.com/awslabs/aws-servicebroker/v1.0.0/templates/redshift/README.md"
+      url: "https://raw.githubusercontent.com/awslabs/aws-servicebroker/{{ .Chart.Version }}/templates/redshift/README.md"
 
 ---
 apiVersion: cms.kyma-project.io/v1alpha1
@@ -198,7 +198,7 @@ spec:
     - type: markdown
       name: sqs-readme
       mode: single
-      url: "https://raw.githubusercontent.com/awslabs/aws-servicebroker/v1.0.0/templates/sqs/README.md"
+      url: "https://raw.githubusercontent.com/awslabs/aws-servicebroker/{{ .Chart.Version }}/templates/sqs/README.md"
 
 ---
 apiVersion: cms.kyma-project.io/v1alpha1
@@ -215,7 +215,7 @@ spec:
     - type: markdown
       name: polly-readme
       mode: single
-      url: "https://raw.githubusercontent.com/awslabs/aws-servicebroker/v1.0.0/templates/polly/README.md"
+      url: "https://raw.githubusercontent.com/awslabs/aws-servicebroker/{{ .Chart.Version }}/templates/polly/README.md"
 
 ---
 apiVersion: cms.kyma-project.io/v1alpha1
@@ -232,7 +232,7 @@ spec:
     - type: markdown
       name: rdsmysql-readme
       mode: single
-      url: "https://raw.githubusercontent.com/awslabs/aws-servicebroker/v1.0.0/templates/rdsmysql/README.md"
+      url: "https://raw.githubusercontent.com/awslabs/aws-servicebroker/{{ .Chart.Version }}/templates/rdsmysql/README.md"
 
 ---
 apiVersion: cms.kyma-project.io/v1alpha1
@@ -249,7 +249,7 @@ spec:
     - type: markdown
       name: s3-readme
       mode: single
-      url: "https://raw.githubusercontent.com/awslabs/aws-servicebroker/v1.0.0/templates/s3/README.md"
+      url: "https://raw.githubusercontent.com/awslabs/aws-servicebroker/{{ .Chart.Version }}/templates/s3/README.md"
 
 ---
 apiVersion: cms.kyma-project.io/v1alpha1
@@ -266,7 +266,7 @@ spec:
     - type: markdown
       name: lex-readme
       mode: single
-      url: "https://raw.githubusercontent.com/awslabs/aws-servicebroker/v1.0.0/templates/lex/README.md"
+      url: "https://raw.githubusercontent.com/awslabs/aws-servicebroker/{{ .Chart.Version }}/templates/lex/README.md"
 
 ---
 apiVersion: cms.kyma-project.io/v1alpha1
@@ -283,7 +283,7 @@ spec:
     - type: markdown
       name: route53-readme
       mode: single
-      url: "https://raw.githubusercontent.com/awslabs/aws-servicebroker/v1.0.0/templates/route53/README.md"
+      url: "https://raw.githubusercontent.com/awslabs/aws-servicebroker/{{ .Chart.Version }}/templates/route53/README.md"
 
 ---
 apiVersion: cms.kyma-project.io/v1alpha1
@@ -300,4 +300,4 @@ spec:
     - type: markdown
       name: elasticache-readme
       mode: single
-      url: "https://raw.githubusercontent.com/awslabs/aws-servicebroker/v1.0.0/templates/elasticache/README.md"
+      url: "https://raw.githubusercontent.com/awslabs/aws-servicebroker/{{ .Chart.Version }}/templates/elasticache/README.md"

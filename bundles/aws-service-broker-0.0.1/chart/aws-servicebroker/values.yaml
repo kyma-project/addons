@@ -21,12 +21,11 @@ targetaccountid: ""
 targetrolename: ""
 vpcid: ""
 
+# secret which stores aws secrets like "accesskeyid" and "secretkey"
+secretName: aws-broker-data
+
 brokerconfig:
   verbosity: 10
-
-# Secret name where aws credentials are keep
-# like "accesskeyid", "secretkey"
-secretCredentialName: aws-broker-data
 
 jobs:
   kubectlImage:

@@ -27,12 +27,13 @@ spec:
                   command: ["/bin/sh","-c"]
                   args:
                     - |
-                      SECRET_NAME=$(kubectl get secret -n {{ .Release.Namespace }} {{ .Values.secretCredentialName }} -o jsonpath="{.metadata.name}")
-                      if [[ "$SECRET_NAME" == "aws-broker-data" ]] ;
+                      EXPECTED_SECRET_NAME={{ .Values.secretName }}
+                      SECRET_NAME=$(kubectl get secret -n {{ .Release.Namespace }} {{ .Values.secretName }} -o jsonpath="{.metadata.name}")
+                      if [[ "$SECRET_NAME" == "$EXPECTED_SECRET_NAME" ]] ;
                         then
                           echo "Success! Secret is present.";
                         else
-                          echo "Failure! Secret 'aws-broker-data' is not present";
+                          echo "Failure! Secret '$EXPECTED_SECRET_NAME' is not present";
                           exit 1;
                       fi
 
@@ -59,55 +60,3 @@ spec:
                         echo "ServiesBroker is not ready. Timeout reached";
                         exit 1;
                       fi
-
----
-apiVersion: batch/v1
-kind: Job
-metadata:
-    name: azure-service-broker-docs-checker
-    labels:
-        app: {{ template "fullname" . }}
-        chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
-        release: {{ .Release.Name }}
-        heritage: {{ .Release.Service }}
-    annotations:
-        "helm.sh/hook": post-install,post-upgrade
-        "helm.sh/hook-delete-policy": hook-succeeded,before-hook-creation
-spec:
-    template:
-        metadata:
-            annotations:
-                sidecar.istio.io/inject: "false"
-        spec:
-            serviceAccountName: {{ include "fullname" . }}-docu-checker
-            restartPolicy: Never
-            containers:
-                - name: docu-checker
-                  image: eu.gcr.io/kyma-project/test-infra/alpine-kubectl:v20190325-ff66a3a
-                  imagePullPolicy: IfNotPresent
-                  command: ["/bin/sh","-c"]
-                  args:
-                      - |
-                          while true
-                          do
-                            echo "Get list of not ready DocsTopic:"
-                            lines=$(kubectl get DocsTopic -l chart=${LABEL_CHART} -l release=${LABEL_RELEASE} -n ${NS} \
-                              --no-headers -o custom-columns=name:.metadata.name,phase:.status.phase | awk '$2!="Ready"' | wc -l)
-                            echo "Got ${lines} not ready Docs Topic"
-                            if [[ "${lines}" -eq "0" ]];
-                            then
-                                echo "Every DocsTopic is processed. Completed."
-                                exit 0
-                            fi
-                            sleep 3
-                            echo "----"
-                          done
-                  env:
-                      - name: LABEL_CHART
-                        value: {{ .Chart.Name }}-{{ .Chart.Version }}
-                      - name: LABEL_RELEASE
-                        value: {{ .Release.Name }}
-                      - name: NS
-                        valueFrom:
-                            fieldRef:
-                                fieldPath: metadata.namespace

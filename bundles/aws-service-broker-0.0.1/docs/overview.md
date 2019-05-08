@@ -17,9 +17,9 @@ The DynamoDB is used to keep the broker's state so it must exist in the broker's
 
 ### Steps
 
-To install AWS Service Broker you must set up the IAM User and DynamoDB table on AWS. This can be done easily using a CloudFormation template. 
+To install the AWS Service Broker, you must set up the IAM User and DynamoDB table on AWS. This can be done easily using a CloudFormation template. 
 
-Follow these steps to create a proper Kubernetes Secret with all necessary data to provision AWS Service Broker:
+Follow these steps to create a proper Kubernetes Secret with all necessary data to provision the AWS Service Broker:
 
 >**NOTE:** If you already created the IAM User and DynamoDB table on AWS you can reuse the credentials for them and skip to Secret creation step.
 
@@ -27,13 +27,13 @@ Follow these steps to create a proper Kubernetes Secret with all necessary data 
 ```bash
 export REGION=us-east-1
 ```
-Be sure to set the `REGION` variable to the AWS region where you would like to provision services.
+Set the `REGION` variable to the AWS region where you want to provision your services.
 
 2. Download the template:
 ```bash
 wget https://raw.githubusercontent.com/awslabs/aws-servicebroker/v1.0.0/setup/prerequisites.yaml
 ```
-You may need to align the `prerequisites.yaml` file if you use the `customizable` plan and you change the bucket or dynamoDB parameters.
+You may need to align the `prerequisites.yaml` file if you use the `customizable` plan and change the bucket or dynamoDB parameters.
 
 3. Ensure the AWS stack:
 
@@ -57,7 +57,7 @@ aws cloudformation describe-stacks \
     --output text; \
     echo $ST;
 ```
-If the stack is completed, the output should equals: `CREATE_COMPLETE`
+If the stack is completed, the output should equal `CREATE_COMPLETE`.
 
 5. Export `USERNAME` from the stack outputs:
 ```bash
@@ -76,7 +76,7 @@ aws iam create-access-key \
     --query 'AccessKey.{KEY_ID:AccessKeyId,SECRET_ACCESS_KEY:SecretAccessKey}'
 ```
 
-The above script should return the following credentials:
+The script returns the following credentials:
 ```
 {
     "KEY_ID": "****",
@@ -95,6 +95,6 @@ export SECRET_ACCESS_KEY=******
 kubectl create secret generic {secret_name} -n {namespace} --from-literal=accesskeyid=$KEY_ID --from-literal=secretkey=$SECRET_ACCESS_KEY
 ```
 
-For more detailed information about the AWS Service Broker prerequisites read this [document](https://github.com/awslabs/aws-servicebroker/blob/v1.0.0/docs/install_prereqs.md).
+For more information about the AWS Service Broker prerequisites, read [this](https://github.com/awslabs/aws-servicebroker/blob/v1.0.0/docs/install_prereqs.md) document.
 
 >**NOTE:** You can provision only one instance of the AWS Service Broker in each Namespace.

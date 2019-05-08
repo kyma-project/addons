@@ -23,7 +23,7 @@ To install the AWS Service Broker, you must set up the IAM User and DynamoDB tab
 
 Follow these steps to create a proper Kubernetes Secret with all necessary data to provision the AWS Service Broker:
 
->**NOTE:** If you already created the IAM User and DynamoDB table on AWS you can reuse the credentials for them and skip to Secret creation step.
+>**NOTE:** If you already created the IAM User and DynamoDB table on AWS, you can reuse credentials for them and go straight to step 8.
 
 1. Export the `REGION` variable:
 ```bash
@@ -35,11 +35,11 @@ Set the `REGION` variable to the AWS region where you want to provision your ser
 ```bash
 wget https://raw.githubusercontent.com/awslabs/aws-servicebroker/v1.0.0/setup/prerequisites.yaml
 ```
-You may need to align the `prerequisites.yaml` file if you use the `customizable` plan and change the bucket or dynamoDB parameters.
+You may need to align the `prerequisites.yaml` file if you use the `customizable` plan and change the bucket or DynamoDB parameters.
 
-3. Ensure the AWS stack:
+3. Get the AWS stack:
 
->**NOTE:** If you created the stack before in the same `REGION` you can use its ID to create a Secret, in this case skip to step 5. You can find the stack ID in [AWS Management Console](https://console.aws.amazon.com) under the **Services** tab in the **CloudFormation** section.
+>**NOTE:** If you created the stack before in the same `REGION`, you can use its ID to create a Secret. In such a case, go straight to step 5. Find your stack ID in the [AWS Management Console](https://console.aws.amazon.com) under the **Services** tab in the **CloudFormation** section.
 
 ```bash
 export STACK_ID=$(aws cloudformation create-stack \
@@ -92,7 +92,7 @@ export KEY_ID=****
 export SECRET_ACCESS_KEY=******
 ```
 
-8. Use the **KEY_ID** and **SECRET_ACCESS_KEY** environment variables to create a Secret in the broker's namespace:
+8. Use the **KEY_ID** and **SECRET_ACCESS_KEY** environment variables to create a Secret in the broker's Namespace:
 ```
 kubectl create secret generic {secret_name} -n {namespace} --from-literal=accesskeyid=$KEY_ID --from-literal=secretkey=$SECRET_ACCESS_KEY
 ```

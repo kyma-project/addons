@@ -41,9 +41,9 @@ These are the provisioning parameters for the given plans:
 | **cluster_domain** | `Cluster domain` | `string` | Defines the cluster domain name. | YES | `cluster.local` |
 | **key** | `S3 Bucket key` | `string` | Specifies the S3 bucket key name which contains CloudFormation templates and ServiceClass specifications. | YES | `templates/latest` |
 | **table_name** | `DynamoDB table name` | `string` | Specifies the name of the DynamoDB table to use by the Service Broker. | YES | `awssb` |
-| **target_account_id** | `AWS Target account ID` | `string` | Specifies the AWS Account ID to use. | NO |  |
+| **target_account_id** | `AWS Target account ID` | `string` | Specifies the AWS account ID. | NO |  |
 | **target_role_name** | `AWS Target IAM role name` | `string` | Specifies the IAM Role name to provision with. It must be used in combination with **target_account_id**. | NO |  |
 | **vpc_id** | `VPC ID` | `string` | Defines the VPC ID to launch broker into. For more information, read [this](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-subnets-commands-example.html) documentation. | NO |  |
 | **prescribe_overrides** | `Prescribe-overrides feature enabled` | `bool` | Defines if the broker will use the [prescribe overrides](https://github.com/awslabs/aws-servicebroker/tree/v1.0.0/docs#parameter-overrides) feature. | YES | `true` |
-| **secret_name** | `AWS secret name` | `string` | Defines the name of the secret from which the Service Broker will try to fetch credentials. | YES |  |
+| **secret_name** | `AWS secret name` | `string` | Defines the name of the Secret from which the Service Broker will try to fetch credentials. | YES |  |
 

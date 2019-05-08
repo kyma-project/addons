@@ -25,7 +25,7 @@ Follow these steps to create a proper Kubernetes Secret with all necessary data 
 
 1. Export the `REGION` variable:
 ```bash
-export REGION=us-east-1
+export REGION=us-east-1 # The default region which works with default provisioning parameters
 ```
 Set the `REGION` variable to the AWS region where you want to provision your services.
 
@@ -68,31 +68,23 @@ export USERNAME=$(aws cloudformation describe-stacks \
      --output text)
 ```
 
-6. Create the IAM user credentials:
+6. Create the IAM user credentials and export them as the environment variables:
 ```bash
-aws iam create-access-key \
+eval $(aws iam create-access-key \
     --user-name $USERNAME \
     --output json \
-    --query 'AccessKey.{KEY_ID:AccessKeyId,SECRET_ACCESS_KEY:SecretAccessKey}'
+    --query 'AccessKey.{KEY_ID:AccessKeyId,SECRET_ACCESS_KEY:SecretAccessKey}' | jq -r 'keys[] as $k | "export \($k)=\(.[$k])"')
 ```
 
-The script returns the following credentials:
-```
-{
-    "KEY_ID": "****",
-    "SECRET_ACCESS_KEY": "******"
-}
-```
-
-7. Export these variables:
+7. Export the following variables:
 ```bash
-export KEY_ID=****
-export SECRET_ACCESS_KEY=******
+export SECRET_NAME=aws-broker-secret # The Secret name example, must be the same as the secretName provisioning parameter
+export SECRET_NAMESPACE= # The Namespace where you want to deploy AWS Service Broker
 ```
 
 8. Use the **KEY_ID** and **SECRET_ACCESS_KEY** environment variables to create a Secret in the broker's Namespace:
 ```
-kubectl create secret generic {secret_name} -n {namespace} --from-literal=accesskeyid=$KEY_ID --from-literal=secretkey=$SECRET_ACCESS_KEY
+kubectl create secret generic $SECRET_NAME -n $SECRET_NAMESPACE --from-literal=accesskeyid=$KEY_ID --from-literal=secretkey=$SECRET_ACCESS_KEY
 ```
 
 For more information about the AWS Service Broker prerequisites, read [this](https://github.com/awslabs/aws-servicebroker/blob/v1.0.0/docs/install_prereqs.md) document.

@@ -197,7 +197,7 @@
       "enum": ["Always", "IfNotPresent", "Never"],
       "default": "IfNotPresent",
       "title": "Image pull policy",
-      "description": "Defines the image pull policy for Service Broker"
+      "description": "The image pull policy of the Service Broker"
     },
     "prescribeoverrides": {
       "title": "Prescribe-overrides feature enabled",
@@ -217,7 +217,7 @@
     "vpcid": {
       "type": "string",
       "title": "AWS VPC ID",
-      "description": "VPC ID to use for provisioning"
+      "description": "AWS VPC ID to launch broker into"
     },
     "clusterDomain": {
       "type": "string",

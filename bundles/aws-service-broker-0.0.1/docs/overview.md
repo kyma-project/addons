@@ -39,7 +39,7 @@ You may need to align the `prerequisites.yaml` file if you use the `customizable
 
 3. Ensure the AWS stack:
 
->**NOTE:** If you created the stack before in the same `REGION` you can use its ID to create a Secret, in this case skip to step 5. You can find the stack ID in AWS Management Console under the **Services** tab in the **CloudFormation** section.
+>**NOTE:** If you created the stack before in the same `REGION` you can use its ID to create a Secret, in this case skip to step 5. You can find the stack ID in [AWS Management Console](https://console.aws.amazon.com) under the **Services** tab in the **CloudFormation** section.
 
 ```bash
 export STACK_ID=$(aws cloudformation create-stack \

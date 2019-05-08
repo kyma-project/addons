@@ -164,7 +164,8 @@
         }
       ],
       "default": "us-east-1",
-      "title": "S3 Bucket region"
+      "title": "S3 Bucket region",
+      "description": "Defines the S3 bucket region"
     },
     "brokerid": {
       "type": "string",
@@ -196,13 +197,12 @@
       "enum": ["Always", "IfNotPresent", "Never"],
       "default": "IfNotPresent",
       "title": "Image pull policy",
-      "description": "Indicates whether the Service Broker has to use prescribe-overrides feature"
+      "description": "Defines the image pull policy for Service Broker"
     },
     "prescribeoverrides": {
       "title": "Prescribe-overrides feature enabled",
       "type": "boolean",
       "default": true,
-      "description": "Indicates whether the Service Broker has to use prescribe-overrides feature"
     },
     "targetaccountid": {
       "type": "string",

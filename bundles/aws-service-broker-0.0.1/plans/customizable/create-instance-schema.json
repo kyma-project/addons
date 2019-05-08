@@ -221,7 +221,7 @@
     },
     "clusterDomain": {
       "type": "string",
-      "title": "AWS VPC ID",
+      "title": "Cluster domain",
       "default": "cluster.local",
       "description": "The name of your cluster domain"
     }

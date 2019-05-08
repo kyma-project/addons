@@ -5,9 +5,9 @@ type: Overview
 
 >**NOTE:** To provision this class, first you must create a Secret. Read the following document to learn how.
 
->**NOTE:** You can provision only one instance of the AWS Service Broker in each Namespace.
-
 The [AWS Service Broker](https://github.com/awslabs/aws-servicebroker/blob/v1.0.0/docs) class exposes the [Amazon Web Services](https://aws.amazon.com/) from a given S3 bucket in a given Namespace of the Kyma cluster.
+
+You can provision only one instance of the AWS Service Broker in each Namespace.
 
 The DynamoDB is used to keep the broker's state so it must exist in the broker's region.
 

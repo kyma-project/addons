@@ -85,13 +85,7 @@
       ],
       "default": "us-east-1",
       "title": "Broker region",
-      "description": "Must match the dynamoDB region"
-    },
-    "brokerid": {
-      "type": "string",
-      "title": "Service Broker ID",
-      "default": "awsservicebroker",
-      "description": "Will be used as a prefix in DynamoDB"
+      "description": "Must match the DynamoDB region"
     },
     "s3region": {
       "type": "string",
@@ -172,6 +166,12 @@
       "default": "us-east-1",
       "title": "S3 Bucket region"
     },
+    "brokerid": {
+      "type": "string",
+      "title": "Service Broker ID",
+      "default": "awsservicebroker",
+      "description": "Will be used as a prefix in DynamoDB"
+    },
     "bucket": {
       "type": "string",
       "title": "S3 Bucket name",
@@ -181,36 +181,50 @@
     "key": {
       "type": "string",
       "title": "S3 Bucket key",
-      "default": "templates/latest"
+      "default": "templates/latest",
+      "description": "The name of the key in the S3 bucket"
+
     },
     "tablename": {
       "type": "string",
       "title": "DynamoDB table name",
-      "default": "awssb"
+      "default": "awssb",
+      "description": "The name of the DynamoDB table which Service Broker will use"
     },
     "imagePullPolicy": {
       "type": "string",
       "enum": ["Always", "IfNotPresent", "Never"],
       "default": "IfNotPresent",
-      "title": "Image pull policy"
+      "title": "Image pull policy",
+      "description": "Indicates whether the Service Broker has to use prescribe-overrides feature"
     },
     "prescribeoverrides": {
       "title": "Prescribe-overrides feature enabled",
       "type": "boolean",
-      "default": true
+      "default": true,
+      "description": "Indicates whether the Service Broker has to use prescribe-overrides feature"
     },
     "targetaccountid": {
       "type": "string",
-      "title": "AWS Target account ID"
+      "title": "AWS Target account ID",
+      "description": "AWS Account ID to provision into"
     },
     "targetrolename": {
       "type": "string",
-      "title": "AWS Target IAM role name"
+      "title": "AWS Target IAM role name",
+      "description": "AWS IAM Role name to use for provisioning"
     },
     "vpcid": {
       "type": "string",
-      "title": "VPC ID"
+      "title": "AWS VPC ID",
+      "description": "VPC ID to use for provisioning"
+    },
+    "clusterDomain": {
+      "type": "string",
+      "title": "AWS VPC ID",
+      "default": "cluster.local",
+      "description": "The name of your cluster domain"
     }
   },
-  "required": ["clusterDomain", "bucket", "tablename", "key", "brokerid", "secretName"]
+  "required": ["bucket", "tablename", "key", "brokerid", "secretName", "clusterDomain"]
 }

@@ -9,7 +9,7 @@ The [AWS Service Broker](https://github.com/awslabs/aws-servicebroker/blob/v1.0.
 
 The DynamoDB is used to keep the broker's state so it must exist in the broker's region.
 
-## Create a secret
+## Create a Secret
 
 ### Prerequisites
 
@@ -21,7 +21,7 @@ To install AWS Service Broker you must set up the IAM User and DynamoDB table on
 
 Follow these steps to create a proper Kubernetes Secret with all necessary data to provision AWS Service Broker:
 
->**NOTE:** If you already created the IAM User and DynamoDB table on AWS you can reuse the secrets for them and skip to secret creation step.
+>**NOTE:** If you already created the IAM User and DynamoDB table on AWS you can reuse the credentials for them and skip to Secret creation step.
 
 1. Export the `REGION` variable:
 ```bash
@@ -35,7 +35,10 @@ wget https://raw.githubusercontent.com/awslabs/aws-servicebroker/v1.0.0/setup/pr
 ```
 You may need to align the `prerequisites.yaml` file if you use the `customizable` plan and you change the bucket or dynamoDB parameters.
 
-3. Create the AWS stack:
+3. Ensure the AWS stack:
+
+>**NOTE:** If you created the stack before in the same `REGION` you can use its ID to create a Secret, in this case skip to step 5. You can find the stack ID in AWS Management Console under the **Services** tab in the **CloudFormation** section.
+
 ```bash
 export STACK_ID=$(aws cloudformation create-stack \
      --capabilities CAPABILITY_IAM \
@@ -76,18 +79,18 @@ aws iam create-access-key \
 The above script should return the following credentials:
 ```
 {
-    "KEY_ID": "*********",
-    "SECRET_ACCESS_KEY": "***********"
+    "KEY_ID": "****",
+    "SECRET_ACCESS_KEY": "******"
 }
 ```
 
 7. Export these variables:
 ```bash
-export KEY_ID=*********
-export SECRET_ACCESS_KEY=***********
+export KEY_ID=****
+export SECRET_ACCESS_KEY=******
 ```
 
-8. Use the **KEY_ID** and **SECRET_ACCESS_KEY** environment variables to create a secret in the broker's namespace:
+8. Use the **KEY_ID** and **SECRET_ACCESS_KEY** environment variables to create a Secret in the broker's namespace:
 ```
 kubectl create secret generic {secret_name} -n {namespace} --from-literal=accesskeyid=$KEY_ID --from-literal=secretkey=$SECRET_ACCESS_KEY
 ```

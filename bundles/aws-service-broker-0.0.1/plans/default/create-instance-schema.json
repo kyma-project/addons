@@ -88,5 +88,5 @@
       "description": "Must match the dynamoDB region"
     }
   },
-  "required": ["clusterDomain", "secretName"]
+  "required": ["secretName"]
 }

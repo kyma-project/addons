@@ -14,9 +14,7 @@ The AWS Service Broker Service Class provides the following plans:
 
 ## Provision
 
-This service provisions a new AWS Service Broker which provides the Amazon Web Services.
-
-The default bucket parameters provide the AWS Service Broker with default services.
+This service provisions a new AWS Service Broker which provides the Amazon Web Services. The default bucket parameters provide the AWS Service Broker with default services.
 
 ### Provisioning parameters
 

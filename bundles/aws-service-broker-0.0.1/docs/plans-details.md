@@ -22,14 +22,14 @@ These are the provisioning parameters for the given plans:
 
 #### Default plan
 
-| Parameter Name | DisplayName | Type | Description | Required | Default Value |
+| Parameter Name | Display Name | Type | Description | Required | Default Value |
 |----------------|---------|-----|-------------|:----------:|---------------|
 | **secret_name** | `AWS secret name` | `string` | Defines the name of the Secret from which the Service Broker will try to fetch credentials. | YES |  |
 | **region** | `Broker region` | `string` | Defines the AWS region in which you provision your services. It must match the DynamoDB region. | YES | `us-east-1` |
 
 #### Customizable plan
 
-| Parameter Name | DisplayName | Type | Description | Required | Default Value |
+| Parameter Name | Display Name | Type | Description | Required | Default Value |
 |----------------|-----|-------|-------------|:----------:|---------------|
 | **imagePullPolicy** | `Image pull policy` | `string` | Specifies how the kubelet pulls images from the specified registry. | YES | `IfNotPresent` |
 | **region** | `Broker region`   | `string` | Defines the AWS region in which you provision your services. It must match the DynamoDB region. | YES | `us-east-1` |
@@ -42,6 +42,6 @@ These are the provisioning parameters for the given plans:
 | **target_account_id** | `AWS Target account ID` | `string` | Specifies the AWS account ID. | NO |  |
 | **target_role_name** | `AWS Target IAM role name` | `string` | Specifies the IAM Role name to provision with. It must be used in combination with **target_account_id**. | NO |  |
 | **vpc_id** | `AWS VPC ID` | `string` | Defines the VPC ID to launch broker into. For more information, read [this](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-subnets-commands-example.html) documentation. | NO |  |
-| **prescribe_overrides** | `Prescribe-overrides feature enabled` | `bool` | Defines if the broker will use the [prescribe overrides](https://github.com/awslabs/aws-servicebroker/tree/v1.0.0/docs#parameter-overrides) feature. | YES | `true` |
+| **prescribe_overrides** | `Prescribe-overrides feature enabled` | `bool` | Indicates whether broker will use the [prescribe overrides](https://github.com/awslabs/aws-servicebroker/tree/v1.0.0/docs#parameter-overrides) feature. | YES | `true` |
 | **secret_name** | `AWS secret name` | `string` | Defines the name of the Secret from which the Service Broker will try to fetch credentials. | YES |  |
 

@@ -1,0 +1,13 @@
+name: aws-service-broker
+version: 0.0.1
+id: 0a54e829-c352-4978-9291-c37f779e1900
+description: "Extends the Service Catalog with Amazon Web Services"
+displayName:  AWS Service Broker
+
+tags: aws, amazon, broker
+providerDisplayName: Amazon
+longDescription: The AWS Service Broker allows native AWS services to be exposed directly through application platforms that implement the Open Service Broker API, and provides simple integration of AWS Services directly within the application platform.
+documentationURL: https://github.com/awslabs/aws-servicebroker/blob/v1.0.0/docs/README.md
+imageURL: https://cdn-images-1.medium.com/max/1200/1*tFl-8wQUENETYLjX5mYWuA.png
+bindable: false
+provisionOnlyOnce: true

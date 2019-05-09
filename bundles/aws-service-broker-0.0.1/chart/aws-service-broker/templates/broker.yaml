@@ -1,0 +1,25 @@
+{{- if or .Values.deployClusterServiceBroker .Values.deployNamespacedServiceBroker }}
+apiVersion: servicecatalog.k8s.io/v1beta1
+{{- if .Values.deployNamespacedServiceBroker }}
+kind: ServiceBroker
+{{- else if .Values.deployClusterServiceBroker }}
+kind: ClusterServiceBroker
+{{- end }}
+metadata:
+  name:  {{ template "fullname" . }}
+  labels:
+    app: {{ template "fullname" . }}
+    chart: "{{ .Chart.Name }}--{{ .Chart.Version }}"
+    release: "{{ .Release.Name }}"
+    heritage: "{{ .Release.Service }}"
+spec:
+  url: https://{{ template "fullname" . }}.{{ .Release.Namespace }}.svc.{{ .Values.clusterDomain }}
+  insecureSkipTLSVerify: true
+{{- if .Values.authenticate}}
+  authInfo:
+    bearer:
+      secretRef:
+        namespace: {{.Release.Namespace}}
+        name: {{ template "fullname" . }}
+{{- end }}
+{{- end }}

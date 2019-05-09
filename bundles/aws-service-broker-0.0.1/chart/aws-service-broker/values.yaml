@@ -1,0 +1,34 @@
+image: awsservicebroker/aws-servicebroker:beta
+imagePullPolicy: IfNotPresent
+
+authenticate: true
+tls:
+  cert:
+  key:
+
+deployClusterServiceBroker: false
+deployNamespacedServiceBroker: true
+
+region: us-east-1
+bucket: awsservicebroker
+key: templates/latest
+s3region: us-east-1
+tablename: awssb
+brokerid: awsservicebroker
+clusterDomain: cluster.local
+prescribeoverrides: true
+targetaccountid: ""
+targetrolename: ""
+vpcid: ""
+
+# secret which stores aws secrets like "accesskeyid" and "secretkey"
+secretName: aws-broker-data
+
+brokerconfig:
+  verbosity: 10
+
+jobs:
+  kubectlImage:
+    repository: eu.gcr.io/kyma-project/develop/gcp-broker-provider
+    tag: 237ba00f
+    pullPolicy: IfNotPresent

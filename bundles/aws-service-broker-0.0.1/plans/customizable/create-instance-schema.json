@@ -1,0 +1,230 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "secretName": {
+      "type": "string",
+      "title": "AWS secret name",
+      "description": "Name of the secret which contains AWS secrets - accesskeyid and secretkey"
+    },
+    "region": {
+      "type": "string",
+      "oneOf": [
+        {
+          "enum": ["us-east-1"],
+          "title": "us-east-1 (N. Virginia)"
+        },
+        {
+          "enum": ["us-east-2"],
+          "title": "us-east-2 (Ohio)"
+        },
+        {
+          "enum": ["us-west-1"],
+          "title": "us-west-1 (N. California)"
+        },
+        {
+          "enum": ["us-west-2"],
+          "title": "us-west-2 (Oregon)"
+        },
+        {
+          "enum": ["ca-central-1"],
+          "title": "ca-central-1 (Central)"
+        },
+        {
+          "enum": ["eu-central-1"],
+          "title": "eu-central-1 (Frankfurt)"
+        },
+        {
+          "enum": ["eu-west-1"],
+          "title": "eu-west-1 (Ireland)"
+        },
+        {
+          "enum": ["eu-west-2"],
+          "title": "eu-west-2 (London)"
+        },
+        {
+          "enum": ["eu-west-3"],
+          "title": "eu-west-3 (Paris)"
+        },
+        {
+          "enum": ["eu-north-1"],
+          "title": "eu-north-1 (Stockholm)"
+        },
+        {
+          "enum": ["ap-east-1"],
+          "title": "ap-east-1 (Hong Kong)"
+        },
+        {
+          "enum": ["ap-northeast-1"],
+          "title": "ap-northeast-1 (Tokyo)"
+        },
+        {
+          "enum": ["ap-northeast-2"],
+          "title": "ap-northeast-2 (Seoul)"
+        },
+        {
+          "enum": ["ap-northeast-3"],
+          "title": "ap-northeast-3 (Osaka-Local)"
+        },
+        {
+          "enum": ["ap-southeast-1"],
+          "title": "ap-southeast-1 (Singapore)"
+        },
+        {
+          "enum": ["ap-southeast-2"],
+          "title": "ap-southeast-2 (Sydney)"
+        },
+        {
+          "enum": ["ap-south-1"],
+          "title": "ap-south-1 (Mumbai)"
+        },
+        {
+          "enum": ["sa-east-1"],
+          "title": "sa-east-1 (São Paulo)"
+        }
+      ],
+      "default": "us-east-1",
+      "title": "Broker region",
+      "description": "Must match the DynamoDB region"
+    },
+    "s3region": {
+      "type": "string",
+      "oneOf": [
+        {
+          "enum": ["us-east-1"],
+          "title": "us-east-1 (N. Virginia)"
+        },
+        {
+          "enum": ["us-east-2"],
+          "title": "us-east-2 (Ohio)"
+        },
+        {
+          "enum": ["us-west-1"],
+          "title": "us-west-1 (N. California)"
+        },
+        {
+          "enum": ["us-west-2"],
+          "title": "us-west-2 (Oregon)"
+        },
+        {
+          "enum": ["ca-central-1"],
+          "title": "ca-central-1 (Central)"
+        },
+        {
+          "enum": ["eu-central-1"],
+          "title": "eu-central-1 (Frankfurt)"
+        },
+        {
+          "enum": ["eu-west-1"],
+          "title": "eu-west-1 (Ireland)"
+        },
+        {
+          "enum": ["eu-west-2"],
+          "title": "eu-west-2 (London)"
+        },
+        {
+          "enum": ["eu-west-3"],
+          "title": "eu-west-3 (Paris)"
+        },
+        {
+          "enum": ["eu-north-1"],
+          "title": "eu-north-1 (Stockholm)"
+        },
+        {
+          "enum": ["ap-east-1"],
+          "title": "ap-east-1 (Hong Kong)"
+        },
+        {
+          "enum": ["ap-northeast-1"],
+          "title": "ap-northeast-1 (Tokyo)"
+        },
+        {
+          "enum": ["ap-northeast-2"],
+          "title": "ap-northeast-2 (Seoul)"
+        },
+        {
+          "enum": ["ap-northeast-3"],
+          "title": "ap-northeast-3 (Osaka-Local)"
+        },
+        {
+          "enum": ["ap-southeast-1"],
+          "title": "ap-southeast-1 (Singapore)"
+        },
+        {
+          "enum": ["ap-southeast-2"],
+          "title": "ap-southeast-2 (Sydney)"
+        },
+        {
+          "enum": ["ap-south-1"],
+          "title": "ap-south-1 (Mumbai)"
+        },
+        {
+          "enum": ["sa-east-1"],
+          "title": "sa-east-1 (São Paulo)"
+        }
+      ],
+      "default": "us-east-1",
+      "title": "S3 Bucket region",
+      "description": "Defines the S3 bucket region"
+    },
+    "brokerid": {
+      "type": "string",
+      "title": "Service Broker ID",
+      "default": "awsservicebroker",
+      "description": "Will be used as a prefix in DynamoDB"
+    },
+    "bucket": {
+      "type": "string",
+      "title": "S3 Bucket name",
+      "default": "awsservicebroker",
+      "description": "The name of the S3 bucket containing the ServiceClasses specs"
+    },
+    "key": {
+      "type": "string",
+      "title": "S3 Bucket key",
+      "default": "templates/latest",
+      "description": "The name of the key in the S3 bucket"
+
+    },
+    "tablename": {
+      "type": "string",
+      "title": "DynamoDB table name",
+      "default": "awssb",
+      "description": "The name of the DynamoDB table which Service Broker will use"
+    },
+    "imagePullPolicy": {
+      "type": "string",
+      "enum": ["Always", "IfNotPresent", "Never"],
+      "default": "IfNotPresent",
+      "title": "Image pull policy",
+      "description": "The image pull policy of the Service Broker"
+    },
+    "prescribeoverrides": {
+      "title": "Prescribe-overrides feature enabled",
+      "type": "boolean",
+      "default": true
+    },
+    "targetaccountid": {
+      "type": "string",
+      "title": "AWS Target account ID",
+      "description": "AWS Account ID to provision into"
+    },
+    "targetrolename": {
+      "type": "string",
+      "title": "AWS Target IAM role name",
+      "description": "AWS IAM Role name to use for provisioning"
+    },
+    "vpcid": {
+      "type": "string",
+      "title": "AWS VPC ID",
+      "description": "AWS VPC ID to launch broker into"
+    },
+    "clusterDomain": {
+      "type": "string",
+      "title": "Cluster domain",
+      "default": "cluster.local",
+      "description": "The name of your cluster domain"
+    }
+  },
+  "required": ["bucket", "tablename", "key", "brokerid", "secretName", "clusterDomain"]
+}

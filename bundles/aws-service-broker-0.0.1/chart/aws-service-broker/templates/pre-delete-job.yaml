@@ -1,0 +1,41 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+    name: aws-service-broker-job-delete
+    labels:
+        app: {{ template "fullname" . }}
+        chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+        release: "{{ .Release.Name }}"
+        heritage: "{{ .Release.Service }}"
+    annotations:
+        "helm.sh/hook": pre-delete
+        "helm.sh/hook-weight": "0"
+        "helm.sh/hook-delete-policy": hook-succeeded,before-hook-creation
+spec:
+    backoffLimit: 0
+    template:
+        metadata:
+            annotations:
+                sidecar.istio.io/inject: "false"
+        spec:
+            serviceAccountName: {{ template "fullname" . }}
+            restartPolicy: Never
+            containers:
+                - name: broker-remover
+                  image: "{{ .Values.jobs.kubectlImage.repository }}:{{ .Values.jobs.kubectlImage.tag }}"
+                  imagePullPolicy: {{ .Values.jobs.kubectlImage.pullPolicy }}
+                  command: ["/bin/sh","-c"]
+                  args:
+                    - |
+                      kubectl delete servicebroker -n {{ .Release.Namespace }} {{ template "fullname" . }};
+                      while :
+                        do
+                          if [[ -z "$(kubectl get servicebroker -n {{ .Release.Namespace }} {{ template "fullname" . }})" ]]
+                            then
+                              echo "ServiesBroker has been removed. Job is done.";
+                              break;
+                            else
+                              echo "ServiceBroker exists, wait...";
+                              sleep 1;
+                          fi
+                      done;

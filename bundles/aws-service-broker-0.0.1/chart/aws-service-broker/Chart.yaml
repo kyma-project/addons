@@ -1,0 +1,5 @@
+name: aws-service-broker
+description: Deploys the AWS Service Broker
+
+# Chart version is used to fetch ServiceClass documentation in the same version
+version: 1.0.0

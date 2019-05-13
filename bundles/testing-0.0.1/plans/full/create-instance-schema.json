@@ -1,17 +1,22 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "type": "object",
-  "properties": {
-    "additionalData": {
-      "type": "string",
-      "title": "Additional data",
-      "description": "Example attribute which has no function."
+    "type": "object",
+    "properties": {
+        "additionalData": {
+            "type": "string",
+            "title": "Additional data",
+            "description": "Example attribute which has no function."
+        },
+        "onlyNumbersString": {
+            "title": "Regexp data",
+            "type": "string",
+            "pattern": "^\\d*$",
+            "description": "Testing field for regexp pattern"
+        },
+        "planName": {
+            "type": "string",
+            "title": "Plan name",
+            "description": "The 'planName' value in the ConfigMap resource."
+        }
     },
-    "planName": {
-      "type": "string",
-      "title": "Plan name",
-      "description": "The 'planName' value in the ConfigMap resource."
-    }
-  },
-  "required": ["additionalData"]
+    "required": ["additionalData"]
 }

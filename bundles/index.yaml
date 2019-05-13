@@ -12,7 +12,3 @@ entries:
     - name: azure-service-broker
       description: "Azure Service Broker"
       version: 0.0.1
-  testing:
-    - name: testing
-      description: "Testing bundle"
-      version: 0.0.1

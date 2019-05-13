@@ -7,10 +7,10 @@
             "description": "Example attribute which has no function."
         },
         "onlyNumbersString": {
-            "title": "Regexp data",
+            "title": "RegExp data",
             "type": "string",
             "pattern": "^\\d*$",
-            "description": "Testing field for regexp pattern"
+            "description": "Testing field for RegExp pattern. Accepts only numbers."
         },
         "planName": {
             "type": "string",

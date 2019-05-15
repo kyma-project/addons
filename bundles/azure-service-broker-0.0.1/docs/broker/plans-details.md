@@ -17,9 +17,10 @@ Provisioning an instance creates a new Azure Service Broker in the given Namespa
 
 ### Provisioning parameters
 
-| Parameter Name | Type | Description | Required | Default Value |
-|----------------|------|-------------|----------|---------------|
-| **minimumStability** | `enum` | Minimum stability required for a module's services and plans to be listed in the broker's catalog. | YES | `Preview` |
+| Parameter Name | Display Name | Type | Description | Required | Default Value |
+|----------------|--------------|------|------|----------|---------------|
+| **secretName** | `Azure Secret name` | `string` | Defines the name of the Secret from which the Service Broker will try to fetch credentials. | YES |  |
+| **minimumStability** | `Minimum services stability` | `enum` | Minimum stability required for a module's services and plans to be listed in the broker's catalog. | YES | `Preview` |
 
 These are the minimum stability values:
  * `Stable` - represents relative stability of the mature, production ready service modules:

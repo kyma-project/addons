@@ -11,6 +11,16 @@ The `GCP Service Broker` service provides the following plan names and descripti
 |-----------|-------------|
 | `Default` | Installs the Google Cloud Platform (GCP) Service Broker in a default configuration. |
 
+### Provisioning parameters
+
+These are the provisioning parameters for the given plans:
+
+#### Default plan
+
+| Parameter Name | Display Name | Type | Description | Required | Default Value |
+|----------------|---------|-----|-------------|:----------:|---------------|
+| **secretName** | `GCP Secret name` | `string` | Defines the name of the Secret from which the Service Broker will try to fetch credentials. | YES |  |
+
 ## Provisioning
 
 The service account key is used to 

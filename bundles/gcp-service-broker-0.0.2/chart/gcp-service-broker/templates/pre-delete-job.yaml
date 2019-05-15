@@ -28,6 +28,8 @@ spec:
         env:
         - name: RELEASE_NAME
           value: {{ .Release.Name }}
+        - name: GCP_SECRET_NAME
+          value: {{ .Values.secretName }}
         - name: WORKING_NAMESPACE
           valueFrom:
             fieldRef:

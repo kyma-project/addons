@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "secretName": {
+      "type": "string",
+      "title": "GCP Secret name",
+      "description": "Name of the Secret which contains the GCP credentials - project-name, sa-key"
+    }
+  },
+  "required": ["secretName"]
+}

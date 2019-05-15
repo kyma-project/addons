@@ -34,22 +34,22 @@ spec:
           - name: AZURE_SUBSCRIPTION_ID
             valueFrom:
               secretKeyRef:
-                name: {{ .Values.secretCredentialName }}
+                name: {{ .Values.secretName }}
                 key: subscription_id
           - name: AZURE_TENANT_ID
             valueFrom:
               secretKeyRef:
-                name: {{ .Values.secretCredentialName }}
+                name: {{ .Values.secretName }}
                 key: tenant_id
           - name: AZURE_CLIENT_ID
             valueFrom:
               secretKeyRef:
-                name: {{ .Values.secretCredentialName }}
+                name: {{ .Values.secretName }}
                 key: client_id
           - name: AZURE_CLIENT_SECRET
             valueFrom:
               secretKeyRef:
-                name: {{ .Values.secretCredentialName }}
+                name: {{ .Values.secretName }}
                 key: client_secret
           - name: REDIS_HOST
             {{- if .Values.redis.embedded }}

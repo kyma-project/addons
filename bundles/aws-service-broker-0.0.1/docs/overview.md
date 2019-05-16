@@ -78,7 +78,7 @@ eval $(aws iam create-access-key \
 
 7. Export the following variables:
 ```bash
-export SECRET_NAME=aws-broker-secret # The Secret name example, must be the same as the secretName provisioning parameter
+export SECRET_NAME=aws-broker-data # The Secret name example, must be the same as the secretName provisioning parameter
 export SECRET_NAMESPACE= # The Namespace where you want to deploy AWS Service Broker
 ```
 

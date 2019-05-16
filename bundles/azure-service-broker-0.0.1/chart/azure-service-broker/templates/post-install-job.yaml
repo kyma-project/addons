@@ -27,12 +27,13 @@ spec:
                   command: ["/bin/sh","-c"]
                   args:
                     - |
-                      SECRET_NAME=$(kubectl get secret -n {{ .Release.Namespace }} azure-broker-data -o jsonpath="{.metadata.name}")
-                      if [[ "$SECRET_NAME" == "azure-broker-data" ]] ;
+                      EXPECTED_SECRET_NAME={{ .Values.secretName }}
+                      SECRET_NAME=$(kubectl get secret -n {{ .Release.Namespace }} {{ .Values.secretName }} -o jsonpath="{.metadata.name}")
+                      if [[ "$SECRET_NAME" == "$EXPECTED_SECRET_NAME" ]] ;
                         then
                           echo "Success! Secret is present.";
                         else
-                          echo "Failure! Secret 'azure-broker-data' is not present";
+                          echo "Failure! Secret '$EXPECTED_SECRET_NAME' is not present";
                           exit 1;
                       fi
 
@@ -59,4 +60,3 @@ spec:
                         echo "ServiesBroker is not ready. Timeout reached";
                         exit 1;
                       fi
----

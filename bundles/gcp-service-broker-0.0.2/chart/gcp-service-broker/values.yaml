@@ -3,9 +3,7 @@ image:
   tag: 237ba00f
   pullPolicy: IfNotPresent
 
-
-gcpBroker:
-  secretName: gcp-broker-data
-
 nameOverride: ""
 fullnameOverride: ""
+
+secretName: gcp-broker-data

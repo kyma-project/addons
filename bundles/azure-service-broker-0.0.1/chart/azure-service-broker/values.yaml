@@ -30,7 +30,7 @@ service:
 
 # Secret name where azure credentials are keep
 # like "subscriptionId", "tenantId", "clientId", "clientSecret"
-secretCredentialName: azure-broker-data
+secretName: azure-broker-data
 
 azure:
   ## Valid values are "AzurePublicCloud" and "AzureChinaCloud"

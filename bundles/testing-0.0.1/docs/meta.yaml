@@ -1,0 +1,17 @@
+docs:
+  - template:
+      displayName: "Documentation for testing-0.0.1"
+      description: "Overall documentation"
+      sources:
+        - type: markdown
+          name: markdown-files
+          mode: package
+          filter: docs/
+        - type: asyncapi
+          name: asyncapi-files
+          mode: package
+          filter: docs/
+        - type: openapi
+          name: openapi-files
+          mode: package
+          filter: docs/

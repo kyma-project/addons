@@ -34,4 +34,4 @@ Hodor. Hodor, hodor. Hodor. Hodor, hodor, hodor hodor. HODOR hodor, hodor. Hodor
 - Hodor! Hodor hodor. 
 - Hodor, hodor. Hodor. Hodor hodor! 
 
->**Hodor hodor!** Hodor, hodor. Hodor. Hodor. HODOR HODOR! Hodor... Hodor hodor. Hodor hodor! Hodor! Hodor hodor.
+>**NOTE:** Hodor, hodor. Hodor. Hodor. HODOR HODOR! Hodor... Hodor hodor. Hodor hodor! Hodor! Hodor hodor.

@@ -4,3 +4,7 @@ entries:
     - name: testing
       description: "Testing bundle"
       version: 0.0.1
+  redis:
+    - name: redis
+      description: "Redis service"
+      version: 0.0.3

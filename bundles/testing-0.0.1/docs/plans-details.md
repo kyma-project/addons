@@ -5,7 +5,7 @@ type: Details
 
 ## Hodor! Hodor hodor.
 
-[Hodor](https://en.wikipedia.org/wiki/Hodor_(character)). Hodor... Hodor hodor. Hodor, hodor.
+[Hodor](https://gameofthrones.fandom.com/wiki/Hodor). Hodor... Hodor hodor. Hodor, hodor.
 
 | Hodor! | Hodor hodor. |
 |--------|--------------|

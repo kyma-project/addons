@@ -4,14 +4,15 @@ docs:
       description: "Overall documentation"
       sources:
         - type: markdown
-          name: markdown-files
+          name: docs
           mode: package
-          filter: docs/
+          filter: (docs/(.*?)\.md$)|(docs/assets)
         - type: asyncapi
-          name: asyncapi-files
+          name: asyncapi
           mode: package
-          filter: docs/
+          filter: docs/streetlights\.yml
         - type: openapi
-          name: openapi-files
+          name: openapi
           mode: package
-          filter: docs/
+          filter: docs/swagger\.json
+          

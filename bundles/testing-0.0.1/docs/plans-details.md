@@ -5,7 +5,7 @@ type: Details
 
 ## Hodor! Hodor hodor.
 
-[Hodor](https://gameofthrones.fandom.com/wiki/Hodor). Hodor... Hodor hodor. Hodor, hodor.
+Hodor... Hodor hodor. Hodor, hodor <a href="https://gameofthrones.fandom.com/wiki/Hodor" alt="Hodor" id="hodorlink">Hodor</a> Hodor, hodor. Hodor... Hodor hodor. Hodor, hodor.
 
 | Hodor! | Hodor hodor. |
 |--------|--------------|
@@ -29,7 +29,7 @@ Hodor. Hodor. Hodor hodor! Hodor hodor! Hodor?
 
 Hodor! Hodor hodor. Hodor hodor! Hodor, hodor, hodor hodor. Hodor hodor. HODOR HODOR! HODOR HODOR! Hodor hodor HODOR!
 
-![](./assets/hodor.png)
+<img src="assets/hodor.png" alt="Hodor" id="hodorimg" />
 
 Hodor. Hodor, hodor. Hodor. Hodor, hodor, hodor hodor. HODOR hodor, hodor. Hodor? Hodor hodor! Hodor, hodor, hodor hodor.
 

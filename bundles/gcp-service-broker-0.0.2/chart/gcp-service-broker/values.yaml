@@ -1,9 +1,0 @@
-image:
-  repository: eu.gcr.io/kyma-project/develop/gcp-broker-provider
-  tag: b54cc4c5
-  pullPolicy: IfNotPresent
-
-nameOverride: ""
-fullnameOverride: ""
-
-secretName: gcp-broker-data

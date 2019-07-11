@@ -1,0 +1,307 @@
+
+---
+apiVersion: cms.kyma-project.io/v1alpha1
+kind: DocsTopic
+metadata:
+  name: f80c0a3e-bd4d-4809-a900-b4e33a6450f1
+  labels:
+    cms.kyma-project.io/view-context: service-catalog
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: "{{ .Release.Name }}"
+spec:
+  displayName: Google BigQuery
+  description: Documentation for Google BigQuery.
+  sources:
+    - type: markdown
+      name: documentation
+      mode: package
+      url: '{{ .Values.addonsRepositoryURL }}'
+      filter: docs/google-bigquery/
+---
+apiVersion: cms.kyma-project.io/v1alpha1
+kind: DocsTopic
+metadata:
+  name: b8e19880-ac58-42ef-b033-f7cd9c94d1fe
+  labels:
+    cms.kyma-project.io/view-context: service-catalog
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: "{{ .Release.Name }}"
+spec:
+  displayName: Google Bigtable
+  description: Documentation for Google Bigtable.
+  sources:
+    - type: markdown
+      name: documentation
+      mode: package
+      url: '{{ .Values.addonsRepositoryURL }}'
+      filter: docs/google-bigtable/
+---
+apiVersion: cms.kyma-project.io/v1alpha1
+kind: DocsTopic
+metadata:
+  name: 4bc59b9a-8520-409f-85da-1c7552315863
+  labels:
+    cms.kyma-project.io/view-context: service-catalog
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: "{{ .Release.Name }}"
+spec:
+  displayName: Google CloudSQL for MySQL
+  description: Documentation for Google CloudSQL for MySQL.
+  sources:
+    - type: markdown
+      name: documentation
+      mode: package
+      url: '{{ .Values.addonsRepositoryURL }}'
+      filter: docs/google-cloudsql-mysql/
+---
+apiVersion: cms.kyma-project.io/v1alpha1
+kind: DocsTopic
+metadata:
+  name: cbad6d78-a73c-432d-b8ff-b219a17a803a
+  labels:
+    cms.kyma-project.io/view-context: service-catalog
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: "{{ .Release.Name }}"
+spec:
+  displayName: Google CloudSQL for PostgreSQL
+  description: Documentation for Google CloudSQL for PostgreSQL.
+  sources:
+    - type: markdown
+      name: documentation
+      mode: package
+      url: '{{ .Values.addonsRepositoryURL }}'
+      filter: docs/google-cloudsql-postgres/
+---
+apiVersion: cms.kyma-project.io/v1alpha1
+kind: DocsTopic
+metadata:
+  name: 3e897eb3-9062-4966-bd4f-85bda0f73b3d
+  labels:
+    cms.kyma-project.io/view-context: service-catalog
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: "{{ .Release.Name }}"
+spec:
+  displayName: Google Cloud Dataflow
+  description: Documentation for Google Cloud Dataflow.
+  sources:
+    - type: markdown
+      name: documentation
+      mode: package
+      url: '{{ .Values.addonsRepositoryURL }}'
+      filter: docs/google-dataflow/
+---
+apiVersion: cms.kyma-project.io/v1alpha1
+kind: DocsTopic
+metadata:
+  name: 76d4abb2-fee7-4c8f-aee1-bcea2837f02b
+  labels:
+    cms.kyma-project.io/view-context: service-catalog
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: "{{ .Release.Name }}"
+spec:
+  displayName: Google Cloud Datastore
+  description: Documentation for Google Cloud Datastore.
+  sources:
+    - type: markdown
+      name: documentation
+      mode: package
+      url: '{{ .Values.addonsRepositoryURL }}'
+      filter: docs/google-datastore/
+---
+apiVersion: cms.kyma-project.io/v1alpha1
+kind: DocsTopic
+metadata:
+  name: e84b69db-3de9-4688-8f5c-26b9d5b1f129
+  labels:
+    cms.kyma-project.io/view-context: service-catalog
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: "{{ .Release.Name }}"
+spec:
+  displayName: Google Cloud Dialogflow
+  description: Documentation for Google Cloud Dialogflow.
+  sources:
+    - type: markdown
+      name: documentation
+      mode: package
+      url: '{{ .Values.addonsRepositoryURL }}'
+      filter: docs/google-dialogflow/
+---
+apiVersion: cms.kyma-project.io/v1alpha1
+kind: DocsTopic
+metadata:
+  name: a2b7b873-1e34-4530-8a42-902ff7d66b43
+  labels:
+    cms.kyma-project.io/view-context: service-catalog
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: "{{ .Release.Name }}"
+spec:
+  displayName: Google Cloud Firestore
+  description: Documentation for Google Cloud Firestore.
+  sources:
+    - type: markdown
+      name: documentation
+      mode: package
+      url: '{{ .Values.addonsRepositoryURL }}'
+      filter: docs/google-firestore/
+---
+apiVersion: cms.kyma-project.io/v1alpha1
+kind: DocsTopic
+metadata:
+  name: 3ea92b54-838c-4fe1-b75d-9bda513380aa
+  labels:
+    cms.kyma-project.io/view-context: service-catalog
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: "{{ .Release.Name }}"
+spec:
+  displayName: Google Cloud Memorystore for Redis API
+  description: Documentation for Google Cloud Memorystore for Redis API.
+  sources:
+    - type: markdown
+      name: documentation
+      mode: package
+      url: '{{ .Values.addonsRepositoryURL }}'
+      filter: docs/google-memorystore-redis/
+---
+apiVersion: cms.kyma-project.io/v1alpha1
+kind: DocsTopic
+metadata:
+  name: 5ad2dce0-51f7-4ede-8b46-293d6df1e8d4
+  labels:
+    cms.kyma-project.io/view-context: service-catalog
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: "{{ .Release.Name }}"
+spec:
+  displayName: Google Machine Learning APIs
+  description: Documentation for Google Machine Learning APIs.
+  sources:
+    - type: markdown
+      name: documentation
+      mode: package
+      url: '{{ .Values.addonsRepositoryURL }}'
+      filter: docs/google-machine-learning-api/
+---
+apiVersion: cms.kyma-project.io/v1alpha1
+kind: DocsTopic
+metadata:
+  name: 628629e3-79f5-4255-b981-d14c6c7856be
+  labels:
+    cms.kyma-project.io/view-context: service-catalog
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: "{{ .Release.Name }}"
+spec:
+  displayName: Google PubSub
+  description: Documentation for Google PubSub.
+  sources:
+    - type: markdown
+      name: documentation
+      mode: package
+      url: '{{ .Values.addonsRepositoryURL }}'
+      filter: docs/google-pubsub/
+---
+apiVersion: cms.kyma-project.io/v1alpha1
+kind: DocsTopic
+metadata:
+  name: 51b3e27e-d323-49ce-8c5f-1211e6409e82
+  labels:
+    cms.kyma-project.io/view-context: service-catalog
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: "{{ .Release.Name }}"
+spec:
+  displayName: Google Spanner
+  description: Documentation for Google Spanner.
+  sources:
+    - type: markdown
+      name: documentation
+      mode: package
+      url: '{{ .Values.addonsRepositoryURL }}'
+      filter: docs/google-spanner/
+---
+apiVersion: cms.kyma-project.io/v1alpha1
+kind: DocsTopic
+metadata:
+  name: 83837945-1547-41e0-b661-ea31d76eed11
+  labels:
+    cms.kyma-project.io/view-context: service-catalog
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: "{{ .Release.Name }}"
+spec:
+  displayName: Stackdriver Debugger
+  description: Documentation for Stackdriver Debugger.
+  sources:
+    - type: markdown
+      name: documentation
+      mode: package
+      url: '{{ .Values.addonsRepositoryURL }}'
+      filter: docs/stackdriver-debugger/
+---
+apiVersion: cms.kyma-project.io/v1alpha1
+kind: DocsTopic
+metadata:
+  name: 2bc0d9ed-3f68-4056-b842-4a85cfbc727f
+  labels:
+    cms.kyma-project.io/view-context: service-catalog
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: "{{ .Release.Name }}"
+spec:
+  displayName: Stackdriver Monitoring
+  description: Documentation for Stackdriver Monitoring.
+  sources:
+    - type: markdown
+      name: documentation
+      mode: package
+      url: '{{ .Values.addonsRepositoryURL }}'
+      filter: docs/stackdriver-monitoring/
+---
+apiVersion: cms.kyma-project.io/v1alpha1
+kind: DocsTopic
+metadata:
+  name: 00b9ca4a-7cd6-406a-a5b7-2f43f41ade75
+  labels:
+    cms.kyma-project.io/view-context: service-catalog
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: "{{ .Release.Name }}"
+spec:
+  displayName: Stackdriver Profiler
+  description: Documentation for Stackdriver Profiler.
+  sources:
+    - type: markdown
+      name: documentation
+      mode: package
+      url: '{{ .Values.addonsRepositoryURL }}'
+      filter: docs/stackdriver-profiler/
+---
+apiVersion: cms.kyma-project.io/v1alpha1
+kind: DocsTopic
+metadata:
+  name: c5ddfe15-24d9-47f8-8ffe-f6b7daa9cf4a
+  labels:
+    cms.kyma-project.io/view-context: service-catalog
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: "{{ .Release.Name }}"
+spec:
+  displayName: Stackdriver Trace
+  description: Documentation for Stackdriver Trace.
+  sources:
+    - type: markdown
+      name: documentation
+      mode: package
+      url: '{{ .Values.addonsRepositoryURL }}'
+      filter: docs/stackdriver-trace/
+---
+apiVersion: cms.kyma-project.io/v1alpha1
+kind: DocsTopic
+metadata:
+  name: b9e4332e-b42b-4680-bda5-ea1506797474
+  labels:
+    cms.kyma-project.io/view-context: service-catalog
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: "{{ .Release.Name }}"
+spec:
+  displayName: Google Cloud Storage
+  description: Documentation for Google Cloud Storage.
+  sources:
+    - type: markdown
+      name: documentation
+      mode: package
+      url: '{{ .Values.addonsRepositoryURL }}'
+      filter: docs/google-cloud-storage/

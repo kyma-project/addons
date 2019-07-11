@@ -1,0 +1,13 @@
+name: google-cloud-platform-service-broker
+version: 0.1.0
+id: cbc4ce74-b402-4ff6-b230-2a079cf1706d
+description: "Enables the preview integration of Google Cloud Platform services. It is not recommended for production scenarios."
+displayName: "[Preview] Google Cloud Platform Service Broker"
+
+tags: gcp, google, broker
+providerDisplayName: "Google Cloud Platform"
+longDescription: "[Preview] Open Service Broker for Google Cloud Platform"
+documentationURL: https://github.com/GoogleCloudPlatform/gcp-service-broker
+imageURL: https://cloud.google.com/_static/images/cloud/icons/favicons/onecloud/apple-icon.png
+bindable: false
+provisionOnlyOnce: true

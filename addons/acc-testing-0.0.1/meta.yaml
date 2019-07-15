@@ -1,13 +1,13 @@
 name: acc-testing
 version: 0.0.1
 id: a54abe18-0a84-22e9-ab34-d663bbce3d88
-description: "A simple bundle used for acceptance tests."
-displayName: "Acceptance testing bundle"
+description: "A simple addon used for acceptance tests."
+displayName: "Acceptance testing addon"
 
 tags: test
 labels:
   showcase: "true"
 providerDisplayName: SAP
-longDescription: "A simple bundle used for acceptance tests."
+longDescription: "A simple addon used for acceptance tests."
 bindable: false
 planUpdatable: true

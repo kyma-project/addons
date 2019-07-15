@@ -4,7 +4,7 @@ export GITHUB_TOKEN=$(BOT_GITHUB_TOKEN)
 
 .PHONY: check
 check:
-	./scripts/checker.sh --helm-lint --directories ./bundles --helm-version v2.10.0
+	./scripts/checker.sh --helm-lint --directories ./addons --helm-version v2.10.0
 
 .PHONY: prepare-assets
 prepare-assets:
@@ -37,3 +37,4 @@ ci-master: check prepare-assets latest-release
 
 .PHONY: ci-release
 ci-release: check generate-changelog prepare-assets push-release release-branch
+

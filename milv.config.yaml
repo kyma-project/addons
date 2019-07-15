@@ -1,7 +1,10 @@
 timeout: 60
 request-repeats: 5
 files:
-  - path: "./bundles/.github/ISSUE_TEMPLATE/security-vulnerability.md"
+  - path: "./addons/.github/ISSUE_TEMPLATE/security-vulnerability.md"
     config:
       white-list-internal: ["{CVSS"]
       white-list-external: ["https://www.first.org/cvss/calculator/3.0#CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:L/A:N"]
+  - path: "./addons/addons/azure-service-broker-0.0.1/README.md"
+    config:
+      white-list-external: ["https://github.com/kyma-project/addons/blob/master/addons/azure-service-broker-0.0.1/docs/broker/plans-details.md", "https://github.com/kyma-project/addons/blob/master/addons/azure-service-broker-0.0.1/docs/broker/overview.md#create-a-secret"]

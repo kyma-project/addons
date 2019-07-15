@@ -1,6 +1,6 @@
 docs:
   - template:
-      displayName: "Documentation for acceptance testing bundle"
+      displayName: "Documentation for acceptance testing addon"
       description: "Overall documentation"
       sources:
         - type: markdown

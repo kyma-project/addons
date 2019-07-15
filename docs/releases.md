@@ -1,6 +1,6 @@
 # Releases
 
-This document describes how the release flow looks like and how to create a bundle release.
+This document describes how the release flow looks like and how to create an addon release.
 
 ## Release process
 
@@ -10,7 +10,7 @@ Every tag pushed to the repository triggers a new release. If the tag name match
 
 ### Create a release from the master branch
 
-Follow these steps to create a new bundle release 0.6.0:
+Follow these steps to create a new addon release 0.6.0:
 
 1. Checkout the master branch with the latest changes:
 
@@ -42,7 +42,7 @@ Follow these steps to create a new bundle release 0.6.0:
 
 ### Create a release from the release branch
 
-Follow these steps to create a new bundle release 0.6.1:
+Follow these steps to create a new addon release 0.6.1:
 
 1. Checkout the release branch with the latest changes. For example:
 
@@ -69,7 +69,7 @@ Follow these steps to create a new bundle release 0.6.1:
 
 ## Changelog functionality
 
-Every time you create a new release, two changelog files are generated. One refers to a specific release and the other one to the whole `bundles` repository.
+Every time you create a new release, two changelog files are generated. One refers to a specific release and the other one to the whole `addons` repository.
 
 Every changelog file contains a list of all pull requests from the period between the releases, together with the set of default labels for the [lerna-changelog](https://github.com/lerna/lerna-changelog#usage).
 You can define your own labels in the `scripts/package.json` file according to the lerna-changelog [configuration](https://github.com/lerna/lerna-changelog#configuration).

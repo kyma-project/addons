@@ -20,7 +20,7 @@ branch:
 jobs:
   include:
   - stage: check
-    script: ./scripts/prepare-release-assets.sh --helm-lint --directories ./bundles --helm-version v2.10.0
+    script: ./scripts/prepare-release-assets.sh --helm-lint --directories ./addons --helm-version v2.10.0
 
   # Creates a release from the tagged version from eny branch
   - stage: deploy

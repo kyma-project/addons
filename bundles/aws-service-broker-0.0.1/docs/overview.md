@@ -8,6 +8,7 @@ type: Overview
 The [AWS Service Broker](https://github.com/awslabs/aws-servicebroker/blob/v1.0.0/docs) class exposes the [Amazon Web Services](https://aws.amazon.com/) from a given S3 bucket in a given Namespace of the Kyma cluster. You can provision only one instance of the AWS Service Broker in each Namespace.
 
 The DynamoDB is used to keep the broker's state so it must exist in the broker's region.
+>**CAUTION:** The region you choose during the installation must match the Broker's region in the provisioning process. If the regions are different, the AWS Service Broker will be installed successfully but its services will not be visible. 
 
 ## Create a Secret
 

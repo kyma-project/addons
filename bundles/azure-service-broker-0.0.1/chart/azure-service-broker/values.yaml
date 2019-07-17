@@ -79,6 +79,6 @@ redis:
 # Jobs configuration
 jobs:
   kubectlImage:
-    repository: eu.gcr.io/kyma-project/develop/gcp-broker-provider
-    tag: 237ba00f
+    repository: eu.gcr.io/kyma-project/test-infra/alpine-kubectl
+    tag: v20190325-ff66a3a
     pullPolicy: IfNotPresent

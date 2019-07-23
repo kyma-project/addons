@@ -1,6 +1,5 @@
 ---
 title: Configuration
-type: Details
 ---
 
 ## Hodor, hodor. Hodor. Hodor, hodor, hodor hodor. 

@@ -1,6 +1,5 @@
 ---
 title: Services and Plans
-type: Details
 ---
 
 ## Hodor! Hodor hodor.

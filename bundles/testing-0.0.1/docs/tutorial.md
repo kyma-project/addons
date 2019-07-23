@@ -1,6 +1,6 @@
 ---
-title: Tutorial
-type: Details
+title: Sample Hodor deployment
+type: Tutorials
 ---
 
 ## Hodor, hodor. Hodor. Hodor, hodor, hodor hodor. 

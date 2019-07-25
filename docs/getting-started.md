@@ -32,7 +32,7 @@ Follow these steps to set up your bundles repository with Travis CI, configure t
 
 1. [Create your bundles](https://kyma-project.io/docs/master/components/helm-broker/#details-create-addons) and place them in the `bundles/` directory.
 
-2. Update the [`index.yaml` file](https://kyma-project.io/docs/master/components/helm-broker/#details-create-a-bundles-repository-index-yaml-file) which defines the available bundles.
+2. Update the [`index.yaml` file](https://kyma-project.io/docs/master/components/helm-broker/#details-create-addons-repository-the-index-yaml-file) which defines the available bundles.
 
 3. Commit your changes and push them to the master branch.
 

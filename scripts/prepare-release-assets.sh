@@ -14,11 +14,11 @@ function prepareAssets() {
           mkdir -p toCopy
 
           # do not fail if there is no .md file
-          cp bundles/*.md ${destination} | true
-          cp bundles/*.yaml ${destination}
+          cp addons/*.md ${destination} | true
+          cp addons/*.yaml ${destination}
 
           echo "Executing targz"
-          bin/targz bundles/ ${destination}
+          bin/targz addons/ ${destination}
 
           echo "Processing done"
           echo

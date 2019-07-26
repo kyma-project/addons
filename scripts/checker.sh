@@ -14,18 +14,18 @@ exitImmediatelyIfErr="set -e"
 doNotExitImmediatelyIfErr="set +e"
 
 function show_help() {
-    echo " Bundle checking tool"
+    echo " Addon checking tool"
     echo " Usage:"
     echo "   checker.sh [flags]"
     echo
     echo " Flags:"
     echo "    -h --help         helm for the script"
     echo "    --helm-lint       set to perform helm lint operation"
-    echo "    --directories     specify the list of bundle repository separated by ;"
+    echo "    --directories     specify the list of addon repository separated by ;"
     echo "    --helm-version    specify the Helm version. Default set to latest."
     echo
     echo " Example of usage:"
-    echo " checker.sh --helm-lint --directories ./bundles/showcase;./bundles/stable --helm-version v2.10.0"
+    echo " checker.sh --helm-lint --directories ./addons/showcase;./addons/stable --helm-version v2.10.0"
 }
 
 
@@ -93,14 +93,14 @@ function executeCmd() {
     return ${exitErr}
 }
 
-function checkBundles() {
+function checkAddons() {
     local errOccurred=0
 
     for directory in ${directories[@]}
     do
-        echo -e "${INVERTED}Checking bundles in directory ${directory}${NC}"
-        for bundle in ${directory}/*/; do
-            executeCmd "bin/checker ${bundle}"
+        echo -e "${INVERTED}Checking addons in directory ${directory}${NC}"
+        for addon in ${directory}/*/; do
+            executeCmd "bin/checker ${addon}"
             if [ $? -eq 1 ];
             then
                 errOccurred=1
@@ -140,9 +140,9 @@ function lintHelmChartsIfRequested() {
     echo -e "${INVERTED}Linting Helm Charts...${NC}"
     for directory in ${directories[@]}
     do
-        for bundle in ${directory}/*/; do
-            for chart in ${bundle}chart/*/; do
-                for plan in ${bundle}/plans/*/; do
+        for addon in ${directory}/*/; do
+            for chart in ${addon}chart/*/; do
+                for plan in ${addon}/plans/*/; do
                     if [ -e ${plan}values.yaml ]
                     then
                         helmCmd="helm lint ${chart} --values ${plan}values.yaml"
@@ -168,5 +168,5 @@ function lintHelmChartsIfRequested() {
 
 validateInputParams
 
-checkBundles
+checkAddons
 lintHelmChartsIfRequested

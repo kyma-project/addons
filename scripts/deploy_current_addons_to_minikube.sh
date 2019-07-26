@@ -2,9 +2,9 @@
 set -e
 set -o pipefail
 
-# This script allows you to use bundles stored locally in Helm Broker.
+# This script allows you to use addons stored locally in Helm Broker.
 # Following steps are performed:
-# - build tar.gz files from ./bundles directory and store them in ./out directory
+# - build tar.gz files from ./addons directory and store them in ./out directory
 # - copy index.yaml to ./out directory
 # build image with nginx + targz + index.yaml
 # apply deployment, service
@@ -13,10 +13,10 @@ set -o pipefail
 
 function buildTarGzInOutDir() {
     echo "Build targz files and store them in 'out' directory"
-    docker run -it -v  ${BUNDLES_REPO}:/workspace -w /workspace alpine:latest ./bin/targz ./bundles ./out
+    docker run -it -v  ${ADDONS_REPO}:/workspace -w /workspace alpine:latest ./bin/targz ./addons ./out
 }
 
-function buildImageNginxWithBundles() {
+function buildImageNginxWithAddons() {
     echo "Build image: nginx + targzs + index.yaml"
     echo "FROM nginx
     EXPOSE 80
@@ -26,13 +26,13 @@ function buildImageNginxWithBundles() {
     eval $(minikube docker-env --shell=bash)
 
     cd ./out
-    docker build -t bundles-local .
+    docker build -t addons-local .
     eval $(minikube docker-env --unset)
 }
 
 function removePreviousResources() {
-    kubectl delete service -l app=bundles-local --ignore-not-found=true --wait=true
-    kubectl delete deployment bundles-local --ignore-not-found=true --wait=true
+    kubectl delete service -l app=addons-local --ignore-not-found=true --wait=true
+    kubectl delete deployment addons-local --ignore-not-found=true --wait=true
 
 }
 
@@ -42,9 +42,9 @@ cat <<EOF | kubectl apply -f -
     apiVersion: v1
     kind: Service
     metadata:
-      name: bundles-local-${TS}
+      name: addons-local-${TS}
       labels:
-        app: bundles-local
+        app: addons-local
     spec:
       type: "NodePort"
       ports:
@@ -52,7 +52,7 @@ cat <<EOF | kubectl apply -f -
           port: 80
           targetPort: 80
       selector:
-        app: bundles-local
+        app: addons-local
 EOF
 }
 
@@ -62,23 +62,23 @@ cat <<EOF | kubectl apply -f -
     apiVersion: apps/v1
     kind: Deployment
     metadata:
-      name: bundles-local
+      name: addons-local
     spec:
       replicas: 1
       selector:
         matchLabels:
-          app: bundles-local
+          app: addons-local
       template:
         metadata:
           annotations:
             sidecar.istio.io/inject: "false"
           labels:
-            app: bundles-local
+            app: addons-local
         spec:
           containers:
-          - image: bundles-local:latest
+          - image: addons-local:latest
             imagePullPolicy: Never
-            name: bundles-local
+            name: addons-local
             env:
             - name: triggerRestart
               value: "${TS}"
@@ -88,14 +88,14 @@ EOF
 }
 
 function disableMTLS() {
-    echo "Apply istio DestinationRule to disable mTLS for 'bundles-local' "
+    echo "Apply istio DestinationRule to disable mTLS for 'addons-local' "
 cat <<EOF | kubectl apply -f -
     apiVersion: networking.istio.io/v1alpha3
     kind: DestinationRule
     metadata:
-      name: "bundles-local"
+      name: "addons-local"
     spec:
-      host: "bundles-local-${TS}.default.svc.cluster.local"
+      host: "addons-local-${TS}.default.svc.cluster.local"
       trafficPolicy:
         tls:
           mode: DISABLE
@@ -104,11 +104,11 @@ EOF
 
 
 function configureURLInHelmBroker() {
-    echo "Configure Helm-Broker to use 'bundles-local'"
+    echo "Configure Helm-Broker to use 'addons-local'"
 cat <<EOF | kubectl apply -f -
     apiVersion: v1
     data:
-      URLs: http://bundles-local-${TS}.default.svc.cluster.local
+      URLs: http://addons-local-${TS}.default.svc.cluster.local
     kind: ConfigMap
     metadata:
       labels:
@@ -125,12 +125,12 @@ function waitForServiceToBeAvailable() {
     echo "Running on pod ${pod}"
 
     cmd="set +e
-    url=\"http://bundles-local-${TS}.default.svc.cluster.local\"
+    url=\"http://addons-local-${TS}.default.svc.cluster.local\"
     echo \"\${url}\"
     while true
     do
       response=\$(curl --write-out %{http_code} --silent --output /dev/null \${url}/index.yaml)
-      echo \"Got response from bundles-local service: \${response}\"
+      echo \"Got response from addons-local service: \${response}\"
       if [[ \"\${response}\" -ne 200 ]] ; then
         echo \"Sleep for 3 seconds...\"
         sleep 3
@@ -145,18 +145,18 @@ function waitForServiceToBeAvailable() {
 
 
 export ROOT_PATH=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
-export BUNDLES_REPO=$( cd "${ROOT_PATH}/.."  && pwd)
+export ADDONS_REPO=$( cd "${ROOT_PATH}/.."  && pwd)
 
-rm -rf ${BUNDLES_REPO}/out
-mkdir ${BUNDLES_REPO}/out
+rm -rf ${ADDONS_REPO}/out
+mkdir ${ADDONS_REPO}/out
 
-cd ${BUNDLES_REPO}
+cd ${ADDONS_REPO}
 export TS=$(date +%s)
 echo "Generated unique suffix for service: ${TS}"
 removePreviousResources
 buildTarGzInOutDir
-cp ./bundles/index.yaml ./out
-buildImageNginxWithBundles
+cp ./addons/index.yaml ./out
+buildImageNginxWithAddons
 applyService
 applyDeployment
 disableMTLS

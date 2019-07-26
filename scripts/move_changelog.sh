@@ -2,7 +2,7 @@
 set -e
 
 RELEASE_CHANGELOG_PATH="./.changelog/release-changelog.md"
-DEST_CHANGELOG_FILE_PATH="bundles/CHANGELOG.md"
+DEST_CHANGELOG_FILE_PATH="addons/CHANGELOG.md"
 
-echo "Copy release changelog to bundles dir..."
+echo "Copy release changelog to addons dir..."
 cp $RELEASE_CHANGELOG_PATH $DEST_CHANGELOG_FILE_PATH

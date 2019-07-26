@@ -2,7 +2,7 @@ apiVersion: v1
 entries:
   testing:
     - name: testing
-      description: "Testing bundle"
+      description: "Testing addon"
       version: 0.0.1
   redis:
     - name: redis

@@ -68,23 +68,6 @@ spec:
 apiVersion: cms.kyma-project.io/v1alpha1
 kind: DocsTopic
 metadata:
-  name: 63dc48b9-a2af-566e-ae39-8ecace979307
-  namespace: {{ .Release.Namespace }}
-  labels:
-    cms.kyma-project.io/view-context: service-catalog
-    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
-    release: "{{ .Release.Name }}"
-spec:
-  sources:
-    - type: markdown
-      name: rdspostgresql-readme
-      mode: single
-      url: "https://raw.githubusercontent.com/awslabs/aws-servicebroker/v{{ .Chart.Version }}/templates/rdspostgresql/README.md"
-
----
-apiVersion: cms.kyma-project.io/v1alpha1
-kind: DocsTopic
-metadata:
   name: 66648c78-139c-50e6-8151-b9eef85fc829
   namespace: {{ .Release.Namespace }}
   labels:
@@ -301,3 +284,122 @@ spec:
       name: elasticache-readme
       mode: single
       url: "https://raw.githubusercontent.com/awslabs/aws-servicebroker/v{{ .Chart.Version }}/templates/elasticache/README.md"
+
+---
+apiVersion: cms.kyma-project.io/v1alpha1
+kind: DocsTopic
+metadata:
+  name: dbc04fed-3954-5ceb-b085-d929efe9435e
+  namespace: {{ .Release.Namespace }}
+  labels:
+    cms.kyma-project.io/view-context: service-catalog
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: "{{ .Release.Name }}"
+spec:
+  sources:
+    - type: markdown
+      name: elasticsearch-readme
+      mode: single
+      url: "https://raw.githubusercontent.com/awslabs/aws-servicebroker/master/templates/elasticsearch/README.md"
+
+---
+apiVersion: cms.kyma-project.io/v1alpha1
+kind: DocsTopic
+metadata:
+  name: aab2ed5a-f125-5a7a-8263-59167fb4dff1
+  namespace: {{ .Release.Namespace }}
+  labels:
+    cms.kyma-project.io/view-context: service-catalog
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: "{{ .Release.Name }}"
+spec:
+  sources:
+    - type: markdown
+      name: documentdb-readme
+      mode: single
+      url: "https://raw.githubusercontent.com/awslabs/aws-servicebroker/master/templates/documentdb/README.md"
+
+---
+apiVersion: cms.kyma-project.io/v1alpha1
+kind: DocsTopic
+metadata:
+  name: 63dc48b9-a2af-566e-ae39-8ecace979307
+  namespace: {{ .Release.Namespace }}
+  labels:
+    cms.kyma-project.io/view-context: service-catalog
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: "{{ .Release.Name }}"
+spec:
+  sources:
+    - type: markdown
+      name: rdspostgresql-readme
+      mode: single
+      url: "https://raw.githubusercontent.com/awslabs/aws-servicebroker/v{{ .Chart.Version }}/templates/rdspostgresql/README.md"
+
+---
+apiVersion: cms.kyma-project.io/v1alpha1
+kind: DocsTopic
+metadata:
+  name: e369c182-f1fd-5cde-9710-946fc727de1b
+  namespace: {{ .Release.Namespace }}
+  labels:
+    cms.kyma-project.io/view-context: service-catalog
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: "{{ .Release.Name }}"
+spec:
+  sources:
+    - type: markdown
+      name: rdsoracle-readme
+      mode: single
+      url: "https://raw.githubusercontent.com/awslabs/aws-servicebroker/master/templates/rdsoracle/README.md"
+
+---
+apiVersion: cms.kyma-project.io/v1alpha1
+kind: DocsTopic
+metadata:
+  name: 168dd9f3-b0e6-553c-b0f3-e378ebf272a8
+  namespace: {{ .Release.Namespace }}
+  labels:
+    cms.kyma-project.io/view-context: service-catalog
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: "{{ .Release.Name }}"
+spec:
+  sources:
+    - type: markdown
+      name: rdsmssql-readme
+      mode: single
+      url: "https://raw.githubusercontent.com/awslabs/aws-servicebroker/master/templates/rdsmssql/README.md"
+
+---
+apiVersion: cms.kyma-project.io/v1alpha1
+kind: DocsTopic
+metadata:
+  name: a20b78e9-04c0-5c2f-8625-e14c8629bf98
+  namespace: {{ .Release.Namespace }}
+  labels:
+    cms.kyma-project.io/view-context: service-catalog
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: "{{ .Release.Name }}"
+spec:
+  sources:
+    - type: markdown
+      name: aurorapostgresql-readme
+      mode: single
+      url: "https://raw.githubusercontent.com/awslabs/aws-servicebroker/master/templates/aurorapostgresql/README.md"
+
+---
+apiVersion: cms.kyma-project.io/v1alpha1
+kind: DocsTopic
+metadata:
+  name: 72a6b8d8-489d-52a2-85c4-3935f3f0f93f
+  namespace: {{ .Release.Namespace }}
+  labels:
+    cms.kyma-project.io/view-context: service-catalog
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: "{{ .Release.Name }}"
+spec:
+  sources:
+    - type: markdown
+      name: auroramysql-readme
+      mode: single
+      url: "https://raw.githubusercontent.com/awslabs/aws-servicebroker/master/templates/auroramysql/README.md"

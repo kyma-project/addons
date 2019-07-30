@@ -11,7 +11,7 @@ deployNamespacedServiceBroker: true
 
 region: us-east-1
 bucket: awsservicebroker
-key: templates/latest
+key: templates/1.0.1
 s3region: us-east-1
 tablename: awssb
 brokerid: awsservicebroker

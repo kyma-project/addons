@@ -106,10 +106,11 @@ EOF
 function configureURLInHelmBroker() {
     echo "Configure Helm-Broker to use 'addons-local'"
 cat <<EOF | kubectl apply -f -
-    apiVersion: v1
-    data:
-      URLs: http://addons-local-${TS}.default.svc.cluster.local
-    kind: ConfigMap
+    apiVersion: addons.kyma-project.io/v1alpha1
+    spec:
+      repositories:
+      - url: http://addons-local-${TS}.default.svc.cluster.local
+    kind: ClusterAddonsConfiguration
     metadata:
       labels:
         app: helm-broker
@@ -140,7 +141,7 @@ function waitForServiceToBeAvailable() {
       fi
     done"
 
-     kubectl exec -it -n kyma-system $pod -c helm-broker -- /bin/sh -c "$cmd"
+    kubectl exec -it -n kyma-system $pod -c broker -- /bin/sh -c "$cmd"
 }
 
 

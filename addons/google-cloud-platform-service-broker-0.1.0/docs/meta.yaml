@@ -1,0 +1,9 @@
+docs:
+  - template:
+      displayName: "Documentation for Google Cloud Platform Service Broker"
+      description: "Overall documentation"
+      sources:
+        - type: markdown
+          name: markdown-files
+          mode: package
+          filter: docs/broker

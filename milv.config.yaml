@@ -8,3 +8,6 @@ files:
   - path: "./addons/addons/azure-service-broker-0.0.1/README.md"
     config:
       white-list-external: ["https://github.com/kyma-project/addons/blob/master/addons/azure-service-broker-0.0.1/docs/broker/plans-details.md", "https://github.com/kyma-project/addons/blob/master/addons/azure-service-broker-0.0.1/docs/broker/overview.md#create-a-secret"]
+  - path: "./addons/addons/google-cloud-platform-service-broker-0.1.0/docs/google-memorystore-redis/plans-details.md"
+    config:
+      white-list-internal: ["[-0-9a-z]*[a-z0-9]$"]

@@ -182,7 +182,7 @@
     "key": {
       "type": "string",
       "title": "S3 Bucket key",
-      "default": "templates/latest",
+      "default": "templates/1.0.1",
       "description": "The name of the key in the S3 bucket"
 
     },

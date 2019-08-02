@@ -38,7 +38,7 @@ Follow these steps to set up your addons repository with Travis CI, configure th
 
 4. Check the build status on [Travis CI](https://travis-ci.com/). To learn how to tag and release your addons, see [this](releases.md) document.
 
-5. Configure the Helm Broker to [fetch addons from your repository](https://kyma-project.io/docs/master/components/helm-broker/#details-fetch-addons-from-https-servers).
+5. Configure the Helm Broker to [fetch addons from your repository](https://kyma-project.io/docs/master/components/helm-broker/#details-create-addons-repository).
 
 
 

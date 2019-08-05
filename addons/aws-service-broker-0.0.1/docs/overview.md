@@ -10,7 +10,7 @@ The [AWS Service Broker](https://github.com/awslabs/aws-servicebroker/blob/v1.0.
 The DynamoDB is used to keep the broker's state so it must exist in the broker's region.
 >**CAUTION:** The region you choose during the installation must match the Broker's region in the provisioning process. If the regions are different, the AWS Service Broker will be installed successfully but its services will not be visible. 
 
->**CAUTION:** AWS Service Broker can be installed ONLY in a namespace with enabled Istio.
+>**CAUTION:** The AWS Service Broker can be installed only in a Namespace with Istio enabled.
 
 ## Create a Secret
 

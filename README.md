@@ -6,12 +6,7 @@ This repository contains addons which the Helm Broker uses. For more information
 
 ## Usage
 
-The `addons` folder contains sources of addons and index files that are available in [releases](https://github.com/kyma-project/addons/releases). Using addons, you can install the following Service Brokers:
-* [Azure Service Broker](https://kyma-project.io/docs/master/components/service-catalog/#service-brokers-azure-service-broker)
-* [AWS Service Broker](https://kyma-project.io/docs/master/components/service-catalog/#service-brokers-aws-service-broker)
-* [Google Cloud Platform Service Broker](https://kyma-project.io/docs/master/components/service-catalog/#service-brokers-google-cloud-platform-service-broker) (preview)
-
-You can also try out the [`testing` addon](addons/testing-0.0.1) that uses all functionality provided by the addon specification.
+The `addons` folder contains sources of addons and index files that are available in [releases](https://github.com/kyma-project/addons/releases). Choose a set of addons you want to use, add your own addons, and configure the Helm Broker to fetch them. You can also try out the [`testing` addon](addons/testing-0.0.1) that uses all functionality provided by the addon specification.
 
 ## Development
 

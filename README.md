@@ -10,7 +10,7 @@ The `addons` folder contains sources of addons and index files that are availabl
 
 ## Development
 
-Develop your own addons repository forked from the original repository. Read [this](docs/getting-started.md) document to learn how. On your fork, you can create your own addons. Note that your addons must follow the [addons template](https://kyma-project.io/docs/master/components/helm-broker/#details-create-addons), and that your addons repository must have the specified [structure](https://kyma-project.io/docs/master/components/helm-broker/#details-create-addons-repository) so that the Helm Broker can use it. Read the [`CONTRIBUTING.md`](CONTRIBUTING.md) document that includes the contributing rules specific for this repository.
+Develop your own addons repository forked from the original repository. Read [this](docs/getting-started.md) document to learn how. On your fork, you can create your own addons. Your addons must follow the [addons template](https://kyma-project.io/docs/master/components/helm-broker/#details-create-addons) and your addons repository must have the specified [structure](https://kyma-project.io/docs/master/components/helm-broker/#details-create-addons-repository) so that the Helm Broker can use it. Read the [`CONTRIBUTING.md`](CONTRIBUTING.md) document that includes the contributing rules specific for this repository.
 
 >**TIP:** You can base your addon on the [`testing` addon](addons/testing-0.0.1) that uses all functionality provided by the addon specification.
 

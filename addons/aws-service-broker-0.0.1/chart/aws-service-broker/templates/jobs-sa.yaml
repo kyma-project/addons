@@ -1,7 +1,7 @@
 kind: Role
 apiVersion: rbac.authorization.k8s.io/v1beta1
 metadata:
-    name: {{ template "fullname" . }}-docu-checker
+    name: {{ include "fullname" . | trunc 60 }}-dc
     labels:
         app: {{ template "fullname" . }}
         chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
@@ -45,7 +45,7 @@ metadata:
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-    name: {{ template "fullname" . }}-docu-checker
+    name: {{ include "fullname" . | trunc 60 }}-dc
     labels:
         app: {{ template "fullname" . }}
         chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
@@ -75,7 +75,7 @@ roleRef:
 kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1beta1
 metadata:
-    name: {{ template "fullname" . }}-docu-checker
+    name: {{ include "fullname" . | trunc 60 }}-dc
     labels:
         app: {{ template "fullname" . }}
         chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
@@ -83,9 +83,9 @@ metadata:
         heritage: "{{ .Release.Service }}"
 subjects:
     - kind: ServiceAccount
-      name: {{ template "fullname" . }}-docu-checker
+      name: {{ include "fullname" . | trunc 60 }}-dc
       namespace: {{ .Release.Namespace }}
 roleRef:
     apiGroup: rbac.authorization.k8s.io
     kind: Role
-    name: {{ template "fullname" . }}-docu-checker
+    name: {{ include "fullname" . | trunc 60 }}-dc

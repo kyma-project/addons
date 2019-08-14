@@ -16,7 +16,7 @@ spec:
             annotations:
                 sidecar.istio.io/inject: "false"
         spec:
-            serviceAccountName: {{ include "fullname" . }}-docu-checker
+            serviceAccountName: {{ include "fullname" . | trunc 60 }}-dc
             restartPolicy: Never
             containers:
                 - name: docu-checker

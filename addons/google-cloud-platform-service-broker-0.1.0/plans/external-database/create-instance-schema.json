@@ -1,0 +1,45 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "secretName": {
+      "type": "string",
+      "title": "GCP Secret Name",
+      "description": "Name of the Secret which contains the GCP auth data"
+    },
+    "mysql": {
+      "type": "object",
+      "title": " ",
+      "properties": {
+        "host": {
+          "type": "string",
+          "title": "MySQL Host",
+          "description": "Host name of the MySQL database"
+        },
+        "port": {
+          "type": "string",
+          "title": "MySQL Port",
+          "description": "Port of the MySQL database",
+          "default": "3306"
+        },
+        "mysqlUser": {
+          "type": "string",
+          "title": "MySQL User",
+          "description": "Name of the MySQL database user"
+        },
+        "mysqlPassword": {
+          "type": "string",
+          "title": "MySQL Password",
+          "description": "Password of the MySQL database user"
+        },
+        "mysqlDatabase": {
+          "type": "string",
+          "title": "MySQL Database Name",
+          "description": "Name of the MySQL database"
+        }
+      },
+      "required": ["host", "port", "mysqlUser", "mysqlPassword", "mysqlDatabase"]
+    }
+  },
+  "required": ["secretName"]
+}

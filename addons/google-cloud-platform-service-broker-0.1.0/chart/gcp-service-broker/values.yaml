@@ -61,7 +61,7 @@ mysql:
   embedded: true
   # Required if not embedded, the hostname or IP address of the MySQL database
   # to connect to.
-  host: ''
+  host: 'host'
   # Database port.
   port: 3306
   # Username for the service broker on the database.

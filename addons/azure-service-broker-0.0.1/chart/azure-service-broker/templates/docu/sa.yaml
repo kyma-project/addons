@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-    name: {{ template "fullname" . }}-docu-checker
+    name: {{ include "fullname" . | trunc 60 }}-dc
     labels:
         app: {{ template "fullname" . }}
         chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"

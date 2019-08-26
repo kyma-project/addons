@@ -14,9 +14,13 @@
 ---
 replicaCount: 1
 
+
+# Both the image and doc base path are gathered from
+# this commit: https://github.com/GoogleCloudPlatform/gcp-service-broker/commit/754f612578a163362821553d2b2122ba9d122c43
+brokerDocBasePath: https://raw.githubusercontent.com/GoogleCloudPlatform/gcp-service-broker/754f612578a163362821553d2b2122ba9d122c43/docs/classes
 image:
-  repository: eu.gcr.io/kyma-project/incubator/develop/gcp-service-broker
-  tag: 4fa8cd48
+  repository: gcr.io/gcp-service-broker/gcp-service-broker@sha256
+  tag: 2162aaa06bb7b1fdfb17d6f7f8148e1b66f08f588f8476223852b93ae38ce1db
   pullPolicy: IfNotPresent
 
 # Settings for integrating the broker with the Kubernetes Service Catalog.

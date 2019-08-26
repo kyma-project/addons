@@ -1,5 +1,3 @@
-
----
 apiVersion: cms.kyma-project.io/v1alpha1
 kind: DocsTopic
 metadata:
@@ -14,9 +12,8 @@ spec:
   sources:
     - type: markdown
       name: documentation
-      mode: package
-      url: '{{ .Values.addonsRepositoryURL }}'
-      filter: docs/google-bigquery/
+      mode: single
+      url: "{{ .Values.brokerDocBasePath }}/google-bigquery.md"
 ---
 apiVersion: cms.kyma-project.io/v1alpha1
 kind: DocsTopic
@@ -32,9 +29,8 @@ spec:
   sources:
     - type: markdown
       name: documentation
-      mode: package
-      url: '{{ .Values.addonsRepositoryURL }}'
-      filter: docs/google-bigtable/
+      mode: single
+      url: "{{ .Values.brokerDocBasePath }}/google-bigtable.md"
 ---
 apiVersion: cms.kyma-project.io/v1alpha1
 kind: DocsTopic
@@ -50,9 +46,8 @@ spec:
   sources:
     - type: markdown
       name: documentation
-      mode: package
-      url: '{{ .Values.addonsRepositoryURL }}'
-      filter: docs/google-cloudsql-mysql/
+      mode: single
+      url: "{{ .Values.brokerDocBasePath }}/google-cloudsql-mysql.md"
 ---
 apiVersion: cms.kyma-project.io/v1alpha1
 kind: DocsTopic
@@ -68,9 +63,8 @@ spec:
   sources:
     - type: markdown
       name: documentation
-      mode: package
-      url: '{{ .Values.addonsRepositoryURL }}'
-      filter: docs/google-cloudsql-postgres/
+      mode: single
+      url: "{{ .Values.brokerDocBasePath }}/google-cloudsql-postgres.md"
 ---
 apiVersion: cms.kyma-project.io/v1alpha1
 kind: DocsTopic
@@ -86,9 +80,8 @@ spec:
   sources:
     - type: markdown
       name: documentation
-      mode: package
-      url: '{{ .Values.addonsRepositoryURL }}'
-      filter: docs/google-dataflow/
+      mode: single
+      url: "{{ .Values.brokerDocBasePath }}/google-dataflow.md"
 ---
 apiVersion: cms.kyma-project.io/v1alpha1
 kind: DocsTopic
@@ -104,9 +97,8 @@ spec:
   sources:
     - type: markdown
       name: documentation
-      mode: package
-      url: '{{ .Values.addonsRepositoryURL }}'
-      filter: docs/google-datastore/
+      mode: single
+      url: "{{ .Values.brokerDocBasePath }}/google-datastore.md"
 ---
 apiVersion: cms.kyma-project.io/v1alpha1
 kind: DocsTopic
@@ -122,9 +114,8 @@ spec:
   sources:
     - type: markdown
       name: documentation
-      mode: package
-      url: '{{ .Values.addonsRepositoryURL }}'
-      filter: docs/google-dialogflow/
+      mode: single
+      url: "{{ .Values.brokerDocBasePath }}/google-dialogflow.md"
 ---
 apiVersion: cms.kyma-project.io/v1alpha1
 kind: DocsTopic
@@ -140,27 +131,8 @@ spec:
   sources:
     - type: markdown
       name: documentation
-      mode: package
-      url: '{{ .Values.addonsRepositoryURL }}'
-      filter: docs/google-firestore/
----
-apiVersion: cms.kyma-project.io/v1alpha1
-kind: DocsTopic
-metadata:
-  name: 3ea92b54-838c-4fe1-b75d-9bda513380aa
-  labels:
-    cms.kyma-project.io/view-context: service-catalog
-    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
-    release: "{{ .Release.Name }}"
-spec:
-  displayName: Google Cloud Memorystore for Redis API
-  description: Documentation for Google Cloud Memorystore for Redis API.
-  sources:
-    - type: markdown
-      name: documentation
-      mode: package
-      url: '{{ .Values.addonsRepositoryURL }}'
-      filter: docs/google-memorystore-redis/
+      mode: single
+      url: "{{ .Values.brokerDocBasePath }}/google-firestore.md"
 ---
 apiVersion: cms.kyma-project.io/v1alpha1
 kind: DocsTopic
@@ -176,9 +148,8 @@ spec:
   sources:
     - type: markdown
       name: documentation
-      mode: package
-      url: '{{ .Values.addonsRepositoryURL }}'
-      filter: docs/google-machine-learning-api/
+      mode: single
+      url: "{{ .Values.brokerDocBasePath }}/google-ml-apis.md"
 ---
 apiVersion: cms.kyma-project.io/v1alpha1
 kind: DocsTopic
@@ -194,9 +165,8 @@ spec:
   sources:
     - type: markdown
       name: documentation
-      mode: package
-      url: '{{ .Values.addonsRepositoryURL }}'
-      filter: docs/google-pubsub/
+      mode: single
+      url: "{{ .Values.brokerDocBasePath }}/google-pubsub.md"
 ---
 apiVersion: cms.kyma-project.io/v1alpha1
 kind: DocsTopic
@@ -212,9 +182,8 @@ spec:
   sources:
     - type: markdown
       name: documentation
-      mode: package
-      url: '{{ .Values.addonsRepositoryURL }}'
-      filter: docs/google-spanner/
+      mode: single
+      url: "{{ .Values.brokerDocBasePath }}/google-spanner.md"
 ---
 apiVersion: cms.kyma-project.io/v1alpha1
 kind: DocsTopic
@@ -230,9 +199,8 @@ spec:
   sources:
     - type: markdown
       name: documentation
-      mode: package
-      url: '{{ .Values.addonsRepositoryURL }}'
-      filter: docs/stackdriver-debugger/
+      mode: single
+      url: "{{ .Values.brokerDocBasePath }}/google-stackdriver-debugger.md"
 ---
 apiVersion: cms.kyma-project.io/v1alpha1
 kind: DocsTopic
@@ -248,9 +216,8 @@ spec:
   sources:
     - type: markdown
       name: documentation
-      mode: package
-      url: '{{ .Values.addonsRepositoryURL }}'
-      filter: docs/stackdriver-monitoring/
+      mode: single
+      url: "{{ .Values.brokerDocBasePath }}/google-stackdriver-monitoring.md"
 ---
 apiVersion: cms.kyma-project.io/v1alpha1
 kind: DocsTopic
@@ -266,9 +233,8 @@ spec:
   sources:
     - type: markdown
       name: documentation
-      mode: package
-      url: '{{ .Values.addonsRepositoryURL }}'
-      filter: docs/stackdriver-profiler/
+      mode: single
+      url: "{{ .Values.brokerDocBasePath }}/google-stackdriver-profiler.md"
 ---
 apiVersion: cms.kyma-project.io/v1alpha1
 kind: DocsTopic
@@ -284,9 +250,8 @@ spec:
   sources:
     - type: markdown
       name: documentation
-      mode: package
-      url: '{{ .Values.addonsRepositoryURL }}'
-      filter: docs/stackdriver-trace/
+      mode: single
+      url: "{{ .Values.brokerDocBasePath }}/google-stackdriver-trace.md"
 ---
 apiVersion: cms.kyma-project.io/v1alpha1
 kind: DocsTopic
@@ -302,6 +267,5 @@ spec:
   sources:
     - type: markdown
       name: documentation
-      mode: package
-      url: '{{ .Values.addonsRepositoryURL }}'
-      filter: docs/google-cloud-storage/
+      mode: single
+      url: "{{ .Values.brokerDocBasePath }}/google-storage.md"

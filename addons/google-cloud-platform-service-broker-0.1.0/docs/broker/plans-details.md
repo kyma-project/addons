@@ -14,7 +14,7 @@ The `GCP Service Broker` service provides these plan names and descriptions:
 
 ## Provisioning parameters
 
-These are the provisioning parameters for these plans:
+These are the provisioning parameters for the corresponding plans:
 
 `Default:`
 

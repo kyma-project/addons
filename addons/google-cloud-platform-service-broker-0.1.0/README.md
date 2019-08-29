@@ -4,7 +4,7 @@ The GCP Service Broker addon installs the [Google Cloud Platform Service Broker]
 
 ## Details
 
-The GCP Service Broker addon contains one `default` plan. Binding is disabled for the ServiceInstance created by this plan.  
+The GCP Service Broker addon contains two plans: `Default` and `External Database`. Binding is disabled for the GCP Service Broker.  
 
 For more details about this addon, see the [Overview](docs/broker/overview.md) document.
 For more information about the provisioning and deprovisioning flow, see the ServiceClass [plans details](docs/broker/plans-details.md) documentation.

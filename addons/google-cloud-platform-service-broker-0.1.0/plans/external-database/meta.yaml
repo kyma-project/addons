@@ -1,0 +1,4 @@
+name: external-database
+id: b2f1ab46-bd5e-4114-81da-5afc3af8918b
+description: "The external database plan for GCP Broker allows you to specify mysql database for the broker"
+displayName: External database

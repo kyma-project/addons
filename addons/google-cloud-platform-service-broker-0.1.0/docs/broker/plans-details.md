@@ -5,7 +5,7 @@ type: Details
 
 ## Service description
 
-The `GCP Service Broker` service provides the following plan names and descriptions:
+The `GCP Service Broker` service provides these plan names and descriptions:
 
 | Plan Name           | Description |
 |---------------------|-------------|
@@ -14,7 +14,7 @@ The `GCP Service Broker` service provides the following plan names and descripti
 
 ## Provisioning parameters
 
-These are the provisioning parameters for the following plans:
+These are the provisioning parameters for these plans:
 
 `Default:`
 

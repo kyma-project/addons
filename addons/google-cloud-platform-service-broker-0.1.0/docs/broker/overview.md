@@ -8,7 +8,7 @@ type: Overview
 The Google Cloud Platform Service Broker class exposes services from the [Google Cloud Platform Service Broker](https://cloud.google.com/kubernetes-engine/docs/concepts/google-cloud-platform-service-broker)
 in a given Namespace of the Kyma cluster.
 
-The MySQL database is used to keep the broker's state. You can configure external database. Uninstalling the broker will delete all information about created instances but created services will still exist.
+The MySQL database is used to keep the broker's state. You can configure an external database. Uninstalling the broker deletes all information about created instances. It does not delete the services you created.
 
 ## Create a Secret
 

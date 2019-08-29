@@ -27,7 +27,7 @@ These are the provisioning parameters for the corresponding plans:
 
 | Parameter Name          | Display Name | Type | Description | Required | Default Value |
 |-------------------------|---------|-----|-------------|:----------:|---------------|
-| **secretName**          | `GCP Secret name` | `string` | Defines the name of the Secret from which the Service Broker will try to fetch credentials. | YES |  |
+| **secretName**          | `GCP Secret name` | `string` | Defines the name of the Secret from which the Service Broker gets credentials. | YES |  |
 | **mysql.host**          | `MySQL Host` | `string` | Defines the host name of the MySQL database. | YES |  |
 | **mysql.port**          | `MySQL Port` | `string` | Defines the port of the MySQL database. | YES | 3306 |
 | **mysql.mysqlUser**     | `MySQL Database Name` | `string` | Defines the name of the MySQL database. | YES |  |

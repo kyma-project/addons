@@ -8,6 +8,8 @@ filters:
       - PK85
       - jasiu001
       - adamwalach
+    labels:
+      - area/service-catalog
   "\\.md$|/docs/|^milv\.config\.yaml$"
     approvers:
       - kazydek

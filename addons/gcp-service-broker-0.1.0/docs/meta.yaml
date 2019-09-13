@@ -1,6 +1,6 @@
 docs:
   - template:
-      displayName: "Documentation for Google Cloud Platform Service Broker"
+      displayName: "Documentation for GCP Service Broker"
       description: "Overall documentation"
       sources:
         - type: markdown

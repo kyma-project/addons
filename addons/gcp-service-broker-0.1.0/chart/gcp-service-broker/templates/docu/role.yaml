@@ -1,0 +1,14 @@
+kind: Role
+apiVersion: rbac.authorization.k8s.io/v1beta1
+metadata:
+    name: {{ include "gcp-service-broker.fullname" . | trunc 60 }}-dc
+    labels:
+        app: {{ template "gcp-service-broker.fullname" . }}
+        chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+        release: "{{ .Release.Name }}"
+        heritage: "{{ .Release.Service }}"
+rules:
+    - apiGroups: ["cms.kyma-project.io"]
+      resources: ["docstopics"]
+      verbs: ["list"]
+---

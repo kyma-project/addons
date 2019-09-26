@@ -8,3 +8,7 @@ entries:
     - name: aws-service-broker
       description: "AWS Service Broker"
       version: 0.0.1
+  gcp-service-broker:
+    - name: gcp-service-broker
+      description: "GCP Service Broker"
+      version: 0.1.0

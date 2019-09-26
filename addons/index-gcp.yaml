@@ -1,6 +1,0 @@
-apiVersion: v1
-entries:
-  google-cloud-platform-service-broker:
-      - name: google-cloud-platform-service-broker
-        description: "Google Cloud Platform Service Broker"
-        version: 0.1.0

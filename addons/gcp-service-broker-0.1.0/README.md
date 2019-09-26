@@ -1,6 +1,6 @@
 ## Overview
 
-The GCP Service Broker addon installs the [Google Cloud Platform Service Broker](https://cloud.google.com/kubernetes-engine/docs/concepts/google-cloud-platform-service-broker) in a given Namespace.
+The GCP Service Broker addon installs the [Open Service Broker for Google Cloud Platform](https://github.com/GoogleCloudPlatform/gcp-service-broker) in a given Namespace.
 
 ## Details
 

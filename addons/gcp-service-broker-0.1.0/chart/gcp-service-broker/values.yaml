@@ -20,7 +20,7 @@ replicaCount: 1
 brokerDocBasePath: https://raw.githubusercontent.com/GoogleCloudPlatform/gcp-service-broker/388e47b154b884fd0f77cca0b144584a9d25cf76/docs/classes
 image:
   repository: gcr.io/gcp-service-broker/gcp-service-broker@sha256
-  tag: 76ab8f091a314b657036d353dffa4f5e7de491e355a307149ece325a81f0d96c
+  tag: 0d9ca38e1d6dfd4c387bb77dd57ac097f0db264e5ff2f5de30a4ebc240d0965a
   pullPolicy: IfNotPresent
 
 # Settings for integrating the broker with the Kubernetes Service Catalog.

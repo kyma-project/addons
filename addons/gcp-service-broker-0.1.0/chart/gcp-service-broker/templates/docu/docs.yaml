@@ -120,6 +120,23 @@ spec:
 apiVersion: cms.kyma-project.io/v1alpha1
 kind: DocsTopic
 metadata:
+  name: 494eb82e-c4ca-4bed-871d-9c3f02f66e01
+  labels:
+    cms.kyma-project.io/view-context: service-catalog
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: "{{ .Release.Name }}"
+spec:
+  displayName: Google Cloud Filestore
+  description: Documentation for Google Cloud Filestore.
+  sources:
+    - type: markdown
+      name: documentation
+      mode: single
+      url: "{{ .Values.brokerDocBasePath }}/google-filestore.md"
+---
+apiVersion: cms.kyma-project.io/v1alpha1
+kind: DocsTopic
+metadata:
   name: a2b7b873-1e34-4530-8a42-902ff7d66b43
   labels:
     cms.kyma-project.io/view-context: service-catalog
@@ -133,6 +150,24 @@ spec:
       name: documentation
       mode: single
       url: "{{ .Values.brokerDocBasePath }}/google-firestore.md"
+---
+apiVersion: cms.kyma-project.io/v1alpha1
+kind: DocsTopic
+metadata:
+  name: 3ea92b54-838c-4fe1-b75d-9bda513380aa
+  labels:
+    cms.kyma-project.io/view-context: service-catalog
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: "{{ .Release.Name }}"
+spec:
+  displayName: Google Cloud Memorystore for Redis API
+  description: Documentation for Google Cloud Memorystore for Redis API.
+  sources:
+    - type: markdown
+      name: documentation
+      mode: single
+      url: "{{ .Values.brokerDocBasePath }}/google-memorystore-redis.md"
+
 ---
 apiVersion: cms.kyma-project.io/v1alpha1
 kind: DocsTopic

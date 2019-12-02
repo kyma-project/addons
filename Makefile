@@ -33,7 +33,7 @@ push-release:
 ci-pr: check prepare-assets
 
 .PHONY: ci-master
-ci-master: check prepare-assets latest-release
+ci-master: check prepare-assets
 
 .PHONY: ci-release
 ci-release: check generate-changelog prepare-assets push-release release-branch

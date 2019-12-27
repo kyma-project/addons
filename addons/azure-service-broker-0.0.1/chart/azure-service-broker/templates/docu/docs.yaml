@@ -1,11 +1,11 @@
 
 ---
-apiVersion: cms.kyma-project.io/v1alpha1
-kind: DocsTopic
+apiVersion: rafter.kyma-project.io/v1alpha1
+kind: AssetGroup
 metadata:
   name: 66130ee7-451b-4c61-8b78-d5c426a06f3e
   labels:
-    cms.kyma-project.io/view-context: service-catalog
+    rafter.kyma-project.io/view-context: service-catalog
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
     release: "{{ .Release.Name }}"
 spec:
@@ -18,12 +18,12 @@ spec:
       url: '{{ .Values.addonsRepositoryURL }}'
       filter: docs/azure-appinsights/
 ---
-apiVersion: cms.kyma-project.io/v1alpha1
-kind: DocsTopic
+apiVersion: rafter.kyma-project.io/v1alpha1
+kind: AssetGroup
 metadata:
   name: 5f5252a0-6922-4a0c-a755-f9be70d7c79b
   labels:
-    cms.kyma-project.io/view-context: service-catalog
+    rafter.kyma-project.io/view-context: service-catalog
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
     release: "{{ .Release.Name }}"
 spec:
@@ -36,12 +36,12 @@ spec:
       url: '{{ .Values.addonsRepositoryURL }}'
       filter: docs/azure-cosmosdb/graph-account/
 ---
-apiVersion: cms.kyma-project.io/v1alpha1
-kind: DocsTopic
+apiVersion: rafter.kyma-project.io/v1alpha1
+kind: AssetGroup
 metadata:
   name: 8797a079-5346-4e84-8018-b7d5ea5c0e3a
   labels:
-    cms.kyma-project.io/view-context: service-catalog
+    rafter.kyma-project.io/view-context: service-catalog
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
     release: "{{ .Release.Name }}"
 spec:
@@ -54,12 +54,12 @@ spec:
       url: '{{ .Values.addonsRepositoryURL }}'
       filter: docs/azure-cosmosdb/mongo-account/
 ---
-apiVersion: cms.kyma-project.io/v1alpha1
-kind: DocsTopic
+apiVersion: rafter.kyma-project.io/v1alpha1
+kind: AssetGroup
 metadata:
   name: 58d9fbbd-7041-4dbe-aabe-6268cd31de84
   labels:
-    cms.kyma-project.io/view-context: service-catalog
+    rafter.kyma-project.io/view-context: service-catalog
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
     release: "{{ .Release.Name }}"
 spec:
@@ -72,12 +72,12 @@ spec:
       url: '{{ .Values.addonsRepositoryURL }}'
       filter: docs/azure-cosmosdb/sql/
 ---
-apiVersion: cms.kyma-project.io/v1alpha1
-kind: DocsTopic
+apiVersion: rafter.kyma-project.io/v1alpha1
+kind: AssetGroup
 metadata:
   name: 6330de6f-a561-43ea-a15e-b99f44d183e6
   labels:
-    cms.kyma-project.io/view-context: service-catalog
+    rafter.kyma-project.io/view-context: service-catalog
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
     release: "{{ .Release.Name }}"
 spec:
@@ -90,12 +90,12 @@ spec:
       url: '{{ .Values.addonsRepositoryURL }}'
       filter: docs/azure-cosmosdb/sql-account/
 ---
-apiVersion: cms.kyma-project.io/v1alpha1
-kind: DocsTopic
+apiVersion: rafter.kyma-project.io/v1alpha1
+kind: AssetGroup
 metadata:
   name: 87c5132a-6d76-40c6-9621-0c7b7542571b
   labels:
-    cms.kyma-project.io/view-context: service-catalog
+    rafter.kyma-project.io/view-context: service-catalog
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
     release: "{{ .Release.Name }}"
 spec:
@@ -108,12 +108,12 @@ spec:
       url: '{{ .Values.addonsRepositoryURL }}'
       filter: docs/azure-cosmosdb/sql-database/
 ---
-apiVersion: cms.kyma-project.io/v1alpha1
-kind: DocsTopic
+apiVersion: rafter.kyma-project.io/v1alpha1
+kind: AssetGroup
 metadata:
   name: 37915cad-5259-470d-a7aa-207ba89ada8c
   labels:
-    cms.kyma-project.io/view-context: service-catalog
+    rafter.kyma-project.io/view-context: service-catalog
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
     release: "{{ .Release.Name }}"
 spec:
@@ -126,12 +126,12 @@ spec:
       url: '{{ .Values.addonsRepositoryURL }}'
       filter: docs/azure-cosmosdb/table-account/
 ---
-apiVersion: cms.kyma-project.io/v1alpha1
-kind: DocsTopic
+apiVersion: rafter.kyma-project.io/v1alpha1
+kind: AssetGroup
 metadata:
   name: 7bade660-32f1-4fd7-b9e6-d416d975170b
   labels:
-    cms.kyma-project.io/view-context: service-catalog
+    rafter.kyma-project.io/view-context: service-catalog
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
     release: "{{ .Release.Name }}"
 spec:
@@ -144,12 +144,12 @@ spec:
       url: '{{ .Values.addonsRepositoryURL }}'
       filter: docs/azure-eventhubs/
 ---
-apiVersion: cms.kyma-project.io/v1alpha1
-kind: DocsTopic
+apiVersion: rafter.kyma-project.io/v1alpha1
+kind: AssetGroup
 metadata:
   name: afd72c3b-6c2d-40f2-ad0d-d90467989be5
   labels:
-    cms.kyma-project.io/view-context: service-catalog
+    rafter.kyma-project.io/view-context: service-catalog
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
     release: "{{ .Release.Name }}"
 spec:
@@ -162,12 +162,12 @@ spec:
       url: '{{ .Values.addonsRepositoryURL }}'
       filter: docs/azure-iothub/
 ---
-apiVersion: cms.kyma-project.io/v1alpha1
-kind: DocsTopic
+apiVersion: rafter.kyma-project.io/v1alpha1
+kind: AssetGroup
 metadata:
   name: d90c881e-c9bb-4e07-a87b-fcfe87e03276
   labels:
-    cms.kyma-project.io/view-context: service-catalog
+    rafter.kyma-project.io/view-context: service-catalog
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
     release: "{{ .Release.Name }}"
 spec:
@@ -180,12 +180,12 @@ spec:
       url: '{{ .Values.addonsRepositoryURL }}'
       filter: docs/azure-keyvault/
 ---
-apiVersion: cms.kyma-project.io/v1alpha1
-kind: DocsTopic
+apiVersion: rafter.kyma-project.io/v1alpha1
+kind: AssetGroup
 metadata:
   name: 2bbc160c-e279-4757-a6b6-4c0a4822d0aa
   labels:
-    cms.kyma-project.io/view-context: service-catalog
+    rafter.kyma-project.io/view-context: service-catalog
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
     release: "{{ .Release.Name }}"
 spec:
@@ -198,12 +198,12 @@ spec:
       url: '{{ .Values.addonsRepositoryURL }}'
       filter: docs/azure-mssql/v12.0/database/
 ---
-apiVersion: cms.kyma-project.io/v1alpha1
-kind: DocsTopic
+apiVersion: rafter.kyma-project.io/v1alpha1
+kind: AssetGroup
 metadata:
   name: b0b2a2f7-9b5e-4692-8b94-24fe2f6a9a8e
   labels:
-    cms.kyma-project.io/view-context: service-catalog
+    rafter.kyma-project.io/view-context: service-catalog
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
     release: "{{ .Release.Name }}"
 spec:
@@ -216,12 +216,12 @@ spec:
       url: '{{ .Values.addonsRepositoryURL }}'
       filter: docs/azure-mssql/v12.0/database-from-existing/
 ---
-apiVersion: cms.kyma-project.io/v1alpha1
-kind: DocsTopic
+apiVersion: rafter.kyma-project.io/v1alpha1
+kind: AssetGroup
 metadata:
   name: a7454e0e-be2c-46ac-b55f-8c4278117525
   labels:
-    cms.kyma-project.io/view-context: service-catalog
+    rafter.kyma-project.io/view-context: service-catalog
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
     release: "{{ .Release.Name }}"
 spec:
@@ -234,12 +234,12 @@ spec:
       url: '{{ .Values.addonsRepositoryURL }}'
       filter: docs/azure-mssql/v12.0/dbms/
 ---
-apiVersion: cms.kyma-project.io/v1alpha1
-kind: DocsTopic
+apiVersion: rafter.kyma-project.io/v1alpha1
+kind: AssetGroup
 metadata:
   name: fb9bc99e-0aa9-11e6-8a8a-000d3a002ed5
   labels:
-    cms.kyma-project.io/view-context: service-catalog
+    rafter.kyma-project.io/view-context: service-catalog
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
     release: "{{ .Release.Name }}"
 spec:
@@ -252,12 +252,12 @@ spec:
       url: '{{ .Values.addonsRepositoryURL }}'
       filter: docs/azure-mssql/v12.0/dbms-and-database/
 ---
-apiVersion: cms.kyma-project.io/v1alpha1
-kind: DocsTopic
+apiVersion: rafter.kyma-project.io/v1alpha1
+kind: AssetGroup
 metadata:
   name: c9bd94e7-5b7d-4b20-96e6-c5678f99d997
   labels:
-    cms.kyma-project.io/view-context: service-catalog
+    rafter.kyma-project.io/view-context: service-catalog
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
     release: "{{ .Release.Name }}"
 spec:
@@ -270,12 +270,12 @@ spec:
       url: '{{ .Values.addonsRepositoryURL }}'
       filter: docs/azure-mssql/v12.0/dbms-registered/
 ---
-apiVersion: cms.kyma-project.io/v1alpha1
-kind: DocsTopic
+apiVersion: rafter.kyma-project.io/v1alpha1
+kind: AssetGroup
 metadata:
   name: 2eb94a7e-5a7c-46f9-b9d2-ff769f215845
   labels:
-    cms.kyma-project.io/view-context: service-catalog
+    rafter.kyma-project.io/view-context: service-catalog
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
     release: "{{ .Release.Name }}"
 spec:
@@ -288,12 +288,12 @@ spec:
       url: '{{ .Values.addonsRepositoryURL }}'
       filter: docs/azure-mssqldr/v12.0/database-pair/
 ---
-apiVersion: cms.kyma-project.io/v1alpha1
-kind: DocsTopic
+apiVersion: rafter.kyma-project.io/v1alpha1
+kind: AssetGroup
 metadata:
   name: e18a9861-5740-4e1a-9bd0-6f0fc3e4d12f
   labels:
-    cms.kyma-project.io/view-context: service-catalog
+    rafter.kyma-project.io/view-context: service-catalog
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
     release: "{{ .Release.Name }}"
 spec:
@@ -307,12 +307,12 @@ spec:
       url: '{{ .Values.addonsRepositoryURL }}'
       filter: docs/azure-mssqldr/v12.0/database-pair-from-existing/
 ---
-apiVersion: cms.kyma-project.io/v1alpha1
-kind: DocsTopic
+apiVersion: rafter.kyma-project.io/v1alpha1
+kind: AssetGroup
 metadata:
   name: 505ae87a-5cd8-4aeb-b7ea-809dd249dc1f
   labels:
-    cms.kyma-project.io/view-context: service-catalog
+    rafter.kyma-project.io/view-context: service-catalog
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
     release: "{{ .Release.Name }}"
 spec:
@@ -326,12 +326,12 @@ spec:
       url: '{{ .Values.addonsRepositoryURL }}'
       filter: docs/azure-mssqldr/v12.0/database-pair-from-existing-primary/
 ---
-apiVersion: cms.kyma-project.io/v1alpha1
-kind: DocsTopic
+apiVersion: rafter.kyma-project.io/v1alpha1
+kind: AssetGroup
 metadata:
   name: 8480271a-f4c7-4232-b2b7-7f33391728f7
   labels:
-    cms.kyma-project.io/view-context: service-catalog
+    rafter.kyma-project.io/view-context: service-catalog
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
     release: "{{ .Release.Name }}"
 spec:
@@ -345,12 +345,12 @@ spec:
       url: '{{ .Values.addonsRepositoryURL }}'
       filter: docs/azure-mssqldr/v12.0/database-pair-registered/
 ---
-apiVersion: cms.kyma-project.io/v1alpha1
-kind: DocsTopic
+apiVersion: rafter.kyma-project.io/v1alpha1
+kind: AssetGroup
 metadata:
   name: 00ce53a3-d6c3-4c24-8cb2-3f48d3b161d8
   labels:
-    cms.kyma-project.io/view-context: service-catalog
+    rafter.kyma-project.io/view-context: service-catalog
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
     release: "{{ .Release.Name }}"
 spec:
@@ -363,12 +363,12 @@ spec:
       url: '{{ .Values.addonsRepositoryURL }}'
       filter: docs/azure-mssqldr/v12.0/dbms-pair-registered/
 ---
-apiVersion: cms.kyma-project.io/v1alpha1
-kind: DocsTopic
+apiVersion: rafter.kyma-project.io/v1alpha1
+kind: AssetGroup
 metadata:
   name: 6704ae59-3eae-49e9-82b4-4cbcc00edf08
   labels:
-    cms.kyma-project.io/view-context: service-catalog
+    rafter.kyma-project.io/view-context: service-catalog
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
     release: "{{ .Release.Name }}"
 spec:
@@ -381,12 +381,12 @@ spec:
       url: '{{ .Values.addonsRepositoryURL }}'
       filter: docs/azure-mysql/v5.7/database/
 ---
-apiVersion: cms.kyma-project.io/v1alpha1
-kind: DocsTopic
+apiVersion: rafter.kyma-project.io/v1alpha1
+kind: AssetGroup
 metadata:
   name: 30e7b836-199d-4335-b83d-adc7d23a95c2
   labels:
-    cms.kyma-project.io/view-context: service-catalog
+    rafter.kyma-project.io/view-context: service-catalog
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
     release: "{{ .Release.Name }}"
 spec:
@@ -399,12 +399,12 @@ spec:
       url: '{{ .Values.addonsRepositoryURL }}'
       filter: docs/azure-mysql/v5.7/dbms/
 ---
-apiVersion: cms.kyma-project.io/v1alpha1
-kind: DocsTopic
+apiVersion: rafter.kyma-project.io/v1alpha1
+kind: AssetGroup
 metadata:
   name: 997b8372-8dac-40ac-ae65-758b4a5075a5
   labels:
-    cms.kyma-project.io/view-context: service-catalog
+    rafter.kyma-project.io/view-context: service-catalog
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
     release: "{{ .Release.Name }}"
 spec:
@@ -417,12 +417,12 @@ spec:
       url: '{{ .Values.addonsRepositoryURL }}'
       filter: docs/azure-mysql/v5.7/dbms-and-database/
 ---
-apiVersion: cms.kyma-project.io/v1alpha1
-kind: DocsTopic
+apiVersion: rafter.kyma-project.io/v1alpha1
+kind: AssetGroup
 metadata:
   name: 32d3b4e0-e68f-4e96-93d4-35fd380f0874
   labels:
-    cms.kyma-project.io/view-context: service-catalog
+    rafter.kyma-project.io/view-context: service-catalog
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
     release: "{{ .Release.Name }}"
 spec:
@@ -435,12 +435,12 @@ spec:
       url: '{{ .Values.addonsRepositoryURL }}'
       filter: docs/azure-postgresql/v10/postgresql/
 ---
-apiVersion: cms.kyma-project.io/v1alpha1
-kind: DocsTopic
+apiVersion: rafter.kyma-project.io/v1alpha1
+kind: AssetGroup
 metadata:
   name: 1fd01042-3b70-4612-ac19-9ced0b2a1525
   labels:
-    cms.kyma-project.io/view-context: service-catalog
+    rafter.kyma-project.io/view-context: service-catalog
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
     release: "{{ .Release.Name }}"
 spec:
@@ -453,12 +453,12 @@ spec:
       url: '{{ .Values.addonsRepositoryURL }}'
       filter: docs/azure-postgresql/v10/postgresql-database/
 ---
-apiVersion: cms.kyma-project.io/v1alpha1
-kind: DocsTopic
+apiVersion: rafter.kyma-project.io/v1alpha1
+kind: AssetGroup
 metadata:
   name: cabd3125-5a13-46ea-afad-a69582af9578
   labels:
-    cms.kyma-project.io/view-context: service-catalog
+    rafter.kyma-project.io/view-context: service-catalog
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
     release: "{{ .Release.Name }}"
 spec:
@@ -471,12 +471,12 @@ spec:
       url: '{{ .Values.addonsRepositoryURL }}'
       filter: docs/azure-postgresql/v10/postgresql-dbms/
 ---
-apiVersion: cms.kyma-project.io/v1alpha1
-kind: DocsTopic
+apiVersion: rafter.kyma-project.io/v1alpha1
+kind: AssetGroup
 metadata:
   name: b43b4bba-5741-4d98-a10b-17dc5cee0175
   labels:
-    cms.kyma-project.io/view-context: service-catalog
+    rafter.kyma-project.io/view-context: service-catalog
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
     release: "{{ .Release.Name }}"
 spec:
@@ -489,12 +489,12 @@ spec:
       url: '{{ .Values.addonsRepositoryURL }}'
       filter: docs/azure-postgresql/v9.6/postgresql/
 ---
-apiVersion: cms.kyma-project.io/v1alpha1
-kind: DocsTopic
+apiVersion: rafter.kyma-project.io/v1alpha1
+kind: AssetGroup
 metadata:
   name: 25434f16-d762-41c7-bbdd-8045d7f74ca6
   labels:
-    cms.kyma-project.io/view-context: service-catalog
+    rafter.kyma-project.io/view-context: service-catalog
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
     release: "{{ .Release.Name }}"
 spec:
@@ -507,12 +507,12 @@ spec:
       url: '{{ .Values.addonsRepositoryURL }}'
       filter: docs/azure-postgresql/v9.6/postgresql-database/
 ---
-apiVersion: cms.kyma-project.io/v1alpha1
-kind: DocsTopic
+apiVersion: rafter.kyma-project.io/v1alpha1
+kind: AssetGroup
 metadata:
   name: d3f74b44-79bc-4d1e-bf7d-c247c2b851f9
   labels:
-    cms.kyma-project.io/view-context: service-catalog
+    rafter.kyma-project.io/view-context: service-catalog
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
     release: "{{ .Release.Name }}"
 spec:
@@ -525,12 +525,12 @@ spec:
       url: '{{ .Values.addonsRepositoryURL }}'
       filter: docs/azure-postgresql/v9.6/postgresql-dbms/
 ---
-apiVersion: cms.kyma-project.io/v1alpha1
-kind: DocsTopic
+apiVersion: rafter.kyma-project.io/v1alpha1
+kind: AssetGroup
 metadata:
   name: 0346088a-d4b2-4478-aa32-f18e295ec1d9
   labels:
-    cms.kyma-project.io/view-context: service-catalog
+    rafter.kyma-project.io/view-context: service-catalog
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
     release: "{{ .Release.Name }}"
 spec:
@@ -543,12 +543,12 @@ spec:
       url: '{{ .Values.addonsRepositoryURL }}'
       filter: docs/azure-rediscache/
 ---
-apiVersion: cms.kyma-project.io/v1alpha1
-kind: DocsTopic
+apiVersion: rafter.kyma-project.io/v1alpha1
+kind: AssetGroup
 metadata:
   name: 6dc44338-2f13-4bc5-9247-5b1b3c5462d3
   labels:
-    cms.kyma-project.io/view-context: service-catalog
+    rafter.kyma-project.io/view-context: service-catalog
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
     release: "{{ .Release.Name }}"
 spec:
@@ -561,12 +561,12 @@ spec:
       url: '{{ .Values.addonsRepositoryURL }}'
       filter: docs/azure-servicebus/servicebus-namespace/
 ---
-apiVersion: cms.kyma-project.io/v1alpha1
-kind: DocsTopic
+apiVersion: rafter.kyma-project.io/v1alpha1
+kind: AssetGroup
 metadata:
   name: 0e93fbb8-7904-43a5-82db-81c7d3886a24
   labels:
-    cms.kyma-project.io/view-context: service-catalog
+    rafter.kyma-project.io/view-context: service-catalog
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
     release: "{{ .Release.Name }}"
 spec:
@@ -579,12 +579,12 @@ spec:
       url: '{{ .Values.addonsRepositoryURL }}'
       filter: docs/azure-servicebus/servicebus-queue/
 ---
-apiVersion: cms.kyma-project.io/v1alpha1
-kind: DocsTopic
+apiVersion: rafter.kyma-project.io/v1alpha1
+kind: AssetGroup
 metadata:
   name: dc6d1545-4391-4c7e-ac7e-a8463787fb93
   labels:
-    cms.kyma-project.io/view-context: service-catalog
+    rafter.kyma-project.io/view-context: service-catalog
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
     release: "{{ .Release.Name }}"
 spec:
@@ -597,12 +597,12 @@ spec:
       url: '{{ .Values.addonsRepositoryURL }}'
       filter: docs/azure-servicebus/servicebus-topic/
 ---
-apiVersion: cms.kyma-project.io/v1alpha1
-kind: DocsTopic
+apiVersion: rafter.kyma-project.io/v1alpha1
+kind: AssetGroup
 metadata:
   name: 1a5b4582-29a3-48c5-9cac-511fd8c52756
   labels:
-    cms.kyma-project.io/view-context: service-catalog
+    rafter.kyma-project.io/view-context: service-catalog
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
     release: "{{ .Release.Name }}"
 spec:
@@ -615,12 +615,12 @@ spec:
       url: '{{ .Values.addonsRepositoryURL }}'
       filter: docs/azure-storage/blob-account/
 ---
-apiVersion: cms.kyma-project.io/v1alpha1
-kind: DocsTopic
+apiVersion: rafter.kyma-project.io/v1alpha1
+kind: AssetGroup
 metadata:
   name: d799916e-3faf-4bdf-a48b-bf5012a2d38c
   labels:
-    cms.kyma-project.io/view-context: service-catalog
+    rafter.kyma-project.io/view-context: service-catalog
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
     release: "{{ .Release.Name }}"
 spec:
@@ -633,12 +633,12 @@ spec:
       url: '{{ .Values.addonsRepositoryURL }}'
       filter: docs/azure-storage/blob-account-and-container/
 ---
-apiVersion: cms.kyma-project.io/v1alpha1
-kind: DocsTopic
+apiVersion: rafter.kyma-project.io/v1alpha1
+kind: AssetGroup
 metadata:
   name: fb6ce656-c16d-4b48-aff9-286714298af8
   labels:
-    cms.kyma-project.io/view-context: service-catalog
+    rafter.kyma-project.io/view-context: service-catalog
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
     release: "{{ .Release.Name }}"
 spec:
@@ -651,12 +651,12 @@ spec:
       url: '{{ .Values.addonsRepositoryURL }}'
       filter: docs/azure-storage/blob-container/
 ---
-apiVersion: cms.kyma-project.io/v1alpha1
-kind: DocsTopic
+apiVersion: rafter.kyma-project.io/v1alpha1
+kind: AssetGroup
 metadata:
   name: d10ea062-b627-41e8-a240-543b60030694
   labels:
-    cms.kyma-project.io/view-context: service-catalog
+    rafter.kyma-project.io/view-context: service-catalog
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
     release: "{{ .Release.Name }}"
 spec:
@@ -669,12 +669,12 @@ spec:
       url: '{{ .Values.addonsRepositoryURL }}'
       filter: docs/azure-storage/v1-storage-account/
 ---
-apiVersion: cms.kyma-project.io/v1alpha1
-kind: DocsTopic
+apiVersion: rafter.kyma-project.io/v1alpha1
+kind: AssetGroup
 metadata:
   name: 9a3e28fe-8c02-49da-9b35-1b054eb06c95
   labels:
-    cms.kyma-project.io/view-context: service-catalog
+    rafter.kyma-project.io/view-context: service-catalog
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
     release: "{{ .Release.Name }}"
 spec:
@@ -687,12 +687,12 @@ spec:
       url: '{{ .Values.addonsRepositoryURL }}'
       filter: docs/azure-storage/v2-storage-account/
 ---
-apiVersion: cms.kyma-project.io/v1alpha1
-kind: DocsTopic
+apiVersion: rafter.kyma-project.io/v1alpha1
+kind: AssetGroup
 metadata:
   name: 8f6c848a-4ce1-4a69-9248-63545d3e7e9c
   labels:
-    cms.kyma-project.io/view-context: service-catalog
+    rafter.kyma-project.io/view-context: service-catalog
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
     release: "{{ .Release.Name }}"
 spec:

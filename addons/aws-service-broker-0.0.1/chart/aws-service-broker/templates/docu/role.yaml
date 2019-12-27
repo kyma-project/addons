@@ -8,6 +8,6 @@ metadata:
         release: "{{ .Release.Name }}"
         heritage: "{{ .Release.Service }}"
 rules:
-    - apiGroups: ["cms.kyma-project.io"]
-      resources: ["docstopics"]
+    - apiGroups: ["rafter.kyma-project.io"]
+      resources: ["assetgroups"]
       verbs: ["list"]

@@ -27,15 +27,15 @@ spec:
                       - |
                           while true
                           do
-                            echo "Get list of not ready DocsTopic:"
-                            lines=$(kubectl get DocsTopic -l chart=${LABEL_CHART},release=${LABEL_RELEASE} -n ${NS} \
+                            echo "Get list of not ready AssetGroup:"
+                            lines=$(kubectl get AssetGroup -l chart=${LABEL_CHART},release=${LABEL_RELEASE} -n ${NS} \
                               --no-headers -o custom-columns=name:.metadata.name,phase:.status.phase | awk '$2!="Ready"' | wc -l)
 
-                            echo "Got ${lines} not ready Docs Topic"
+                            echo "Got ${lines} not ready Asset Group"
 
                             if [[ "${lines}" -eq "0" ]];
                             then
-                                echo "Every DocsTopic is processed. Completed."
+                                echo "Every AssetGroup is processed. Completed."
                                 exit 0
                             fi
                             sleep 3

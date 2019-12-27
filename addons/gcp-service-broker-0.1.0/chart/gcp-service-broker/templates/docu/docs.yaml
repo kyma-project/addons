@@ -1,9 +1,9 @@
-apiVersion: cms.kyma-project.io/v1alpha1
-kind: DocsTopic
+apiVersion: rafter.kyma-project.io/v1beta1
+kind: AssetGroup
 metadata:
   name: f80c0a3e-bd4d-4809-a900-b4e33a6450f1
   labels:
-    cms.kyma-project.io/view-context: service-catalog
+    rafter.kyma-project.io/view-context: service-catalog
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
     release: "{{ .Release.Name }}"
 spec:
@@ -15,12 +15,12 @@ spec:
       mode: single
       url: "{{ .Values.brokerDocBasePath }}/google-bigquery.md"
 ---
-apiVersion: cms.kyma-project.io/v1alpha1
-kind: DocsTopic
+apiVersion: rafter.kyma-project.io/v1beta1
+kind: AssetGroup
 metadata:
   name: b8e19880-ac58-42ef-b033-f7cd9c94d1fe
   labels:
-    cms.kyma-project.io/view-context: service-catalog
+    rafter.kyma-project.io/view-context: service-catalog
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
     release: "{{ .Release.Name }}"
 spec:
@@ -32,12 +32,12 @@ spec:
       mode: single
       url: "{{ .Values.brokerDocBasePath }}/google-bigtable.md"
 ---
-apiVersion: cms.kyma-project.io/v1alpha1
-kind: DocsTopic
+apiVersion: rafter.kyma-project.io/v1beta1
+kind: AssetGroup
 metadata:
   name: 4bc59b9a-8520-409f-85da-1c7552315863
   labels:
-    cms.kyma-project.io/view-context: service-catalog
+    rafter.kyma-project.io/view-context: service-catalog
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
     release: "{{ .Release.Name }}"
 spec:
@@ -49,12 +49,12 @@ spec:
       mode: single
       url: "{{ .Values.brokerDocBasePath }}/google-cloudsql-mysql.md"
 ---
-apiVersion: cms.kyma-project.io/v1alpha1
-kind: DocsTopic
+apiVersion: rafter.kyma-project.io/v1beta1
+kind: AssetGroup
 metadata:
   name: cbad6d78-a73c-432d-b8ff-b219a17a803a
   labels:
-    cms.kyma-project.io/view-context: service-catalog
+    rafter.kyma-project.io/view-context: service-catalog
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
     release: "{{ .Release.Name }}"
 spec:
@@ -66,12 +66,12 @@ spec:
       mode: single
       url: "{{ .Values.brokerDocBasePath }}/google-cloudsql-postgres.md"
 ---
-apiVersion: cms.kyma-project.io/v1alpha1
-kind: DocsTopic
+apiVersion: rafter.kyma-project.io/v1beta1
+kind: AssetGroup
 metadata:
   name: 3e897eb3-9062-4966-bd4f-85bda0f73b3d
   labels:
-    cms.kyma-project.io/view-context: service-catalog
+    rafter.kyma-project.io/view-context: service-catalog
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
     release: "{{ .Release.Name }}"
 spec:
@@ -83,12 +83,12 @@ spec:
       mode: single
       url: "{{ .Values.brokerDocBasePath }}/google-dataflow.md"
 ---
-apiVersion: cms.kyma-project.io/v1alpha1
-kind: DocsTopic
+apiVersion: rafter.kyma-project.io/v1beta1
+kind: AssetGroup
 metadata:
   name: 76d4abb2-fee7-4c8f-aee1-bcea2837f02b
   labels:
-    cms.kyma-project.io/view-context: service-catalog
+    rafter.kyma-project.io/view-context: service-catalog
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
     release: "{{ .Release.Name }}"
 spec:
@@ -100,12 +100,12 @@ spec:
       mode: single
       url: "{{ .Values.brokerDocBasePath }}/google-datastore.md"
 ---
-apiVersion: cms.kyma-project.io/v1alpha1
-kind: DocsTopic
+apiVersion: rafter.kyma-project.io/v1beta1
+kind: AssetGroup
 metadata:
   name: e84b69db-3de9-4688-8f5c-26b9d5b1f129
   labels:
-    cms.kyma-project.io/view-context: service-catalog
+    rafter.kyma-project.io/view-context: service-catalog
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
     release: "{{ .Release.Name }}"
 spec:
@@ -117,12 +117,12 @@ spec:
       mode: single
       url: "{{ .Values.brokerDocBasePath }}/google-dialogflow.md"
 ---
-apiVersion: cms.kyma-project.io/v1alpha1
-kind: DocsTopic
+apiVersion: rafter.kyma-project.io/v1beta1
+kind: AssetGroup
 metadata:
   name: 494eb82e-c4ca-4bed-871d-9c3f02f66e01
   labels:
-    cms.kyma-project.io/view-context: service-catalog
+    rafter.kyma-project.io/view-context: service-catalog
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
     release: "{{ .Release.Name }}"
 spec:
@@ -134,12 +134,12 @@ spec:
       mode: single
       url: "{{ .Values.brokerDocBasePath }}/google-filestore.md"
 ---
-apiVersion: cms.kyma-project.io/v1alpha1
-kind: DocsTopic
+apiVersion: rafter.kyma-project.io/v1beta1
+kind: AssetGroup
 metadata:
   name: a2b7b873-1e34-4530-8a42-902ff7d66b43
   labels:
-    cms.kyma-project.io/view-context: service-catalog
+    rafter.kyma-project.io/view-context: service-catalog
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
     release: "{{ .Release.Name }}"
 spec:
@@ -151,12 +151,12 @@ spec:
       mode: single
       url: "{{ .Values.brokerDocBasePath }}/google-firestore.md"
 ---
-apiVersion: cms.kyma-project.io/v1alpha1
-kind: DocsTopic
+apiVersion: rafter.kyma-project.io/v1beta1
+kind: AssetGroup
 metadata:
   name: 3ea92b54-838c-4fe1-b75d-9bda513380aa
   labels:
-    cms.kyma-project.io/view-context: service-catalog
+    rafter.kyma-project.io/view-context: service-catalog
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
     release: "{{ .Release.Name }}"
 spec:
@@ -169,12 +169,12 @@ spec:
       url: "{{ .Values.brokerDocBasePath }}/google-memorystore-redis.md"
 
 ---
-apiVersion: cms.kyma-project.io/v1alpha1
-kind: DocsTopic
+apiVersion: rafter.kyma-project.io/v1beta1
+kind: AssetGroup
 metadata:
   name: 5ad2dce0-51f7-4ede-8b46-293d6df1e8d4
   labels:
-    cms.kyma-project.io/view-context: service-catalog
+    rafter.kyma-project.io/view-context: service-catalog
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
     release: "{{ .Release.Name }}"
 spec:
@@ -186,12 +186,12 @@ spec:
       mode: single
       url: "{{ .Values.brokerDocBasePath }}/google-ml-apis.md"
 ---
-apiVersion: cms.kyma-project.io/v1alpha1
-kind: DocsTopic
+apiVersion: rafter.kyma-project.io/v1beta1
+kind: AssetGroup
 metadata:
   name: 628629e3-79f5-4255-b981-d14c6c7856be
   labels:
-    cms.kyma-project.io/view-context: service-catalog
+    rafter.kyma-project.io/view-context: service-catalog
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
     release: "{{ .Release.Name }}"
 spec:
@@ -203,12 +203,12 @@ spec:
       mode: single
       url: "{{ .Values.brokerDocBasePath }}/google-pubsub.md"
 ---
-apiVersion: cms.kyma-project.io/v1alpha1
-kind: DocsTopic
+apiVersion: rafter.kyma-project.io/v1beta1
+kind: AssetGroup
 metadata:
   name: 51b3e27e-d323-49ce-8c5f-1211e6409e82
   labels:
-    cms.kyma-project.io/view-context: service-catalog
+    rafter.kyma-project.io/view-context: service-catalog
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
     release: "{{ .Release.Name }}"
 spec:
@@ -220,12 +220,12 @@ spec:
       mode: single
       url: "{{ .Values.brokerDocBasePath }}/google-spanner.md"
 ---
-apiVersion: cms.kyma-project.io/v1alpha1
-kind: DocsTopic
+apiVersion: rafter.kyma-project.io/v1beta1
+kind: AssetGroup
 metadata:
   name: 83837945-1547-41e0-b661-ea31d76eed11
   labels:
-    cms.kyma-project.io/view-context: service-catalog
+    rafter.kyma-project.io/view-context: service-catalog
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
     release: "{{ .Release.Name }}"
 spec:
@@ -237,12 +237,12 @@ spec:
       mode: single
       url: "{{ .Values.brokerDocBasePath }}/google-stackdriver-debugger.md"
 ---
-apiVersion: cms.kyma-project.io/v1alpha1
-kind: DocsTopic
+apiVersion: rafter.kyma-project.io/v1beta1
+kind: AssetGroup
 metadata:
   name: 2bc0d9ed-3f68-4056-b842-4a85cfbc727f
   labels:
-    cms.kyma-project.io/view-context: service-catalog
+    rafter.kyma-project.io/view-context: service-catalog
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
     release: "{{ .Release.Name }}"
 spec:
@@ -254,12 +254,12 @@ spec:
       mode: single
       url: "{{ .Values.brokerDocBasePath }}/google-stackdriver-monitoring.md"
 ---
-apiVersion: cms.kyma-project.io/v1alpha1
-kind: DocsTopic
+apiVersion: rafter.kyma-project.io/v1beta1
+kind: AssetGroup
 metadata:
   name: 00b9ca4a-7cd6-406a-a5b7-2f43f41ade75
   labels:
-    cms.kyma-project.io/view-context: service-catalog
+    rafter.kyma-project.io/view-context: service-catalog
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
     release: "{{ .Release.Name }}"
 spec:
@@ -271,12 +271,12 @@ spec:
       mode: single
       url: "{{ .Values.brokerDocBasePath }}/google-stackdriver-profiler.md"
 ---
-apiVersion: cms.kyma-project.io/v1alpha1
-kind: DocsTopic
+apiVersion: rafter.kyma-project.io/v1beta1
+kind: AssetGroup
 metadata:
   name: c5ddfe15-24d9-47f8-8ffe-f6b7daa9cf4a
   labels:
-    cms.kyma-project.io/view-context: service-catalog
+    rafter.kyma-project.io/view-context: service-catalog
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
     release: "{{ .Release.Name }}"
 spec:
@@ -288,12 +288,12 @@ spec:
       mode: single
       url: "{{ .Values.brokerDocBasePath }}/google-stackdriver-trace.md"
 ---
-apiVersion: cms.kyma-project.io/v1alpha1
-kind: DocsTopic
+apiVersion: rafter.kyma-project.io/v1beta1
+kind: AssetGroup
 metadata:
   name: b9e4332e-b42b-4680-bda5-ea1506797474
   labels:
-    cms.kyma-project.io/view-context: service-catalog
+    rafter.kyma-project.io/view-context: service-catalog
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
     release: "{{ .Release.Name }}"
 spec:

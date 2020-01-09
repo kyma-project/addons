@@ -4,6 +4,9 @@ metadata:
   name: {{ template "testing.fullname" . }}
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: {{ template "testing.fullname" . }}
   template:
     metadata:
       annotations:

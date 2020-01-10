@@ -12,6 +12,9 @@ spec:
   strategy:
     rollingUpdate:
       maxUnavailable: 0
+  selector:
+    matchLabels:
+      app: {{ template "redis.fullname" . }}
   template:
     metadata:
       annotations:

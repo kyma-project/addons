@@ -8,6 +8,6 @@ tags: gcp, google, broker
 providerDisplayName: "Google Cloud Platform"
 longDescription: "Open Service Broker for Google Cloud Platform"
 documentationURL: https://github.com/GoogleCloudPlatform/gcp-service-broker
-imageURL: https://cloud.google.com/_static/images/cloud/icons/favicons/onecloud/apple-icon.png
+imageURL: https://www.gstatic.com/devrel-devsite/prod/v35095b53655653106712feb44f96c6929ce012ae38486ad7db1de265cbd9b7ec/cloud/images/favicons/onecloud/apple-icon.png
 bindable: false
 provisionOnlyOnce: true

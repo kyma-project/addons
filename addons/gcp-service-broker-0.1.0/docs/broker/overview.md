@@ -12,7 +12,7 @@ The MySQL database is used to keep the broker's state. You can configure an exte
 
 ## Create a Secret
 
-To add the GCP Service Broker to your Namespace, prepare a service account and a JSON access key. 
+To add the GCP Service Broker to your Namespace, prepare a service account and a JSON access key.
 
 Follow these steps to create a Kubernetes Secret which contains a JSON access key:
 
@@ -30,7 +30,7 @@ Follow these steps to create a Kubernetes Secret which contains a JSON access ke
 
 7. Create a Secret from the JSON file by running this command:
 
-        kubectl create secret generic gcp-broker-data --from-file=sa-key={filename} --from-literal=project-name={gcp-project} --namespace {namespace}
+        kubectl create secret generic gcp-broker-data --from-file=sa-key={FILENAME} --from-literal=project-name={GCP_PROJECT_ID} --namespace {NAMESPACE}
 
 8. Click **Done**.
 

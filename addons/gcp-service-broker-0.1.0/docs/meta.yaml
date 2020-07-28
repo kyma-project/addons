@@ -1,7 +1,7 @@
 docs:
   - template:
-      displayName: "Documentation for GCP Service Broker"
-      description: "Overall documentation"
+      displayName: "GCP Service Broker"
+      description: "Documentation for GCP Service Broker."
       sources:
         - type: markdown
           name: markdown-files

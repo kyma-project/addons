@@ -1,7 +1,7 @@
 docs:
   - template:
-      displayName: "GCP Service Broker"
-      description: "Documentation for GCP Service Broker."
+      displayName: "Azure Service Broker"
+      description: "Documentation for Azure Service Broker."
       sources:
         - type: markdown
           name: markdown-files

@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-    name: aws-service-broker-check-job
+    name: {{ include "fullname" . | trunc 60 }}-cj
     labels:
         app: {{ template "fullname" . }}
         chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"

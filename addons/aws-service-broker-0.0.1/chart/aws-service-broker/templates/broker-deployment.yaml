@@ -22,7 +22,7 @@ spec:
       annotations:
         sidecar.istio.io/inject: "true"
     spec:
-      serviceAccount: {{ template "fullname" . }}-service
+      serviceAccount: {{ template "fullname" . }}
       containers:
       - name: healthcheck
         image: eu.gcr.io/kyma-project/develop/service-catalog/health-proxy:0.0.1

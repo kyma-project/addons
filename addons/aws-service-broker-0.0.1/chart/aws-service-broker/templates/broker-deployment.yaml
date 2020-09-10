@@ -103,7 +103,7 @@ spec:
       - name: awssb-ssl
         secret:
           defaultMode: 420
-          secretName: {{ template "fullname" . }}-cert
+          secretName: {{ include "fullname" . | trunc 60 }}-cr
           items:
           - key: tls.crt
             path: awssb.crt

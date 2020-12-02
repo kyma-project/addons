@@ -62,9 +62,9 @@ aws cloudformation describe-stacks \
 ```
 If the stack is completed, the output should equal `CREATE_COMPLETE`.
 
-5. Export `USERNAME` from the stack outputs:
+5. Export `BROKER_USERNAME` from the stack outputs:
 ```bash
-export USERNAME=$(aws cloudformation describe-stacks \
+export BROKER_USERNAME=$(aws cloudformation describe-stacks \
      --region $REGION \
      --stack-name $STACK_ID \
      --query "Stacks[0].Outputs[0].OutputValue" \
@@ -74,7 +74,7 @@ export USERNAME=$(aws cloudformation describe-stacks \
 6. Create the IAM user credentials and export them as the environment variables:
 ```bash
 eval $(aws iam create-access-key \
-    --user-name $USERNAME \
+    --user-name $BROKER_USERNAME \
     --output json \
     --query 'AccessKey.{KEY_ID:AccessKeyId,SECRET_ACCESS_KEY:SecretAccessKey}' | jq -r 'keys[] as $k | "export \($k)=\(.[$k])"')
 ```

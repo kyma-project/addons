@@ -9,4 +9,4 @@ Use this Makefile to change the integration implementation for the `addons` repo
 
 ### Prow configuration
 
-Find the Prow configuration for the `addons` project in the [test-infra](https://github.com/kyma-project/test-infra/blob/master/prow/jobs/addons/addons.yaml) repository.
+Find the Prow configuration for the `addons` project in the [test-infra](https://github.com/kyma-project/test-infra/blob/main/prow/jobs/addons/addons.yaml) repository.

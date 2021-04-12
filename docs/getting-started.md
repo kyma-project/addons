@@ -4,7 +4,7 @@ This document describes how to configure your forked Helm Broker `addons` reposi
 
 ## Prerequisites
 
-* [Kyma](https://kyma-project.io/docs/master/root/kyma/#installation-installation) in version v0.4.1 or higher
+* [Kyma](https://kyma-project.io/docs/root/kyma/#installation-installation) in version v0.4.1 or higher
 * [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) in version v1.10.0 or higher
 * [svcat CLI](https://svc-cat.io/docs/cli/) in version v1.10.0 or higher
 
@@ -25,20 +25,20 @@ Follow these steps to set up your addons repository with Travis CI, configure th
 
 6. Configure Travis CI. On the left sidebar, click **My Repositories** tab and choose your GitHub repository. Click the **More options** tab on the right and select **Settings**. Go to the **Environment Variables** section. Set **Name** as `GITHUB_TOKEN`. **Value** is equal to your GitHub personal access token. Click **Add**.
 
-7. Trigger a build. Go to the **More options** tab and select **Trigger build**. Select the `main` branch and click **Trigger custom build**.
+7. Trigger a build. Go to the **More options** tab and select **Trigger build**. Select the `master` branch and click **Trigger custom build**.
 
 
 ### Create your addons
 
-1. [Create your addons](https://kyma-project.io/docs/master/components/helm-broker/#details-create-addons) and place them in the `addons/` directory.
+1. [Create your addons](https://kyma-project.io/docs/components/helm-broker/#details-create-addons) and place them in the `addons/` directory.
 
 2. Update the [`index.yaml` file](https://kyma-project.io/docs/components/helm-broker#details-create-addons-repository-the-index-yaml-file) which defines the available addons.
 
-3. Commit your changes and push them to the `main` branch.
+3. Commit your changes and push them to the `master` branch.
 
 4. Check the build status on [Travis CI](https://travis-ci.com/). To learn how to tag and release your addons, see [this](releases.md) document.
 
-5. Configure the Helm Broker to [fetch addons from your repository](https://kyma-project.io/docs/master/components/helm-broker/#details-create-addons-repository).
+5. Configure the Helm Broker to [fetch addons from your repository](https://kyma-project.io/docs/components/helm-broker/#details-create-addons-repository).
 
 
 

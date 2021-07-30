@@ -3,7 +3,7 @@ logLevel: "INFO"
 
 image:
   ## Image location, NOT including the tag
-  repository: microsoft/azure-service-broker
+  repository: ksputo161/azure-service-broker
   ## Image tag
   tag: v1.5.0
   ## "IfNotPresent", "Always", or "Never"

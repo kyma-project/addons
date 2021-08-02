@@ -20,7 +20,7 @@ CREATE_RELEASE_DATA='{
 
 echo "Creating a new release: $GIT_TAG branch: master"
 
-RESPONSE=$(curl -s --data "${CREATE_RELEASE_DATA}" "https://api.github.com/repos/$GIT_REPO/releases?access_token=${GITHUB_TOKEN}")
+RESPONSE=$(curl -s -H "Authorization: token ${GITHUB_TOKEN}" --data "${CREATE_RELEASE_DATA}" "https://api.github.com/repos/$GIT_REPO/releases")
 ASSET_UPLOAD_URL=$(echo "$RESPONSE" | jq -r .upload_url | cut -d '{' -f1)
 if [ -z "$ASSET_UPLOAD_URL" ]; then
     echo ${RESPONSE}
@@ -29,5 +29,5 @@ fi
 
 for FILE in toCopy/*; do
     echo "Uploading asset: $FILE to url: $ASSET_UPLOAD_URL?name=${FILE}"
-    curl -s --data-binary @${FILE} -H "Content-Type: application/octet-stream" -X POST "$ASSET_UPLOAD_URL?name=$(basename ${FILE})&access_token=${GITHUB_TOKEN}"
+    curl -s --data-binary @${FILE} -H "Content-Type: application/octet-stream" -H "Authorization: token ${GITHUB_TOKEN}" -X POST "$ASSET_UPLOAD_URL?name=$(basename ${FILE})"
 done

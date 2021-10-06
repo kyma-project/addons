@@ -30,15 +30,15 @@ Follow these steps to set up your addons repository with Travis CI, configure th
 
 ### Create your addons
 
-1. [Create your addons](https://kyma-project.io/docs/components/helm-broker/#details-create-addons) and place them in the `addons/` directory.
+1. Create your addons and place them in the `addons/` directory.
 
-2. Update the [`index.yaml` file](https://kyma-project.io/docs/components/helm-broker#details-create-addons-repository-the-index-yaml-file) which defines the available addons.
+2. Update the `index.yaml` file which defines the available addons.
 
 3. Commit your changes and push them to the `master` branch.
 
 4. Check the build status on [Travis CI](https://travis-ci.com/). To learn how to tag and release your addons, see [this](releases.md) document.
 
-5. Configure the Helm Broker to [fetch addons from your repository](https://kyma-project.io/docs/components/helm-broker/#details-create-addons-repository).
+5. Configure the Helm Broker to fetch addons from your repository.
 
 
 

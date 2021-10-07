@@ -2,7 +2,7 @@
 
 ## Overview
 
-This repository contains addons which the Helm Broker uses. For more information on what the Helm Broker is, how it uses addons, and how to create your own addons, read the official Helm Broker [documentation](https://kyma-project.io/docs/components/helm-broker/#overview-overview).
+This repository contains addons which the Helm Broker uses. For more information on what the Helm Broker is, how it uses addons, and how to create your own addons, read the official Helm Broker [documentation](https://kyma-project-old.netlify.app/docs/components/helm-broker/#overview-overview).
 
 ## Usage
 

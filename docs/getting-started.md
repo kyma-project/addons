@@ -6,7 +6,7 @@ This document describes how to configure your forked Helm Broker `addons` reposi
 
 * [Kyma](https://kyma-project-old.netlify.app/docs/root/kyma/#installation-installation) in version v0.4.1 or higher
 * [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) in version v1.10.0 or higher
-* [svcat CLI](https://svc-cat.io/docs/cli/) in version v1.10.0 or higher
+* [svcat CLI](https://github.com/kubernetes-sigs/service-catalog/blob/master/docs/cli.md) in version v1.10.0 or higher
 
 ## Steps
 

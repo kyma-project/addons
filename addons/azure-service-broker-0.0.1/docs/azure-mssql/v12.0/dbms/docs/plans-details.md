@@ -41,7 +41,7 @@ Updates a previously provisioned SQL DB DBMS.
 | **firewallRules[n].name** | `string` | Specifies the name of the generated firewall rule |Y | |
 | **firewallRules[n].startIPAddress** | `string` | Specifies the start of the IP range allowed by this firewall rule | Yes | |
 | **firewallRules[n].endIPAddress** | `string` | Specifies the end of the IP range allowed by this firewall rule | Yes | |
-| **connectionPolicy** | `string` | Changes connection policy if you want. Refer to [here](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-connectivity-architecture#connection-policy). Valid values are "Redirect", "Proxy", and "Default". | No | |
+| **connectionPolicy** | `string` | Changes the connection policy, if needed. The valid values are "Redirect", "Proxy", and "Default". | No | |
 
 ## Deprovision
 
